@@ -14,17 +14,32 @@ desde el navegador.
 
 ## Estado actual
 
-- ✅ **GitHub ya está movido** a la organización `agencia-vnt/VNT`.
-- ⚠️ **Vercel quedó desconectado de GitHub.** Su GitHub App está instalada en la
-  cuenta personal, no en la organización nueva, así que los push a `main` ya no
-  disparan deploys. El sitio publicado sigue arriba, pero congelado en el último
-  deploy previo a la mudanza del repo.
-- ⬜ El proyecto de Vercel sigue en la cuenta personal.
+- ✅ **GitHub movido** a la organización `agencia-vnt/VNT`.
+- ✅ **Proyecto de Vercel reclamado** por la cuenta de la agencia (julio 2026).
+- ✅ El sitio quedó intacto y **la URL no cambió**: `vnt-liard.vercel.app` es un
+  dominio del proyecto, no de la cuenta, así que viajó con él. Las firmas que
+  apunten ahí no se rompieron.
+- ⚠️ **Falta reconectar GitHub — sin esto no hay deploys automáticos.**
+  La GitHub App de Vercel está instalada en la cuenta personal, no en la
+  organización, así que los push a `main` no disparan nada. Producción sigue
+  arriba pero congelada en el commit `0735d09`.
 
-**Hacer el claim antes de reconectar GitHub.** Reconectar ahora desde la cuenta
-personal obliga a autorizar la organización dos veces: una ahora y otra después
-del claim, desde la cuenta de la agencia. Haciendo el claim primero, se autoriza
-una sola vez y desde la cuenta que va a quedar como dueña.
+Ver el **Paso 4** para cerrarlo.
+
+Para verificar si los deploys volvieron, sin tener que entrar al panel:
+
+```bash
+gh api repos/agencia-vnt/VNT/deployments --jq '.[] | "\(.created_at)  \(.sha[0:7])"' | head -3
+```
+
+Si el último SHA no coincide con el último commit de `main`, sigue desconectado.
+
+---
+
+## Cómo se hizo el claim (referencia)
+
+Los pasos de abajo ya se ejecutaron. Quedan documentados para reusarlos con los
+otros proyectos que todavía están en la cuenta personal.
 
 ## Antes de empezar
 
@@ -87,13 +102,16 @@ Comprobar que quedó: un push a `main` tiene que disparar un deploy.
 
 ## Después de transferir
 
-- [ ] La URL `*.vercel.app` cambia al pasar de cuenta. Actualizar cualquier link
-      a la vieja — sobre todo las **firmas ya instaladas en sitios de clientes**,
-      que apuntan a `vnt-liard.vercel.app`.
-- [ ] Reactivar **Web Analytics** en el proyecto (no viaja activado).
-- [ ] Cargar las variables de entorno (ver `.env.example`). Hoy no hay ninguna
-      configurada, así que no se pierde nada.
-- [ ] Verificar que un push a `main` deploye desde la cuenta nueva.
+- [x] Verificar que el sitio siga respondiendo y las rutas estén bien.
+- [ ] **Reconectar GitHub** (paso 4). Es lo único que bloquea los deploys.
+- [ ] Reactivar **Web Analytics** en el proyecto: no viaja activado, y sin eso
+      el `?ref=` de las firmas no se mide.
+- [ ] Cargar las variables de entorno (ver `.env.example`). No había ninguna
+      configurada, así que no se perdió nada.
+- [ ] Revocar el token de API que se usó para generar el código.
+
+Nota: la URL `*.vercel.app` **no** cambió con la transferencia, así que no hubo
+que tocar ninguna firma ya instalada.
 
 ## Si algo sale mal
 
