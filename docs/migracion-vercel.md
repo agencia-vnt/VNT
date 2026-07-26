@@ -12,6 +12,20 @@ Ventaja concreta con cuentas Hobby: hace falta **un solo token**, el de la
 cuenta de origen. La cuenta destino no necesita token ni ser un Team — acepta
 desde el navegador.
 
+## Estado actual
+
+- ✅ **GitHub ya está movido** a la organización `agencia-vnt/VNT`.
+- ⚠️ **Vercel quedó desconectado de GitHub.** Su GitHub App está instalada en la
+  cuenta personal, no en la organización nueva, así que los push a `main` ya no
+  disparan deploys. El sitio publicado sigue arriba, pero congelado en el último
+  deploy previo a la mudanza del repo.
+- ⬜ El proyecto de Vercel sigue en la cuenta personal.
+
+**Hacer el claim antes de reconectar GitHub.** Reconectar ahora desde la cuenta
+personal obliga a autorizar la organización dos veces: una ahora y otra después
+del claim, desde la cuenta de la agencia. Haciendo el claim primero, se autoriza
+una sola vez y desde la cuenta que va a quedar como dueña.
+
 ## Antes de empezar
 
 1. Crear la cuenta de Google de la agencia (ej. `hola@vnt.studio`).
@@ -62,14 +76,20 @@ endpoint de accept.
 
 ---
 
+## Paso 4 — Reconectar GitHub (imprescindible)
+
+Sin esto el proyecto queda sin deploys automáticos. Desde la cuenta de la
+agencia, en la configuración de Git del proyecto: conectar el repo
+`agencia-vnt/VNT` y **autorizar la GitHub App de Vercel en la organización**
+`agencia-vnt` (GitHub va a pedir aprobar el acceso del lado de la org).
+
+Comprobar que quedó: un push a `main` tiene que disparar un deploy.
+
 ## Después de transferir
 
 - [ ] La URL `*.vercel.app` cambia al pasar de cuenta. Actualizar cualquier link
       a la vieja — sobre todo las **firmas ya instaladas en sitios de clientes**,
       que apuntan a `vnt-liard.vercel.app`.
-- [ ] Revisar que la conexión con GitHub siga activa. La cuenta nueva tiene que
-      tener acceso al repo `valma420/VNT`; puede pedir autorizar la app de
-      GitHub.
 - [ ] Reactivar **Web Analytics** en el proyecto (no viaja activado).
 - [ ] Cargar las variables de entorno (ver `.env.example`). Hoy no hay ninguna
       configurada, así que no se pierde nada.
@@ -86,24 +106,24 @@ deployar en cada push — no rompe nada, pero no conviene dejarlo así.
 
 ---
 
-## El repo de GitHub
+## El repo de GitHub — ya hecho
 
-Mover sólo Vercel deja el proyecto a medio camino: el código seguiría en una
-cuenta personal. Para que la agencia sea dueña de todo:
+El repo vive en <https://github.com/agencia-vnt/VNT> y el remote local ya apunta
+ahí:
 
-1. Crear una organización de GitHub para VNT (gratis).
-2. En el repo: Settings → General → **Transfer ownership** → la organización.
-3. GitHub deja una redirección automática, así que el remote local sigue
-   andando. Igual conviene actualizarlo:
+```bash
+git remote set-url origin https://github.com/agencia-vnt/VNT.git
+```
 
-   ```bash
-   git remote set-url origin https://github.com/<org>/VNT.git
-   ```
+GitHub deja una redirección automática desde la ubicación vieja, así que un
+clon desactualizado sigue funcionando — pero conviene que todos actualicen el
+remote para no depender de eso.
 
-4. Reconectar el proyecto de Vercel al repo en su nueva ubicación.
+Las Actions siguieron al repo con todo el historial de corridas. Lo único que
+**no** siguió fue la conexión con Vercel (ver arriba).
 
-Una organización además permite sumar al socio con permisos propios, en vez de
-compartir una cuenta personal.
+Pendiente aprovechar la organización para sumar al socio con su propio usuario,
+en vez de compartir una cuenta personal.
 
 ---
 
