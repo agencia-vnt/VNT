@@ -95,7 +95,7 @@ Cada sitio que entregamos lleva un crédito al pie apuntando acá, con el client
 en el parámetro `ref`:
 
 ```
-https://vnt.studio/?ref=nombre-cliente
+https://vntagencia.com/?ref=nombre-cliente
 ```
 
 Los snippets listos para copiar están en `/es/firma`. Conviene usar siempre el
@@ -108,8 +108,8 @@ en el panel una sola vez; el `<Analytics />` del layout ya envía los eventos.
 ## Deploy
 
 - Repo: <https://github.com/agencia-vnt/VNT>
-- Producción: <https://vnt-liard.vercel.app> — proyecto `vnt` en la cuenta de
-  Vercel de la agencia.
+- Producción: <https://vntagencia.com> — proyecto `vnt` en la cuenta de Vercel
+  de la agencia. El dominio canónico es **sin www**.
 
 Vercel detecta Next.js solo, así que no hay build configurado a mano. Cada push
 a `main` publica, y cada pull request genera un preview con su propia URL — la
@@ -117,9 +117,12 @@ mejor forma de mostrarle avances a un cliente.
 
 Pendiente de configurar en el panel:
 
+- `NEXT_PUBLIC_SITE_URL=https://vntagencia.com`. Sin esto, los canonical, el
+  sitemap y el link de las firmas quedan apuntando al dominio `*.vercel.app`.
+- `vntagencia.com` como **Primary Domain**, con `www` redirigiendo a él.
 - Web Analytics (sin eso el `?ref=` de las firmas no se mide)
-- Las variables de `.env.example`, en Settings → Environment Variables
-- El dominio propio y `NEXT_PUBLIC_SITE_URL`
+- El resto de las variables de `.env.example`, en Settings → Environment
+  Variables
 
 Para el historial de cómo el proyecto llegó a la cuenta de la agencia, ver
 [docs/migracion-vercel.md](docs/migracion-vercel.md).

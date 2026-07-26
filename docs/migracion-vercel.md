@@ -123,12 +123,26 @@ Y revocar el token en Vercel → Account Settings → Tokens.
 
 ---
 
-## Cuando haya dominio propio
+## El dominio
 
-El sitio deduce su URL de `VERCEL_PROJECT_PRODUCTION_URL`, así que funciona sin
-configurar nada. Al conectar el dominio definitivo, setear `NEXT_PUBLIC_SITE_URL`
-(sin barra final) para fijar los canónicos, el sitemap y el link de las firmas.
-Ver `src/site.config.ts`.
+`vntagencia.com`, **sin www**. El apex es el canónico y `www` tiene que
+redirigir a él (Primary Domain en Vercel), no al revés.
 
-Conviene hacerlo **antes** de instalar las firmas en los sitios de clientes: así
-el link no hay que cambiarlo dos veces.
+Se eligió el apex porque el link de las firmas se ve en sitios de clientes y
+`vntagencia.com` queda más prolijo que `www.vntagencia.com`. Cambiarlo después
+de instalar firmas significa editar el link en cada sitio ajeno.
+
+**El dominio no alcanza con configurarlo en el panel.** `siteConfig.url` se
+resuelve en build: hasta que no haya un deploy nuevo con
+`NEXT_PUBLIC_SITE_URL=https://vntagencia.com`, el sitio sigue declarando la URL
+vieja en los canonical, el `og:url`, el sitemap y los snippets de `/es/firma`.
+
+Un canonical que apunta a otro dominio le dice a Google que la versión buena es
+la otra, así que conviene no dejarlo así.
+
+Para comprobar que quedó bien después del deploy:
+
+```bash
+curl -s https://vntagencia.com/es | grep -o '<link rel="canonical"[^>]*>'
+curl -s https://vntagencia.com/sitemap.xml | grep -o "<loc>[^<]*</loc>" | head -2
+```

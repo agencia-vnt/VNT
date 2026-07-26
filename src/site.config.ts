@@ -12,9 +12,14 @@ export const siteConfig = {
   legalName: "VNT Studio",
 
   /**
-   * URL canónica en producción. Vercel expone VERCEL_PROJECT_PRODUCTION_URL
-   * automáticamente, así que los previews también resuelven bien.
-   * TODO: reemplazar el fallback cuando compren el dominio.
+   * URL canónica en producción: sin www y sin barra final.
+   *
+   * Se resuelve en BUILD, no en runtime. Cambiar el dominio en el panel de
+   * Vercel no alcanza: hace falta un deploy nuevo para que se actualicen los
+   * canonical, el sitemap y el link de las firmas.
+   *
+   * El fallback a VERCEL_PROJECT_PRODUCTION_URL hace que los previews
+   * resuelvan a su propia URL en vez de a producción.
    */
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
@@ -22,7 +27,7 @@ export const siteConfig = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
 
-  email: "hola@vnt.studio",
+  email: "hola@vntagencia.com",
 
   social: {
     instagram: "https://instagram.com/",
