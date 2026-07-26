@@ -98,9 +98,12 @@ en el parámetro `ref`:
 https://vnt.studio/?ref=nombre-cliente
 ```
 
-Los snippets listos para copiar están en `/es/firma`. El `ref` sirve para saber
-en la analítica qué proyecto trae visitas, así que conviene usar siempre el
+Los snippets listos para copiar están en `/es/firma`. Conviene usar siempre el
 mismo slug que la carpeta del caso en `content/projects/`.
+
+Para leer los `ref`: panel de Vercel → el proyecto → **Analytics**, filtrando por
+el parámetro `ref` en la lista de páginas. Requiere tener Web Analytics activado
+en el panel una sola vez; el `<Analytics />` del layout ya envía los eventos.
 
 ## Deploy
 

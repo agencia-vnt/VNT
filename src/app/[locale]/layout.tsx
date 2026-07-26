@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/app/globals.css";
@@ -82,6 +83,12 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} dict={dict} />
+
+        {/* Mide las visitas y, sobre todo, el ?ref= de las firmas que dejamos
+            en los sitios de clientes: sin esto no hay forma de saber qué
+            proyecto trae trabajo. Hay que activarlo además en el panel de
+            Vercel (Analytics → Enable). */}
+        <Analytics />
       </body>
     </html>
   );
