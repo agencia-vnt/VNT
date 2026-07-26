@@ -1,32 +1,28 @@
-# Mover el proyecto a la cuenta de la agencia
+# Infraestructura: GitHub y Vercel
 
-Runbook para pasar el sitio de la cuenta personal (`valma420`) a la cuenta de
-Vercel de la agencia, usando **Claim Deployments**.
+Dónde vive el proyecto, cómo llegó ahí y qué decisiones se tomaron en el camino.
 
-Es el método que la documentación recomienda para este caso puntual — tiene una
-sección titulada *"Migrating personal projects to a company account"*. El flujo
-de Project Transfer completo por API se recomienda para mover entre teams del
-**mismo** dueño; acá el destino es otra cuenta.
+## Estado
 
-Ventaja concreta con cuentas Hobby: hace falta **un solo token**, el de la
-cuenta de origen. La cuenta destino no necesita token ni ser un Team — acepta
-desde el navegador.
+| | |
+|---|---|
+| Repo | <https://github.com/agencia-vnt/VNT> — organización de la agencia |
+| Vercel | proyecto `vnt`, en la cuenta de Vercel de la agencia |
+| Producción | <https://vnt-liard.vercel.app> |
+| Deploys automáticos | ⚠️ **Cortados.** Ver abajo |
 
-## Estado actual
+## Lo único pendiente: reconectar GitHub
 
-- ✅ **GitHub movido** a la organización `agencia-vnt/VNT`.
-- ✅ **Proyecto de Vercel reclamado** por la cuenta de la agencia (julio 2026).
-- ✅ El sitio quedó intacto y **la URL no cambió**: `vnt-liard.vercel.app` es un
-  dominio del proyecto, no de la cuenta, así que viajó con él. Las firmas que
-  apunten ahí no se rompieron.
-- ⚠️ **Falta reconectar GitHub — sin esto no hay deploys automáticos.**
-  La GitHub App de Vercel está instalada en la cuenta personal, no en la
-  organización, así que los push a `main` no disparan nada. Producción sigue
-  arriba pero congelada en el commit `0735d09`.
+Al mover el repo a la organización, Vercel perdió el acceso: su GitHub App está
+instalada en la cuenta personal, no en `agencia-vnt`. Los push a `main` no
+disparan nada y producción quedó congelada en el commit `0735d09`.
 
-Ver el **Paso 4** para cerrarlo.
+Para cerrarlo: desde la cuenta de Vercel de la agencia, en la configuración de
+Git del proyecto, conectar `agencia-vnt/VNT` y **autorizar la GitHub App de
+Vercel del lado de la organización** (GitHub lo pide aparte del permiso del
+proyecto).
 
-Para verificar si los deploys volvieron, sin tener que entrar al panel:
+Para verificar si volvieron los deploys, sin entrar al panel:
 
 ```bash
 gh api repos/agencia-vnt/VNT/deployments --jq '.[] | "\(.created_at)  \(.sha[0:7])"' | head -3
@@ -34,123 +30,105 @@ gh api repos/agencia-vnt/VNT/deployments --jq '.[] | "\(.created_at)  \(.sha[0:7
 
 Si el último SHA no coincide con el último commit de `main`, sigue desconectado.
 
----
+## Otros pendientes de configuración
 
-## Cómo se hizo el claim (referencia)
-
-Los pasos de abajo ya se ejecutaron. Quedan documentados para reusarlos con los
-otros proyectos que todavía están en la cuenta personal.
-
-## Antes de empezar
-
-1. Crear la cuenta de Google de la agencia (ej. `hola@vnt.studio`).
-2. Registrarse en Vercel con esa cuenta y dejar la sesión abierta.
-3. Generar un token en la cuenta **actual**: Vercel → Account Settings → Tokens.
+- [ ] Activar **Web Analytics** en el panel. No viaja activado con la
+      transferencia, y sin eso el `?ref=` de las firmas no se mide.
+- [ ] Cargar las variables de `.env.example`. No había ninguna configurada, así
+      que no se perdió nada al mover.
+- [ ] Revocar el token de API que se usó para la transferencia.
 
 ---
 
-## Paso 1 — Generar el código desde la cuenta actual
+## Decisiones tomadas
 
-Los IDs de este proyecto ya están puestos:
+**Cuenta compartida, no Team.** El Vercel de la agencia es una cuenta personal
+con un Gmail propio, y las dos personas del estudio comparten el acceso. Un Team
+de Vercel daría un usuario por persona y trazabilidad de quién deploya, pero
+cuesta plata por miembro. Con dos socios que conviven, el costo no se justifica
+hoy. Revisar si el equipo crece o entra alguien externo.
+
+**Los otros proyectos se quedan en la cuenta personal.** `autoescuela` y
+`palaisgalliera` siguen en `valma420s-projects`. Mover proyectos con repos
+conectados corta sus deploys automáticos y obliga a reconectar cada uno; no vale
+el riesgo mientras funcionen. El procedimiento de abajo sirve si algún día se
+decide moverlos.
+
+**GitHub sí es una organización.** Ahí no había costo: `agencia-vnt` es gratis y
+permite sumar gente con su propio usuario más adelante.
+
+---
+
+## Cómo se hizo la transferencia (referencia)
+
+Se usó **Claim Deployments**, que es lo que la documentación de Vercel
+recomienda para pasar un proyecto de una cuenta personal a una de empresa. El
+flujo de Project Transfer por API se recomienda sólo entre teams del **mismo**
+dueño.
+
+Con cuentas Hobby tiene una ventaja concreta: hace falta **un solo token**, el
+de la cuenta de origen. La cuenta destino no necesita token ni ser un Team —
+acepta desde el navegador.
+
+### 1. Generar el código desde la cuenta de origen
 
 ```bash
-export VERCEL_TOKEN=...   # token de la cuenta valma420
+export VERCEL_TOKEN='...'
 
 curl -s -X POST \
-  "https://api.vercel.com/projects/vnt/transfer-request?teamId=team_h2NISOL51a6Xq6HT3cIJKZGm" \
+  "https://api.vercel.com/projects/<PROJECT_ID>/transfer-request?teamId=<TEAM_ID_ORIGEN>" \
   -H "Authorization: Bearer $VERCEL_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
 
-Devuelve:
+Devuelve `{"code": "..."}`, válido **24 horas**.
 
-```json
-{ "code": "c7a9f0b4-4d4a-45bf-b550-2bfa34de1c0d" }
-```
-
-**El código vence a las 24 horas.**
-
-## Paso 2 — Armar la URL de claim
+### 2. Reclamar desde la cuenta destino
 
 ```
-https://vercel.com/claim-deployment?code=<CODIGO>&returnUrl=https://vnt-liard.vercel.app
+https://vercel.com/claim-deployment?code=<CODIGO>&returnUrl=<URL_PROPIA>
 ```
 
-`returnUrl` es a dónde te manda Vercel después de reclamar; podés poner
-cualquier URL propia.
+Abrir en una **ventana privada** logueada con la cuenta destino — si se abre en
+la sesión normal, el proyecto se reclama a la cuenta de origen otra vez. La
+página deja elegir el destino; al tocar **Transfer** se completa sola, sin
+llamar a ningún otro endpoint.
 
-## Paso 3 — Reclamar desde la cuenta de la agencia
+### 3. Reconectar GitHub
 
-Abrir esa URL en el navegador **con la sesión de la cuenta de la agencia**
-(conviene ventana privada para no reclamar sin querer desde la cuenta vieja).
+Obligatorio si el proyecto viene de un repo: la transferencia no lleva el
+permiso de la GitHub App.
 
-La página muestra el deployment y deja elegir a qué cuenta transferirlo. Al
-tocar **Transfer**, Vercel completa la transferencia sola: no hay que llamar al
-endpoint de accept.
+### Cuidado con los tokens
 
----
-
-## Paso 4 — Reconectar GitHub (imprescindible)
-
-Sin esto el proyecto queda sin deploys automáticos. Desde la cuenta de la
-agencia, en la configuración de Git del proyecto: conectar el repo
-`agencia-vnt/VNT` y **autorizar la GitHub App de Vercel en la organización**
-`agencia-vnt` (GitHub va a pedir aprobar el acceso del lado de la org).
-
-Comprobar que quedó: un push a `main` tiene que disparar un deploy.
-
-## Después de transferir
-
-- [x] Verificar que el sitio siga respondiendo y las rutas estén bien.
-- [ ] **Reconectar GitHub** (paso 4). Es lo único que bloquea los deploys.
-- [ ] Reactivar **Web Analytics** en el proyecto: no viaja activado, y sin eso
-      el `?ref=` de las firmas no se mide.
-- [ ] Cargar las variables de entorno (ver `.env.example`). No había ninguna
-      configurada, así que no se perdió nada.
-- [ ] Revocar el token de API que se usó para generar el código.
-
-Nota: la URL `*.vercel.app` **no** cambió con la transferencia, así que no hubo
-que tocar ninguna firma ya instalada.
-
-## Si algo sale mal
-
-Este proyecto no tiene estado que perder: ni dominio propio, ni variables, ni
-datos de analytics. Se reconstruye entero desde `main`.
-
-Salida de emergencia: importar `valma420/VNT` como proyecto nuevo desde la
-cuenta de la agencia y borrar el viejo. Mientras los dos existan, ambos van a
-deployar en cada push — no rompe nada, pero no conviene dejarlo así.
-
----
-
-## El repo de GitHub — ya hecho
-
-El repo vive en <https://github.com/agencia-vnt/VNT> y el remote local ya apunta
-ahí:
+Correr esto en una terminal aparte, no en una enganchada a una sesión de
+asistente: el replay del buffer puede mandar el token al chat. Al terminar:
 
 ```bash
-git remote set-url origin https://github.com/agencia-vnt/VNT.git
+unset VERCEL_TOKEN
 ```
 
-GitHub deja una redirección automática desde la ubicación vieja, así que un
-clon desactualizado sigue funcionando — pero conviene que todos actualicen el
-remote para no depender de eso.
+Y revocar el token en Vercel → Account Settings → Tokens.
 
-Las Actions siguieron al repo con todo el historial de corridas. Lo único que
-**no** siguió fue la conexión con Vercel (ver arriba).
+---
 
-Pendiente aprovechar la organización para sumar al socio con su propio usuario,
-en vez de compartir una cuenta personal.
+## Lo que aprendimos por las malas
+
+- **La URL `*.vercel.app` no cambia** al transferir: el dominio autogenerado es
+  del proyecto, no de la cuenta. Las firmas ya instaladas no se rompen.
+- **Lo que sí se rompe es la conexión con GitHub**, tanto al mover el repo a una
+  organización como al transferir el proyecto de Vercel.
+- **Web Analytics no viaja activado.**
 
 ---
 
 ## Cuando haya dominio propio
 
 El sitio deduce su URL de `VERCEL_PROJECT_PRODUCTION_URL`, así que funciona sin
-configurar nada. Al conectar el dominio definitivo, setear
-`NEXT_PUBLIC_SITE_URL` (sin barra final) para fijar los canónicos, el sitemap y
-el link de las firmas. Ver `src/site.config.ts`.
+configurar nada. Al conectar el dominio definitivo, setear `NEXT_PUBLIC_SITE_URL`
+(sin barra final) para fijar los canónicos, el sitemap y el link de las firmas.
+Ver `src/site.config.ts`.
 
 Conviene hacerlo **antes** de instalar las firmas en los sitios de clientes: así
 el link no hay que cambiarlo dos veces.

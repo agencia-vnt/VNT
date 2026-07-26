@@ -107,11 +107,19 @@ en el panel una sola vez; el `<Analytics />` del layout ya envía los eventos.
 
 ## Deploy
 
-Vercel detecta Next.js solo: no hace falta configurar el build.
+- Repo: <https://github.com/agencia-vnt/VNT>
+- Producción: <https://vnt-liard.vercel.app> — proyecto `vnt` en la cuenta de
+  Vercel de la agencia.
 
-1. Importar el repo en Vercel.
-2. Cargar las variables de `.env.example` en Settings → Environment Variables.
-3. Apuntar el dominio y poner `NEXT_PUBLIC_SITE_URL`.
+Vercel detecta Next.js solo, así que no hay build configurado a mano. Cada push
+a `main` publica, y cada pull request genera un preview con su propia URL — la
+mejor forma de mostrarle avances a un cliente.
 
-Cada push a `main` publica; cada pull request genera un preview con su propia
-URL, que es la mejor forma de mostrarle avances a un cliente.
+Pendiente de configurar en el panel:
+
+- Web Analytics (sin eso el `?ref=` de las firmas no se mide)
+- Las variables de `.env.example`, en Settings → Environment Variables
+- El dominio propio y `NEXT_PUBLIC_SITE_URL`
+
+Para el historial de cómo el proyecto llegó a la cuenta de la agencia, ver
+[docs/migracion-vercel.md](docs/migracion-vercel.md).
