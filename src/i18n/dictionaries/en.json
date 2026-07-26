@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "VNT — Web design & development",
+    "description": "A design and development studio. We design and build websites and digital products end to end.",
+    "ogAlt": "VNT — Web design & development"
+  },
+  "nav": {
+    "work": "Work",
+    "studio": "Studio",
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "Language",
+    "close": "Close",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Design & development studio",
+    "title": "We design and build the web presence of your business.",
+    "subtitle": "There are two of us: a designer and a developer. You work directly with the people doing the work.",
+    "ctaPrimary": "See our work",
+    "ctaSecondary": "Get in touch"
+  },
+  "services": {
+    "title": "What we do",
+    "intro": "A small team covering the whole path: from the idea to a live, maintained site.",
+    "items": [
+      {
+        "title": "Product & brand design",
+        "description": "Visual identity, design systems and interface design. Clickable prototypes before a single line of code."
+      },
+      {
+        "title": "Web development",
+        "description": "Fast, accessible and maintainable sites and apps. Code we own, without odd dependencies."
+      },
+      {
+        "title": "Launch",
+        "description": "Domain, hosting, analytics and technical SEO. We hand over a running, documented site."
+      },
+      {
+        "title": "Maintenance & growth",
+        "description": "We keep iterating: new sections, performance work and ongoing support."
+      }
+    ]
+  },
+  "process": {
+    "title": "How we work",
+    "steps": [
+      {
+        "title": "We talk",
+        "description": "We learn about the business, who it speaks to and what the site has to achieve. No endless forms."
+      },
+      {
+        "title": "A closed proposal",
+        "description": "Scope, timeline and price in writing. No surprises halfway through."
+      },
+      {
+        "title": "Design & build",
+        "description": "We work in parallel, with weekly deliverables you can see and comment on."
+      },
+      {
+        "title": "Launch",
+        "description": "We ship, measure and adjust. We teach you whatever you'll need to handle yourself."
+      }
+    ]
+  },
+  "work": {
+    "title": "Work",
+    "intro": "A selection of recent projects.",
+    "viewAll": "See all projects",
+    "viewProject": "View project",
+    "visitSite": "Visit the site",
+    "empty": "No published projects yet. Add the first one in content/projects/.",
+    "backToWork": "Back to work",
+    "meta": {
+      "client": "Client",
+      "year": "Year",
+      "roles": "Role",
+      "stack": "Stack"
+    }
+  },
+  "studio": {
+    "title": "The studio",
+    "intro": "Two people and a simple method: few things at a time, done well.",
+    "body": "TODO: tell the studio's story. How it started, what kind of projects you're after and why a team of two is an advantage for the client."
+  },
+  "contact": {
+    "title": "Let's work together",
+    "intro": "Tell us what you need and we'll get back to you within 48 business hours.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company (optional)",
+      "message": "Tell us about the project",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Thanks! We'll be in touch very soon.",
+      "error": "We couldn't send your message. Please email us directly.",
+      "validation": {
+        "name": "Please enter your name.",
+        "email": "We need a valid email to reply.",
+        "message": "Tell us a bit about the project (10 characters minimum)."
+      }
+    },
+    "orEmail": "Or email us at"
+  },
+  "signature": {
+    "title": "Signature",
+    "intro": "The block we leave at the footer of the projects we build. Copy the relevant snippet and replace the client name in the ref parameter.",
+    "preview": "Preview",
+    "note": "The ref parameter tracks which project drives visits. Use the client slug, lowercase and without spaces.",
+    "credit": "Site by"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The link you followed doesn't exist or has moved.",
+    "cta": "Go home"
+  }
+}

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Si se pushea dos veces seguidas, cancelar la corrida vieja.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint, tipos y build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Formato y lint
+        run: pnpm lint
+
+      - name: Tipos
+        run: pnpm typecheck
+
+      # El build es el chequeo real: valida el frontmatter de todos los .mdx
+      # y prerenderiza cada página.
+      - name: Build
+        run: pnpm build

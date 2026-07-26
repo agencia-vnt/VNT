@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   TOKENS DE MARCA
+   Este bloque es el punto de contacto entre diseño y desarrollo: se puede
+   tocar sin saber React ni Tailwind. Cambiar un valor acá lo cambia en todo
+   el sitio.
+
+   Tailwind v4 genera las utilidades solo:
+     --color-ink  ->  text-ink / bg-ink / border-ink
+     --font-sans  ->  font-sans
+
+   TODO (diseño): reemplazar la paleta y las tipografías placeholder por las
+   definitivas cuando esté cerrada la identidad.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Superficies */
+  --color-paper: #fbfaf8;
+  --color-paper-muted: #f1efea;
+
+  /* Texto */
+  --color-ink: #14130f;
+  --color-ink-muted: #6b675e;
+
+  /* Bordes y separadores */
+  --color-line: #e3dfd7;
+
+  /* Color de acento: CTAs, links, foco */
+  --color-accent: #2f4bff;
+  --color-accent-ink: #ffffff;
+
+  /* Tipografía: stack del sistema por ahora, sin pedidos de red en el build.
+     Para cambiar a una fuente real, usar next/font en src/app/[locale]/layout.tsx
+     y apuntar estas variables a la variable que genera next/font. */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* Ritmo vertical de las secciones */
+  --spacing-section: 6rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Un solo anillo de foco para todo el sitio, visible y consistente. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  /* Respetar a quien pidió menos movimiento en el sistema operativo. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Acá el !important es correcto: una preferencia de accesibilidad del
+       sistema operativo tiene que poder ganarle a cualquier animación que
+       agreguemos después, sin importar su especificidad. */
+    *,
+    *::before,
+    *::after {
+      /* biome-ignore-start lint/complexity/noImportantStyles: preferencia de accesibilidad, debe ganar siempre */
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      /* biome-ignore-end lint/complexity/noImportantStyles: preferencia de accesibilidad, debe ganar siempre */
+    }
+  }
+}

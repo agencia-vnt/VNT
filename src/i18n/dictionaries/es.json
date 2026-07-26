@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "VNT — Diseño y desarrollo web",
+    "description": "Estudio de diseño y desarrollo. Diseñamos y construimos sitios y productos digitales de punta a punta.",
+    "ogAlt": "VNT — Diseño y desarrollo web"
+  },
+  "nav": {
+    "work": "Proyectos",
+    "studio": "Estudio",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "language": "Idioma",
+    "close": "Cerrar",
+    "skipToContent": "Saltar al contenido"
+  },
+  "hero": {
+    "eyebrow": "Estudio de diseño y desarrollo",
+    "title": "Diseñamos y construimos la web de tu negocio.",
+    "subtitle": "Somos dos: una diseñadora y un desarrollador. Trabajás directo con quien hace el trabajo, sin capas intermedias.",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Hablemos"
+  },
+  "services": {
+    "title": "Qué hacemos",
+    "intro": "Un equipo chico que cubre todo el recorrido: de la idea al sitio publicado y mantenido.",
+    "items": [
+      {
+        "title": "Diseño de producto e identidad",
+        "description": "Identidad visual, sistema de diseño y diseño de interfaz. Prototipos navegables antes de escribir una línea de código."
+      },
+      {
+        "title": "Desarrollo web",
+        "description": "Sitios y aplicaciones rápidas, accesibles y fáciles de mantener. Código propio, sin dependencias raras."
+      },
+      {
+        "title": "Puesta en producción",
+        "description": "Dominio, hosting, analítica y SEO técnico. Te dejamos el sitio andando y documentado."
+      },
+      {
+        "title": "Mantenimiento y evolución",
+        "description": "Iteramos sobre lo que ya está: nuevas secciones, mejoras de performance y soporte continuo."
+      }
+    ]
+  },
+  "process": {
+    "title": "Cómo trabajamos",
+    "steps": [
+      {
+        "title": "Conversamos",
+        "description": "Entendemos el negocio, a quién le habla y qué tiene que lograr el sitio. Sin formularios eternos."
+      },
+      {
+        "title": "Propuesta cerrada",
+        "description": "Alcance, plazos y precio por escrito. Sin sorpresas a mitad de camino."
+      },
+      {
+        "title": "Diseño y desarrollo",
+        "description": "Trabajamos en paralelo con entregas parciales que podés ver y comentar cada semana."
+      },
+      {
+        "title": "Publicación",
+        "description": "Salimos a producción, medimos y ajustamos. Te enseñamos a manejar lo que necesites tocar."
+      }
+    ]
+  },
+  "work": {
+    "title": "Proyectos",
+    "intro": "Una selección de trabajos recientes.",
+    "viewAll": "Ver todos los proyectos",
+    "viewProject": "Ver proyecto",
+    "visitSite": "Visitar el sitio",
+    "empty": "Todavía no hay proyectos publicados. Agregá el primero en content/projects/.",
+    "backToWork": "Volver a proyectos",
+    "meta": {
+      "client": "Cliente",
+      "year": "Año",
+      "roles": "Rol",
+      "stack": "Stack"
+    }
+  },
+  "studio": {
+    "title": "El estudio",
+    "intro": "Somos dos personas y un método simple: pocas cosas a la vez, hechas bien.",
+    "body": "TODO: contar la historia del estudio. Cómo se formó, qué tipo de proyectos buscan y por qué un equipo de dos es una ventaja para el cliente."
+  },
+  "contact": {
+    "title": "Trabajemos juntos",
+    "intro": "Contanos qué necesitás y te respondemos en menos de 48 horas hábiles.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa (opcional)",
+      "message": "Contanos del proyecto",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando…",
+      "success": "¡Gracias! Te vamos a responder muy pronto.",
+      "error": "No pudimos enviar el mensaje. Escribinos directo por mail.",
+      "validation": {
+        "name": "Poné tu nombre.",
+        "email": "Necesitamos un email válido para responderte.",
+        "message": "Contanos algo del proyecto (mínimo 10 caracteres)."
+      }
+    },
+    "orEmail": "O escribinos a"
+  },
+  "signature": {
+    "title": "Firma",
+    "intro": "El bloque que dejamos al pie de los proyectos que hacemos. Copiá el snippet que corresponda y reemplazá el nombre del cliente en el parámetro ref.",
+    "preview": "Vista previa",
+    "note": "El parámetro ref sirve para medir qué proyecto trae visitas. Usá el slug del cliente, en minúsculas y sin espacios.",
+    "credit": "Sitio por"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho en Next.js"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "El link que seguiste no existe o cambió de lugar.",
+    "cta": "Ir al inicio"
+  }
+}
