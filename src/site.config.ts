@@ -27,13 +27,11 @@ export const siteConfig = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
 
-  email: "hola@vntagencia.com",
+  email: "vntclub@gmail.com",
 
   social: {
     instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/company/",
     github: "https://github.com/",
-    behance: "https://behance.net/",
   },
 
   /**
