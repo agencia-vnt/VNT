@@ -1,34 +1,8 @@
-# Infraestructura: GitHub y Vercel
+# Migración histórica: GitHub y Vercel
 
-Dónde vive el proyecto, cómo llegó ahí y qué decisiones se tomaron en el camino.
-
-## Estado
-
-| | |
-|---|---|
-| Repo | <https://github.com/agencia-vnt/VNT> — organización de la agencia |
-| Vercel | proyecto `vnt`, en la cuenta de Vercel de la agencia |
-| Producción | <https://vnt-liard.vercel.app> |
-| Deploys automáticos | ⚠️ **Cortados.** Ver abajo |
-
-## Lo único pendiente: reconectar GitHub
-
-Al mover el repo a la organización, Vercel perdió el acceso: su GitHub App está
-instalada en la cuenta personal, no en `agencia-vnt`. Los push a `main` no
-disparan nada y producción quedó congelada en el commit `0735d09`.
-
-Para cerrarlo: desde la cuenta de Vercel de la agencia, en la configuración de
-Git del proyecto, conectar `agencia-vnt/VNT` y **autorizar la GitHub App de
-Vercel del lado de la organización** (GitHub lo pide aparte del permiso del
-proyecto).
-
-Para verificar si volvieron los deploys, sin entrar al panel:
-
-```bash
-gh api repos/agencia-vnt/VNT/deployments --jq '.[] | "\(.created_at)  \(.sha[0:7])"' | head -3
-```
-
-Si el último SHA no coincide con el último commit de `main`, sigue desconectado.
+Registro de la transferencia del proyecto a las cuentas de la agencia y de las
+decisiones tomadas durante ese proceso. Para el estado operativo vigente
+(dominio, deploys y variables), consultar el [README](../README.md).
 
 ## Otros pendientes de configuración
 

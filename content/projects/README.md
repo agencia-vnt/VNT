@@ -30,7 +30,7 @@ descubrirlo en producción).
 | `stack`    | no | `["Next.js", "Tailwind"]` |
 | `url`      | no | Link al sitio publicado |
 | `cover`    | no | Ruta dentro de `/public`, ej: `/projects/slug/cover.jpg` |
-| `coverAlt` | no | Descripción de la portada (accesibilidad y SEO) |
+| `coverAlt` | si hay `cover` | Descripción de la portada (accesibilidad y SEO) |
 | `featured` | no | `true` para que aparezca en la home |
 | `order`    | no | Número: más chico = más arriba. Por defecto 999 |
 | `draft`    | no | `true` = se ve en local, nunca en producción |

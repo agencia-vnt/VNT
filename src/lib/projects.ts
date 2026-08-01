@@ -13,32 +13,37 @@ const CONTENT_DIR = path.join(process.cwd(), "content", "projects");
  * Frontmatter de cada caso. Se valida en build: si un .mdx tiene un campo mal
  * escrito, el build falla con un mensaje claro en vez de romper en runtime.
  */
-const frontmatterSchema = z.object({
-  /** Título del caso, tal como se muestra en la card y en el detalle. */
-  title: z.string().min(1),
-  /** Nombre del cliente. */
-  client: z.string().min(1),
-  /** Año de entrega. */
-  year: z.number().int().min(2000).max(2100),
-  /** Una o dos líneas: qué era el proyecto y qué resolvimos. */
-  summary: z.string().min(1),
-  /** Qué hicimos: ["Diseño", "Desarrollo"]. */
-  roles: z.array(z.string()).default([]),
-  /** Tecnologías: ["Next.js", "Tailwind"]. */
-  stack: z.array(z.string()).default([]),
-  /** URL del sitio publicado, si es público. */
-  url: z.url().optional(),
-  /** Imagen principal, relativa a /public. Ej: /projects/slug/cover.jpg */
-  cover: z.string().optional(),
-  /** Texto alternativo de la portada. Obligatorio si hay cover, por accesibilidad. */
-  coverAlt: z.string().optional(),
-  /** Si aparece en la home. */
-  featured: z.boolean().default(false),
-  /** Orden manual: más chico = más arriba. */
-  order: z.number().int().default(999),
-  /** Los borradores se ven en desarrollo pero nunca en producción. */
-  draft: z.boolean().default(false),
-});
+const frontmatterSchema = z
+  .object({
+    /** Título del caso, tal como se muestra en la card y en el detalle. */
+    title: z.string().min(1),
+    /** Nombre del cliente. */
+    client: z.string().min(1),
+    /** Año de entrega. */
+    year: z.number().int().min(2000).max(2100),
+    /** Una o dos líneas: qué era el proyecto y qué resolvimos. */
+    summary: z.string().min(1),
+    /** Qué hicimos: ["Diseño", "Desarrollo"]. */
+    roles: z.array(z.string()).default([]),
+    /** Tecnologías: ["Next.js", "Tailwind"]. */
+    stack: z.array(z.string()).default([]),
+    /** URL del sitio publicado, si es público. */
+    url: z.url().optional(),
+    /** Imagen principal, relativa a /public. Ej: /projects/slug/cover.jpg */
+    cover: z.string().optional(),
+    /** Texto alternativo de la portada. Obligatorio si hay cover, por accesibilidad. */
+    coverAlt: z.string().optional(),
+    /** Si aparece en la home. */
+    featured: z.boolean().default(false),
+    /** Orden manual: más chico = más arriba. */
+    order: z.number().int().default(999),
+    /** Los borradores se ven en desarrollo pero nunca en producción. */
+    draft: z.boolean().default(false),
+  })
+  .refine(({ cover, coverAlt }) => !cover || Boolean(coverAlt?.trim()), {
+    message: "es obligatorio cuando se define cover",
+    path: ["coverAlt"],
+  });
 
 export type ProjectFrontmatter = z.infer<typeof frontmatterSchema>;
 
