@@ -123,6 +123,3 @@ Pendiente de configurar en el panel:
 - Web Analytics (sin eso el `?ref=` de las firmas no se mide)
 - El resto de las variables de `.env.example`, en Settings → Environment
   Variables
-
-Para el historial de cómo el proyecto llegó a la cuenta de la agencia, ver
-[docs/migracion-vercel.md](docs/migracion-vercel.md).
