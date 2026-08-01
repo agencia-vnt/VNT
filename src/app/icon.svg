@@ -1,0 +1,18 @@
+<!-- Favicon provisorio: una V, hasta que haya identidad definitiva.
+
+     Va en la raíz de app/ para que valga en todas las rutas (Next lo detecta
+     por el nombre del archivo y le pone el <link rel="icon"> solo).
+
+     Los colores están escritos a mano y no salen de los tokens de globals.css:
+     un .svg suelto no pasa por Tailwind. Son los mismos valores que
+     --color-ink y --color-paper; si cambia la paleta, hay que tocar acá. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="7" fill="#14130f" />
+  <path
+    d="M9 9.5 16 23 23 9.5"
+    fill="none"
+    stroke="#fbfaf8"
+    stroke-width="3.6"
+    stroke-linejoin="miter"
+  />
+</svg>

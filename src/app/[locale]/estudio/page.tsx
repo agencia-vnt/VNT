@@ -31,9 +31,14 @@ export default async function StudioPage({ params }: PageParams) {
       <Section>
         <SectionHeading title={dict.studio.title} intro={dict.studio.intro} />
 
-        <div className="mt-12 max-w-2xl">
-          <p className="leading-relaxed text-ink-muted">{dict.studio.body}</p>
-        </div>
+        {/* El texto largo todavía no está escrito. Hasta que lo esté, la
+            página se sostiene con el título, la bajada y el equipo: mejor
+            eso que un párrafo de relleno o un bloque vacío. */}
+        {dict.studio.body && (
+          <div className="mt-12 max-w-2xl">
+            <p className="leading-relaxed text-ink-muted">{dict.studio.body}</p>
+          </div>
+        )}
 
         <ul className="mt-16 grid gap-10 border-t border-line pt-10 sm:grid-cols-2">
           {siteConfig.team.map((member) => (

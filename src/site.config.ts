@@ -29,9 +29,13 @@ export const siteConfig = {
 
   email: "vntclub@gmail.com",
 
+  /**
+   * Redes. El footer sólo muestra las que tienen URL: dejar una en "" la
+   * esconde, que es mejor que publicar un link a la home de la red.
+   */
   social: {
-    instagram: "https://instagram.com/",
-    github: "https://github.com/",
+    instagram: "https://instagram.com/vnt.agencia",
+    github: "",
   },
 
   /**
@@ -45,7 +49,7 @@ export const siteConfig = {
       url: "",
     },
     {
-      name: "TODO: nombre",
+      name: "Mateo Ramos",
       role: { es: "Desarrollo", en: "Engineering" },
       url: "",
     },

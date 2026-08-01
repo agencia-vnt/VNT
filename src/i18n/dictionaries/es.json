@@ -69,7 +69,7 @@
     "viewAll": "Ver todos los proyectos",
     "viewProject": "Ver proyecto",
     "visitSite": "Visitar el sitio",
-    "empty": "Todavía no hay proyectos publicados. Agregá el primero en content/projects/.",
+    "empty": "Estamos preparando los casos de esta sección. Mientras tanto, escribinos y te mostramos el trabajo en detalle.",
     "backToWork": "Volver a proyectos",
     "meta": {
       "client": "Cliente",
@@ -81,7 +81,7 @@
   "studio": {
     "title": "El estudio",
     "intro": "Somos dos personas y un método simple: pocas cosas a la vez, hechas bien.",
-    "body": "TODO: contar la historia del estudio. Cómo se formó, qué tipo de proyectos buscan y por qué un equipo de dos es una ventaja para el cliente."
+    "body": ""
   },
   "contact": {
     "title": "Trabajemos juntos",

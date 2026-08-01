@@ -69,7 +69,7 @@
     "viewAll": "See all projects",
     "viewProject": "View project",
     "visitSite": "Visit the site",
-    "empty": "No published projects yet. Add the first one in content/projects/.",
+    "empty": "We're putting these case studies together. In the meantime, get in touch and we'll walk you through the work.",
     "backToWork": "Back to work",
     "meta": {
       "client": "Client",
@@ -81,7 +81,7 @@
   "studio": {
     "title": "The studio",
     "intro": "Two people and a simple method: few things at a time, done well.",
-    "body": "TODO: tell the studio's story. How it started, what kind of projects you're after and why a team of two is an advantage for the client."
+    "body": ""
   },
   "contact": {
     "title": "Let's work together",
