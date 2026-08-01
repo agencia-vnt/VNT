@@ -1,0 +1,139 @@
+---
+title: Del cartel impreso al menú digital, en los comedores de Telefe
+client: El Faraón Catering
+year: 2026
+summary: Rebranding completo y menú digital por QR para una empresa familiar de catering que atiende entre 200 y 300 comensales por día. El cliente edita el menú desde el celular y publica sin tocar código.
+roles:
+  - Identidad
+  - Diseño
+  - Desarrollo
+stack:
+  - Astro
+  - TypeScript
+  - Tailwind CSS
+  - Supabase
+  - Vercel
+url: https://elfaraoncatering.vercel.app
+cover: /projects/el-faraon-catering/cover.webp
+coverAlt: Home de El Faraón Catering, con el logotipo caligráfico en naranja sobre una foto del comedor
+featured: true
+order: 1
+draft: true
+---
+
+{/* PENDIENTE antes de publicar:
+    - La cita del cliente (ver el <Quote /> comentado más abajo).
+    - Las capturas del panel /admin/, que no puedo tomar sin loguearme.
+    - Confirmar si mostramos la sección "Quiénes somos" de la landing: incluye
+      la foto de la familia y preferí no publicarla sin que lo decidas.
+    - Si El Faraón compra dominio propio, actualizar `url` y el ?ref= de la firma. */}
+
+## El problema
+
+El Faraón Catering es una empresa familiar fundada en 2018 que tiene a su cargo
+la concesión de los comedores de Telefe, donde sirve entre 200 y 300 comensales
+por día.
+
+La operación diaria era completamente analógica. El menú del día se comunicaba
+con carteles impresos en la entrada del comedor y con mensajes de texto por
+WhatsApp. Eso implica reimprimir cada mañana, que quien pasó antes de la
+actualización se entere tarde, y que cualquier cambio sobre la marcha —un plato
+que se acabó a las 13:00— no llegue a nadie.
+
+El pedido inicial era sólo el menú digital. Al abrir el proyecto quedó claro que
+la marca no estaba en condiciones de sostenerlo: no había paleta definida, ni
+sistema tipográfico, ni versiones del logo utilizables en pantalla. Un menú
+digital construido sobre eso iba a heredar el problema.
+
+## Qué hicimos
+
+Partimos el trabajo en tres etapas, en este orden: identidad, menú, landing.
+
+### La identidad
+
+El logotipo caligráfico y la base negro + naranja eran innegociables para los
+dueños, y con razón: es lo que la gente reconoce. El trabajo no fue reemplazar
+la marca sino volverla operable — definir la paleta con valores exactos, elegir
+un sistema tipográfico, resolver las versiones reducidas y documentar todo.
+
+<Figure
+  src="/projects/el-faraon-catering/identidad.webp"
+  width={1600}
+  height={900}
+  alt="Paleta cromática del manual de identidad, con seis colores y sus valores HEX, RGB y CMYK"
+  caption="La paleta, con los valores cerrados. Antes existía como “negro y naranja” y nada más."
+/>
+
+Dos decisiones que vale la pena contar:
+
+**El isotipo.** La familia votó una opción de cuatro puntos —uno por cada
+integrante— que la propia presentación había marcado como complementaria al
+logo. Cuatro puntos sueltos no funcionan como símbolo solo: no sirven de
+favicon, ni de avatar, ni de marca de agua. En vez de discutir la votación,
+reasignamos los roles: el monograma EF quedó como isotipo real y los cuatro
+puntos pasaron a ser elemento del sistema gráfico —separadores, viñetas,
+patrón—, que es la función para la que sí sirven. La preferencia de la familia
+se respetó; el sistema quedó en pie.
+
+**El naranja no pasa contraste.** Medido sobre fondo claro da 2,77:1, por debajo
+del mínimo AA. En vez de retocar el color de la marca, definimos la regla: el
+naranja se usa como relleno o sobre negro, donde da 6,76:1, y el texto va en
+negro sobre claro o en blanco sobre oscuro. Toda la interfaz del menú y de la
+landing salen de esa regla, y por eso el menú es oscuro.
+
+### El menú
+
+Es la pieza que se usa todos los días. Un QR en cada comedor abre el menú del
+día en el celular, sin app y sin instalar nada.
+
+<Figure
+  src="/projects/el-faraon-catering/menu-mobile.webp"
+  width={780}
+  height={1688}
+  alt="El menú del día abierto en un celular, con los platos, sus precios y los filtros por categoría"
+  caption="El menú operativo. Carga en menos de un segundo sobre la red del edificio."
+/>
+
+La decisión técnica de fondo fue separar lo que cambia de lo que no. La
+estructura del menú —platos, precios, categorías, fotos— se hornea como HTML
+estático en cada build. Lo único que viaja en vivo es la disponibilidad: si se
+acabó la milanesa, el cambio impacta al instante sin reconstruir el sitio.
+
+La consecuencia importante de esa separación es la resistencia a fallos: si la
+base de datos se cae, el menú sigue funcionando con el contenido del último
+build. Un comedor con 300 personas por día no puede depender de que un servicio
+externo esté disponible a las 12:30.
+
+### El panel
+
+El objetivo era que la empresa no dependa de nosotros para operar. Los empleados
+entran a un panel propio desde el celular y editan disponibilidad, menú del día,
+parrilla, precios y contenido del menú fijo. Publicar dispara el redeploy solo;
+las credenciales de servicio nunca llegan al navegador.
+
+{/* <Figure
+      src="/projects/el-faraon-catering/admin.webp"
+      width={780}
+      height={1688}
+      alt="TODO"
+      caption="El panel desde el que la empresa edita el menú del día."
+    /> */}
+
+## El resultado
+
+El sistema está en producción y en uso diario en los comedores. La landing
+institucional, el menú de cada local y el panel funcionan sobre la misma
+identidad, que ahora existe documentada en un manual en vez de en la memoria de
+quien diseñó la última pieza.
+
+Todavía no tenemos números post-lanzamiento. Lo que vamos a medir en los
+próximos meses: escaneos de QR por comedor y por día, cuántas veces por semana
+el equipo usa el panel sin pedirnos ayuda, y si bajan las consultas al mostrador
+sobre qué hay para comer.
+
+{/* Pedirle la cita a la familia y descomentar. Sirve más una frase concreta
+    ("ahora lo cambio yo desde el teléfono") que un elogio general.
+
+<Quote author="Nombre Apellido, El Faraón Catering">
+  La cita va acá.
+</Quote> */}

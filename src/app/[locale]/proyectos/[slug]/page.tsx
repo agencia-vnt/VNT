@@ -132,7 +132,19 @@ export default async function ProjectPage({ params }: PageParams) {
 
       <Container className="mt-14 md:mt-20">
         <div className="max-w-2xl">
-          <MDXRemote source={project.content} components={mdxComponents} />
+          {/* blockJS: false es necesario, no una comodidad. Por defecto
+              next-mdx-remote borra toda expresión JS del MDX, incluidas las de
+              los atributos JSX: `<Figure width={1600} />` llega sin width y
+              next/image revienta en runtime (el build no lo detecta, porque
+              los borradores no se prerenderizan). Ese default protege contra
+              MDX de terceros; el nuestro se escribe en este repo y pasa por
+              pull request. `blockDangerousJS` sigue en true por defecto, así
+              que eval, Function y compañía se siguen bloqueando. */}
+          <MDXRemote
+            source={project.content}
+            components={mdxComponents}
+            options={{ blockJS: false }}
+          />
         </div>
       </Container>
     </article>
