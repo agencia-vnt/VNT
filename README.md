@@ -47,10 +47,12 @@ deja el mensaje en la consola del servidor.
 
 ```
 content/projects/          Los casos del portfolio, en MDX. Ver el README de ahí.
+public/brand/               Logos y recursos gráficos oficiales para runtime.
 public/projects/<slug>/    Las imágenes de cada caso.
 src/
   site.config.ts           Nombre, dominio, mail, redes, equipo. Empezá por acá.
   app/
+    fonts/                  Host Grotesk, autohospedada con next/font/local.
     globals.css            Tokens de marca: colores, tipografías, espaciados.
     [locale]/              Todas las páginas, bajo /es y /en.
     robots.ts sitemap.ts   Se generan solos a partir del contenido.

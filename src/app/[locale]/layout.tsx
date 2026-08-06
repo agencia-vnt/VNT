@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/app/globals.css";
+import { hostGrotesk } from "@/app/fonts";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { isLocale, localeMap, locales } from "@/i18n/config";
@@ -61,7 +62,7 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale);
 
   return (
-    <html lang={localeMap[locale]}>
+    <html lang={localeMap[locale]} className={hostGrotesk.variable}>
       <head>
         {/* Sin JavaScript no hay IntersectionObserver, así que las
             animaciones de entrada nunca dispararían y el contenido quedaría

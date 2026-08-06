@@ -10,33 +10,36 @@
      --color-ink  ->  text-ink / bg-ink / border-ink
      --font-sans  ->  font-sans
 
-   TODO (diseño): reemplazar la paleta y las tipografías placeholder por las
-   definitivas cuando esté cerrada la identidad.
+   Los valores salen del manual de marca 2026. Los nombres semánticos separan
+   el color de marca del color que necesita contraste funcional en la interfaz.
 --------------------------------------------------------------------------- */
 @theme {
   /* Superficies */
-  --color-paper: #fbfaf8;
-  --color-paper-muted: #f1efea;
+  --color-paper: #f7f7f7;
+  --color-paper-muted: #efedf4;
 
   /* Texto */
-  --color-ink: #14130f;
-  --color-ink-muted: #6b675e;
+  --color-ink: #0f0b16;
+  --color-ink-muted: #5a5364;
 
   /* Bordes y separadores */
-  --color-line: #e3dfd7;
+  --color-line: #d9d4df;
 
-  /* Color de acento: CTAs, links, foco */
-  --color-accent: #2f4bff;
-  --color-accent-ink: #ffffff;
+  /* Marca */
+  --color-brand-indigo: #281d49;
+  --color-brand-violet: #4a378d;
+  --color-brand-lime: #dfe37a;
+  --color-brand-white: #f7f7f7;
 
-  /* Tipografía: stack del sistema por ahora, sin pedidos de red en el build.
-     Para cambiar a una fuente real, usar next/font en src/app/[locale]/layout.tsx
-     y apuntar estas variables a la variable que genera next/font. */
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+  /* Interacción: violeta sobre blanco conserva contraste AA; lima queda como
+     énfasis de marca y nunca como texto funcional sobre fondo claro. */
+  --color-accent: #4a378d;
+  --color-accent-ink: #f7f7f7;
+
+  /* Familia oficial, autohospedada con next/font/local. */
+  --font-sans: var(--font-host-grotesk), Arial, sans-serif;
   --font-display: var(--font-sans);
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --font-mono: var(--font-sans);
 
   /* Ritmo vertical de las secciones */
   --spacing-section: 6rem;
@@ -52,8 +55,15 @@
     background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-weight: 300;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 500;
   }
 
   /* Un solo anillo de foco para todo el sitio, visible y consistente. */
@@ -63,8 +73,8 @@
   }
 
   ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-accent-ink);
+    background-color: var(--color-brand-lime);
+    color: var(--color-ink);
   }
 
   /* Respetar a quien pidió menos movimiento en el sistema operativo. */

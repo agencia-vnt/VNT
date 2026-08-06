@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "highlight" | "ghost";
 
 /**
  * Se exporta como función de estilos (y no sólo como componente) para poder
@@ -9,13 +9,15 @@ type Variant = "primary" | "secondary" | "ghost";
  */
 export function buttonStyles(variant: Variant = "primary", className?: string) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3",
-    "text-sm font-medium transition-colors duration-200",
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3",
+    "text-sm font-bold transition-colors duration-200",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    variant === "primary" && "bg-ink text-paper hover:bg-accent",
+    variant === "primary" && "bg-brand-indigo text-brand-white hover:bg-brand-violet",
     variant === "secondary" &&
-      "border border-line bg-transparent text-ink hover:border-ink",
-    variant === "ghost" && "px-0 text-ink underline underline-offset-4 hover:text-accent",
+      "border border-brand-indigo bg-transparent text-brand-indigo hover:bg-brand-lime",
+    variant === "highlight" && "bg-brand-lime text-ink hover:bg-brand-white",
+    variant === "ghost" &&
+      "px-0 text-brand-indigo underline underline-offset-4 hover:text-brand-violet",
     className,
   );
 }

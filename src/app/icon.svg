@@ -1,18 +1,9 @@
-<!-- Favicon provisorio: una V, hasta que haya identidad definitiva.
-
-     Va en la raíz de app/ para que valga en todas las rutas (Next lo detecta
-     por el nombre del archivo y le pone el <link rel="icon"> solo).
-
-     Los colores están escritos a mano y no salen de los tokens de globals.css:
-     un .svg suelto no pasa por Tailwind. Son los mismos valores que
-     --color-ink y --color-paper; si cambia la paleta, hay que tocar acá. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" rx="7" fill="#14130f" />
+<!-- Isotipo oficial en la combinación lima sobre índigo autorizada por el
+     manual de marca. El viewBox conserva área de seguridad a tamaño favicon. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="240 125 920 920" width="32" height="32">
+  <rect x="240" y="125" width="920" height="920" fill="#281d49" />
   <path
-    d="M9 9.5 16 23 23 9.5"
-    fill="none"
-    stroke="#fbfaf8"
-    stroke-width="3.6"
-    stroke-linejoin="miter"
+    fill="#dfe37a"
+    d="M814.69,292.54c95.74,195.54,191.49,391.08,287.23,586.62h-220.34v-338.88l-289.34,338.88c-98.5-1.06-197-2.12-295.51-3.18,172.65-194.48,345.3-388.95,517.96-583.43Z"
   />
 </svg>

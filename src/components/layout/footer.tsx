@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import type { Locale } from "@/i18n/config";
@@ -15,15 +16,19 @@ export function Footer({ locale, dict }: FooterProps) {
   const social = Object.entries(siteConfig.social).filter(([, href]) => href);
 
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-brand-violet bg-ink text-brand-white">
       <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="font-display text-lg font-semibold tracking-tight">
-            {siteConfig.name}
-          </p>
+          <Image
+            src="/brand/logo-horizontal-white.svg"
+            alt="VNT agencia"
+            width={176}
+            height={44}
+            className="h-11 w-44"
+          />
           <a
             href={`mailto:${siteConfig.email}`}
-            className="mt-2 inline-block text-sm text-ink-muted transition-colors hover:text-ink"
+            className="mt-3 inline-block text-sm text-brand-white/70 transition-colors hover:text-brand-lime"
           >
             {siteConfig.email}
           </a>
@@ -37,18 +42,18 @@ export function Footer({ locale, dict }: FooterProps) {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm capitalize text-ink-muted transition-colors hover:text-ink"
+                className="text-sm capitalize text-brand-white/70 transition-colors hover:text-brand-lime"
               >
                 {name}
               </a>
             ))}
           </nav>
 
-          <p className="text-xs text-ink-muted">
+          <p className="text-xs text-brand-white/60">
             © {year} {siteConfig.legalName}. {dict.footer.rights}{" "}
             <Link
               href={`/${locale}/firma`}
-              className="underline underline-offset-2 transition-colors hover:text-ink"
+              className="underline underline-offset-2 transition-colors hover:text-brand-lime"
             >
               {dict.signature.title}
             </Link>
