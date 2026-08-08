@@ -1,0 +1,143 @@
+---
+title: Una autoescuela que vende perder el miedo, no sacar el registro
+client: AKDemia autoescuela
+year: 2026
+summary: Sistema de marca, landing y sistema de contenido para una escuela de manejo de Villa Urquiza que antes existía sólo como una cuenta de Instagram.
+roles:
+  - Identidad
+  - Diseño
+  - Desarrollo
+  - Contenido
+stack:
+  - Astro
+  - TypeScript
+  - Tailwind CSS
+  - Vercel
+url: https://akdemiaautoescuela.vercel.app
+cover: /projects/akdemia-autoescuela/cover.webp
+coverAlt: Home de AKDemia autoescuela, con el titular “Aprendé a manejar” sobre la foto de un auto de práctica entre conos
+featured: true
+order: 2
+draft: true
+---
+
+{/* Publicado sin esperar a todo. Lo que falta sumarle, cuando esté:
+    - La cita de Facundo (ver el <Quote /> comentado al final).
+    - Números, cuando haya con qué medir.
+    En el repo del cliente quedan tres cosas anotadas aparte: la copia vieja
+    de src/ en la raíz, la dependencia de Leaflet que ya no se usa y el README
+    que todavía la declara en el stack. */}
+
+## El problema
+
+AKDemia es la escuela de manejo de Facundo Massó, en Villa Urquiza. Antes de
+este trabajo no tenía sitio: existía sólo como una cuenta de Instagram, con
+contenido publicado sin sistema ni criterio propio.
+
+El problema de fondo era otro, igual. El rubro se vende siempre con las mismas
+palabras —fácil, rápido, en tiempo récord, aprobado garantizado— y ninguna de
+esas habla del motivo real por el que alguien posterga aprender a manejar
+durante años, que es el miedo. Había una posición vacante y nadie la estaba
+ocupando.
+
+## Qué hicimos
+
+### La marca
+
+Cerramos el sistema completo alrededor del logo: paleta con rampas y neutros
+fríos, tipografía, elementos gráficos, tono de voz y reglas de uso. Todos los
+pares de color están verificados contra WCAG AA, así que la paleta no es una
+lámina bonita sino algo que se puede implementar sin romper accesibilidad.
+
+<Figure
+  src="/projects/akdemia-autoescuela/paleta.webp"
+  width={1600}
+  height={360}
+  alt="Los seis colores del sistema de AKDemia con sus valores hexadecimales"
+  caption="Los seis roles de la paleta. Cada uno con su contraste medido y su uso definido."
+/>
+
+La decisión que ordenó todo lo demás fue de lenguaje. El posicionamiento pasó a
+ser **perder el miedo a manejar**, no sacar el registro, y el manual lista
+explícitamente lo que la marca no dice: *fácil*, *rápido*, *en tiempo récord*,
+*barato*, *aprobado garantizado*. Una lista de palabras prohibidas es más útil
+que tres párrafos sobre personalidad de marca: se puede aplicar sin
+interpretar. El slogan quedó en **"Paso a paso"**.
+
+### La landing
+
+Un sitio estático, sin CMS ni backend, con lo que una persona que está
+averiguando necesita antes de escribir: qué clases hay, dónde se dan, quién
+enseña, cómo es el trámite y qué pasa en la primera clase. El contacto es
+WhatsApp, que es donde esa conversación pasa de verdad.
+
+<Figure
+  src="/projects/akdemia-autoescuela/mobile.webp"
+  width={780}
+  height={1688}
+  alt="La landing de AKDemia vista en un celular"
+  caption="Mobile primero: casi todo el tráfico de una autoescuela de barrio llega desde el teléfono."
+/>
+
+Lleva datos estructurados de `LocalBusiness` y `FAQPage`, que es lo que hace
+que una búsqueda como “autoescuela en Villa Urquiza” pueda mostrar horarios,
+zona y preguntas frecuentes directamente en el resultado.
+
+### El mapa, que decidimos dibujar
+
+La primera pregunta de cualquiera que busca autoescuela es si van a su barrio.
+
+Al principio esa sección era un mapa de librería, con su geojson y sus zonas
+dibujadas sobre el mapa real. Funcionaba, pero costaba: JavaScript extra,
+tiles que se descargan de un servidor ajeno, y un bloque gris que no se parece
+en nada al resto del sitio.
+
+Lo reemplazamos por un mapa dibujado. Pesa cero, es parte del sistema gráfico,
+y los siete barrios están además escritos como texto al lado —que es lo que
+lee un lector de pantalla y lo que indexa un buscador—. El gráfico quedó con
+`role="img"` y su descripción, porque decora: la información está en el texto.
+
+<Figure
+  src="/projects/akdemia-autoescuela/cobertura.webp"
+  width={1600}
+  height={643}
+  alt="Sección de cobertura: los siete barrios listados junto a un mapa dibujado con la marca de la escuela"
+  caption="Siete barrios, en texto y en gráfico. El mapa acompaña; no es el que carga la información."
+/>
+
+### El contenido
+
+Instagram sigue siendo el canal principal, así que dejamos armado un sistema en
+vez de un puñado de posts: cuatro pilares —informativo, educativo, comunidad y
+humor—, con qué prueba cada uno, cadencia semanal, reglas de CTA y un banco de
+ideas del que sacar sin arrancar de cero cada semana.
+
+<Figure
+  src="/projects/akdemia-autoescuela/redes.webp"
+  width={1400}
+  height={1473}
+  alt="Grilla de historias de un mes, con cada pieza coloreada según su pilar de contenido"
+  caption="Un mes de historias, cada pieza con el color de su pilar. El equilibrio se ve antes de publicar."
+/>
+
+Los dos pilares de confianza —informativo y educativo— explican por qué te
+eligen; los dos de vínculo —comunidad y humor— por qué te recomiendan. El
+balance entre ellos es la regla, y por eso se ve en la grilla.
+
+## El resultado
+
+El sitio está publicado y la marca quedó documentada en un manual que la
+escuela puede seguir sin nosotros.
+
+Todavía no hay números: el sitio es reciente y no había línea de base contra la
+cual comparar, porque antes no existía. Lo que vamos a medir: consultas por
+WhatsApp llegadas desde el sitio, qué barrios aparecen en las búsquedas, y si
+las piezas de los pilares de comunidad y humor sostienen el alcance que hoy
+traen los informativos.
+
+{/* Pedirle la cita a Facundo y descomentar. Sirve más algo concreto sobre lo
+    que cambió en el día a día que un elogio general.
+
+<Quote author="Facundo Massó, AKDemia autoescuela">
+  La cita va acá.
+</Quote> */}
