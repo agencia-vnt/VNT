@@ -74,7 +74,9 @@ export function Intro({ label }: { label: string }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="w-[54vw] min-w-[220px] max-w-[780px]"
+            // Más ancho en pantalla chica: con el 54% del diseño el logo
+            // quedaba perdido en el medio de un teléfono.
+            className="w-[72vw] max-w-[780px] sm:w-[54vw]"
             // 0.337 es la proporción entre el logo chico y el grande del
             // prototipo (300px contra 889px).
             initial={{ opacity: 0, scale: 0.337 }}

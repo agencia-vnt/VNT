@@ -41,7 +41,7 @@ export function SectionHeading({ title, intro, action, className }: SectionHeadi
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-[75px]">
         <h2
           className={cn(
-            "text-3xl leading-[1.08] tracking-[-0.015em] text-balance md:text-h2",
+            "text-h2 text-balance",
             // Con texto de apoyo al lado, el título se achica a su columna;
             // solo, ocupa lo que necesite.
             intro && "md:w-[348px] md:shrink-0",
@@ -50,9 +50,7 @@ export function SectionHeading({ title, intro, action, className }: SectionHeadi
           {title}
         </h2>
 
-        {intro ? (
-          <p className="max-w-[473px] text-body-s text-muted md:text-body">{intro}</p>
-        ) : null}
+        {intro ? <p className="max-w-[473px] text-body text-muted">{intro}</p> : null}
       </div>
 
       {action ?? null}

@@ -12,7 +12,9 @@ type Variant = "primary" | "secondary" | "ghost";
  */
 export function buttonStyles(variant: Variant = "primary", className?: string) {
   return cn(
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-[30px] py-4",
+    // Menos padding lateral en pantallas chicas: con los 30px del diseño los
+    // dos botones del hero no entran en una línea de 375px.
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-4 sm:px-[30px]",
     "text-body-s font-bold uppercase leading-none transition-colors duration-200",
     "disabled:cursor-not-allowed disabled:opacity-50",
     variant === "primary" && "bg-lima text-ink hover:bg-blanco",

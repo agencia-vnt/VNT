@@ -11,18 +11,17 @@ export function ContactCta({ locale, dict }: { locale: Locale; dict: Dictionary 
   return (
     <section className="relative isolate overflow-hidden border-t border-line bg-ink">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <Glow className="left-[75%] top-[-28%] h-[113%] w-[50%] opacity-40" />
-        <Isotipo className="absolute left-[79%] top-[37%] w-[15%] text-lima opacity-95" />
+        <Glow className="left-[55%] top-[-20%] h-[90%] w-[75%] opacity-40 md:left-[75%] md:top-[-28%] md:h-[113%] md:w-[50%]" />
+        {/* En pantalla angosta el pico sube al aire que queda arriba del
+            título: al costado del texto chocaba, y abajo se cortaba contra
+            el borde de la sección. */}
+        <Isotipo className="absolute left-[70%] top-[6%] w-[26%] text-lima opacity-95 md:left-[79%] md:top-[37%] md:w-[15%]" />
       </div>
 
       <Container className="py-24 md:py-[130px]">
-        <h2 className="max-w-[720px] text-[2.75rem] leading-[1.04] tracking-[-0.02em] text-balance md:text-[3.5rem] lg:text-display">
-          {dict.contact.title}
-        </h2>
+        <h2 className="max-w-[720px] text-display text-balance">{dict.contact.title}</h2>
 
-        <p className="mt-5 max-w-[451px] text-body-s text-muted md:text-body">
-          {dict.contact.ctaIntro}
-        </p>
+        <p className="mt-5 max-w-[451px] text-body text-muted">{dict.contact.ctaIntro}</p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
           <Link href={`/${locale}/contacto`} className={buttonStyles("primary")}>

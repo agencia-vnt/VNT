@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { Container } from "@/components/ui/container";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -20,9 +21,10 @@ export function Header({ locale, dict }: HeaderProps) {
     { href: `/${locale}/contacto`, label: dict.nav.contact },
   ];
 
+  // `relative` para que el panel del menú chico se cuelgue del header.
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between gap-4 md:gap-9">
+      <Container className="relative flex h-16 items-center justify-between gap-4 md:h-20 md:gap-9">
         <Link
           href={`/${locale}`}
           aria-label={siteConfig.name}
@@ -34,17 +36,19 @@ export function Header({ locale, dict }: HeaderProps) {
             width={214}
             height={27}
             priority
-            className="h-5 w-auto sm:h-[27px]"
+            className="h-[22px] w-auto md:h-[27px]"
           />
         </Link>
 
-        <div className="flex items-center gap-4 md:gap-9">
-          <nav aria-label={dict.nav.menu} className="flex items-center gap-4 md:gap-9">
+        {/* En pantallas grandes los links van a la vista; abajo de `md` se
+            pliegan en <MobileNav />, porque no entran junto al logo. */}
+        <div className="hidden items-center gap-9 md:flex">
+          <nav aria-label={dict.nav.menu} className="flex items-center gap-9">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex min-h-11 items-center text-sm text-muted transition-colors hover:text-blanco md:text-body-s"
+                className="flex min-h-11 items-center text-body-s text-muted transition-colors hover:text-blanco"
               >
                 {link.label}
               </Link>
@@ -53,6 +57,10 @@ export function Header({ locale, dict }: HeaderProps) {
 
           <LocaleSwitcher current={locale} label={dict.nav.language} />
         </div>
+
+        <MobileNav links={links} menuLabel={dict.nav.menu}>
+          <LocaleSwitcher current={locale} label={dict.nav.language} />
+        </MobileNav>
       </Container>
     </header>
   );
