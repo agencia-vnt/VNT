@@ -14,23 +14,22 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "eyebrow": "Design & development studio",
-    "title": "We design and build the web presence of your business.",
-    "subtitle": "There are two of us: a designer and a developer. You work directly with the people doing the work.",
+    "title": "A website for your business, built to grow.",
+    "subtitle": "There are two of us: a designer and a developer. You work directly with the people doing the work, with nobody in between.",
     "ctaPrimary": "See our work",
     "ctaSecondary": "Get in touch"
   },
   "services": {
-    "title": "What we do",
-    "intro": "A small team covering the whole path: from the idea to a live, maintained site.",
+    "title": "The whole path, one team",
+    "intro": "A small team that takes you from the idea to a site that is live and working. Design, development and launch, with no hand-offs between vendors.",
     "items": [
       {
         "title": "Product & brand design",
-        "description": "Visual identity, design systems and interface design. Clickable prototypes before a single line of code."
+        "description": "Visual identity, design system and interface. Prototypes you can click through before a single line of code."
       },
       {
         "title": "Web development",
-        "description": "Fast, accessible and maintainable sites and apps. Code we own, without odd dependencies."
+        "description": "Fast, accessible sites and apps that are easy to maintain. Clean code we own, without odd dependencies."
       },
       {
         "title": "Launch",
@@ -38,28 +37,28 @@
       },
       {
         "title": "Maintenance & growth",
-        "description": "We keep iterating: new sections, performance work and ongoing support."
+        "description": "We stay close: new sections, performance work and support whenever you need it."
       }
     ]
   },
   "process": {
-    "title": "How we work",
+    "title": "A short, no-nonsense process",
     "steps": [
       {
         "title": "We talk",
-        "description": "We learn about the business, who it speaks to and what the site has to achieve. No endless forms."
+        "description": "We learn about your business, who it speaks to and what the site has to achieve. No endless forms."
       },
       {
-        "title": "A closed proposal",
+        "title": "A clear proposal",
         "description": "Scope, timeline and price in writing. No surprises halfway through."
       },
       {
         "title": "Design & build",
-        "description": "We work in parallel, with weekly deliverables you can see and comment on."
+        "description": "We work in parallel, with deliverables you can see and comment on every week."
       },
       {
         "title": "Launch",
-        "description": "We ship, measure and adjust. We teach you whatever you'll need to handle yourself."
+        "description": "We ship, measure and adjust. And we show you how to handle whatever you want to touch."
       }
     ]
   },
@@ -76,7 +75,8 @@
       "year": "Year",
       "roles": "Role",
       "stack": "Stack"
-    }
+    },
+    "featuredTitle": "Some recent work"
   },
   "studio": {
     "title": "The studio",
@@ -101,7 +101,9 @@
         "message": "Tell us a bit about the project (10 characters minimum)."
       }
     },
-    "orEmail": "Or email us at"
+    "orEmail": "Or email us at",
+    "ctaIntro": "Tell us what you have in mind.",
+    "ctaButton": "Get in touch"
   },
   "signature": {
     "title": "Signature",
@@ -118,5 +120,8 @@
     "title": "Page not found",
     "description": "The link you followed doesn't exist or has moved.",
     "cta": "Go home"
+  },
+  "intro": {
+    "scroll": "scroll"
   }
 }

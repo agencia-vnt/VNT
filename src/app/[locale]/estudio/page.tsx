@@ -36,15 +36,15 @@ export default async function StudioPage({ params }: PageParams) {
             eso que un párrafo de relleno o un bloque vacío. */}
         {dict.studio.body && (
           <div className="mt-12 max-w-2xl">
-            <p className="leading-relaxed text-ink-muted">{dict.studio.body}</p>
+            <p className="leading-relaxed text-muted">{dict.studio.body}</p>
           </div>
         )}
 
         <ul className="mt-16 grid gap-10 border-t border-line pt-10 sm:grid-cols-2">
           {siteConfig.team.map((member) => (
             <li key={member.name}>
-              <h2 className="font-display text-xl tracking-tight">{member.name}</h2>
-              <p className="mt-1 text-sm text-ink-muted">{member.role[locale]}</p>
+              <h2 className="text-xl tracking-tight">{member.name}</h2>
+              <p className="mt-1 text-sm text-muted">{member.role[locale]}</p>
             </li>
           ))}
         </ul>

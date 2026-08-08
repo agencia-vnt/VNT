@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 
 const fieldClass =
   "mt-2 w-full rounded-lg border border-line bg-transparent px-4 py-3 text-sm " +
-  "placeholder:text-ink-muted/60 focus:border-ink";
+  "placeholder:text-muted/60 focus:border-blanco";
 
 const labelClass = "block text-sm font-medium";
-const errorClass = "mt-1.5 text-xs text-accent";
+const errorClass = "mt-1.5 text-xs text-lima";
 
 export function ContactForm({ dict }: { dict: Dictionary }) {
   const [state, formAction, pending] = useActionState<ContactState, FormData>(
@@ -27,7 +27,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
     return (
       // <output> ya trae role="status": el lector de pantalla anuncia el
       // resultado sin que haya que moverle el foco a nadie.
-      <output className="block rounded-lg border border-line bg-paper-muted p-8 text-sm">
+      <output className="block rounded-lg border border-line bg-ink-elev p-8 text-sm">
         {t.success}
       </output>
     );
@@ -46,7 +46,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
           required
           autoComplete="name"
           aria-invalid={state.fieldErrors?.name ? "true" : undefined}
-          className={cn(fieldClass, state.fieldErrors?.name && "border-accent")}
+          className={cn(fieldClass, state.fieldErrors?.name && "border-violeta")}
         />
         {state.fieldErrors?.name ? (
           <p className={errorClass}>{t.validation.name}</p>
@@ -64,7 +64,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
           required
           autoComplete="email"
           aria-invalid={state.fieldErrors?.email ? "true" : undefined}
-          className={cn(fieldClass, state.fieldErrors?.email && "border-accent")}
+          className={cn(fieldClass, state.fieldErrors?.email && "border-violeta")}
         />
         {state.fieldErrors?.email ? (
           <p className={errorClass}>{t.validation.email}</p>
@@ -97,7 +97,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
           className={cn(
             fieldClass,
             "resize-y",
-            state.fieldErrors?.message && "border-accent",
+            state.fieldErrors?.message && "border-violeta",
           )}
         />
         {state.fieldErrors?.message ? (
@@ -123,7 +123,7 @@ export function ContactForm({ dict }: { dict: Dictionary }) {
         </Button>
 
         {state.status === "error" && !state.fieldErrors ? (
-          <p role="alert" className="text-sm text-accent">
+          <p role="alert" className="text-sm text-lima">
             {t.error}
           </p>
         ) : null}

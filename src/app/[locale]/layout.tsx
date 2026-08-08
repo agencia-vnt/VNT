@@ -11,6 +11,14 @@ import { siteConfig } from "@/site.config";
 
 type LayoutParams = { params: Promise<{ locale: string }> };
 
+/**
+ * Marca `<html data-intro="playing">` para que el CSS esconda el hero desde
+ * el primer pintado. `<Intro />` lo lee al montar y lo saca al terminar.
+ * Va en un string aparte para que se lea como lo que es: código que corre en
+ * el navegador, no JSX.
+ */
+const introScript = `try{if(/^\\/(${locales.join("|")})\\/?$/.test(location.pathname)&&!sessionStorage.getItem("vnt:intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.dataset.intro="playing"}}catch(e){}`;
+
 /** Sólo existen los idiomas declarados; cualquier otro prefijo es 404. */
 export const dynamicParams = false;
 
@@ -62,8 +70,22 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale);
 
   return (
-    <html lang={localeMap[locale]} className={hostGrotesk.variable}>
+    // `suppressHydrationWarning`: el script de acá abajo le agrega
+    // `data-intro` al <html> antes de que hidrate React, así que el atributo
+    // no coincide con el HTML del server. Es a propósito.
+    <html
+      lang={localeMap[locale]}
+      className={hostGrotesk.variable}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Decide si toca la animación de entrada ANTES del primer pintado:
+            si esperáramos a que monte React, se vería un fotograma del hero
+            antes de que aparezca el overlay negro. Sólo en la home, una vez
+            por pestaña, y nunca si el sistema pide menos movimiento. */}
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: script inline, sin datos del usuario, tiene que correr antes del primer pintado */}
+        <script dangerouslySetInnerHTML={{ __html: introScript }} />
+
         {/* Sin JavaScript no hay IntersectionObserver, así que las
             animaciones de entrada nunca dispararían y el contenido quedaría
             invisible. Esto lo fuerza a verse. */}
@@ -74,7 +96,7 @@ export default async function LocaleLayout({
       <body className="flex min-h-dvh flex-col">
         <a
           href="#contenido"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-paper"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-lima focus:px-4 focus:py-2 focus:text-sm focus:text-ink"
         >
           {dict.nav.skipToContent}
         </a>

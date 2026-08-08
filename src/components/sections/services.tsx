@@ -7,17 +7,17 @@ export function Services({ dict }: { dict: Dictionary }) {
     <Section id="servicios">
       <SectionHeading title={dict.services.title} intro={dict.services.intro} />
 
-      <ul className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2">
+      {/* La grilla no arranca en el margen: en el diseño está corrida a la
+          derecha, alineada con la columna del texto de apoyo. */}
+      <ul className="mt-16 grid gap-x-[51px] gap-y-13 md:grid-cols-2 lg:ml-auto lg:w-[795px]">
         {dict.services.items.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.06}>
-            <li className="border-t border-line pt-6">
-              <span className="font-mono text-xs text-ink-muted">
+            <li className="flex flex-col gap-3.5 border-t border-line pt-6.5">
+              <span className="text-label uppercase text-muted">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 font-display text-xl tracking-tight">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                {item.description}
-              </p>
+              <h3 className="text-h3">{item.title}</h3>
+              <p className="text-body-s text-muted">{item.description}</p>
             </li>
           </Reveal>
         ))}

@@ -33,7 +33,7 @@ export default async function ProjectsPage({ params }: PageParams) {
       <SectionHeading title={dict.work.title} intro={dict.work.intro} />
 
       {projects.length === 0 ? (
-        <p className="mt-10 rounded-lg border border-dashed border-line p-8 text-sm text-ink-muted">
+        <p className="mt-10 rounded-lg border border-dashed border-line p-8 text-sm text-muted">
           {dict.work.empty}
         </p>
       ) : (

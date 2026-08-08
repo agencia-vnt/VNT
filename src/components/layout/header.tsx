@@ -21,38 +21,30 @@ export function Header({ locale, dict }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-paper/90 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-3 md:gap-7">
+    <header className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-md">
+      <Container className="flex h-20 items-center justify-between gap-4 md:gap-9">
         <Link
           href={`/${locale}`}
           aria-label={siteConfig.name}
           className="flex min-h-11 shrink-0 items-center"
         >
           <Image
-            src="/brand/isotipo-ink.svg"
+            src="/brand/logo-lockup-blanco.svg"
             alt=""
-            width={46}
-            height={39}
+            width={214}
+            height={27}
             priority
-            className="h-10 w-auto sm:hidden"
-          />
-          <Image
-            src="/brand/logo-horizontal-ink.svg"
-            alt=""
-            width={176}
-            height={44}
-            priority
-            className="hidden h-11 w-44 sm:block"
+            className="h-5 w-auto sm:h-[27px]"
           />
         </Link>
 
-        <div className="flex items-center gap-3 md:gap-7">
-          <nav aria-label={dict.nav.menu} className="flex items-center gap-3 md:gap-7">
+        <div className="flex items-center gap-4 md:gap-9">
+          <nav aria-label={dict.nav.menu} className="flex items-center gap-4 md:gap-9">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex min-h-11 items-center text-[0.8rem] text-ink-muted transition-colors hover:text-brand-violet md:text-sm"
+                className="flex min-h-11 items-center text-sm text-muted transition-colors hover:text-blanco md:text-body-s"
               >
                 {link.label}
               </Link>

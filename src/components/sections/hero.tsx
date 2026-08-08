@@ -1,28 +1,41 @@
-import Image from "next/image";
 import Link from "next/link";
 import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Glow } from "@/components/ui/glow";
+import { Isotipo } from "@/components/ui/isotipo";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
+/**
+ * Las posiciones del pico y de los glows salen del frame de 1440×624 del
+ * Figma, pasadas a porcentajes para que acompañen al viewport en vez de
+ * quedar clavadas en píxeles de escritorio.
+ *
+ * Los `data-intro-*` los lee la animación de entrada (ver `<Intro />`): con
+ * la intro en curso el contenido arranca oculto y los glows achicados, y
+ * entran cuando el overlay se va.
+ */
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
-    <section className="border-b border-line">
-      <Container className="grid gap-10 py-14 md:py-20 lg:min-h-[calc(100svh-4rem)] lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.48fr)] lg:items-center lg:gap-16 lg:py-16">
-        <div>
-          <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-brand-violet">
-            {dict.hero.eyebrow}
-          </p>
+    <section className="relative isolate overflow-hidden bg-ink">
+      <div aria-hidden="true" className="absolute inset-0 -z-10" data-intro-glow="">
+        <Glow className="left-[-8%] top-[-50%] h-[71%] w-[48%] opacity-55" />
+        <Glow className="left-[73%] top-[-42%] h-[96%] w-[53%] opacity-55" />
+        <Glow className="left-[25%] top-[88%] h-[54%] w-[33%] opacity-55" />
+        <Isotipo className="absolute left-[19%] top-[-57%] w-[110%] text-violeta opacity-30" />
+      </div>
 
-          <h1 className="max-w-4xl font-display text-5xl leading-[0.98] tracking-[-0.035em] text-balance md:text-7xl">
+      <Container className="flex min-h-[70svh] flex-col justify-center py-20 md:min-h-[624px] md:pb-[140px] md:pt-[130px]">
+        <div data-intro-target="">
+          <h1 className="max-w-[900px] text-[2.75rem] leading-[1.04] tracking-[-0.02em] text-balance md:text-[3.5rem] lg:text-display">
             {dict.hero.title}
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted">
+          <p className="mt-6 max-w-[560px] text-body-s text-muted md:mt-[34px] md:text-body">
             {dict.hero.subtitle}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3.5">
             <Link href={`/${locale}/proyectos`} className={buttonStyles("primary")}>
               {dict.hero.ctaPrimary}
             </Link>
@@ -30,20 +43,6 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               {dict.hero.ctaSecondary}
             </Link>
           </div>
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="relative min-h-72 overflow-hidden rounded-[2rem] bg-brand-violet md:min-h-96 lg:min-h-[34rem]"
-        >
-          <Image
-            src="/brand/fondo-isotipo-violeta.png"
-            alt=""
-            fill
-            priority
-            sizes="(min-width: 1024px) 34vw, (min-width: 768px) 100vw, 100vw"
-            className="object-cover object-bottom"
-          />
         </div>
       </Container>
     </section>

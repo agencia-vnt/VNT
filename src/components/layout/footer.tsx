@@ -16,44 +16,44 @@ export function Footer({ locale, dict }: FooterProps) {
   const social = Object.entries(siteConfig.social).filter(([, href]) => href);
 
   return (
-    <footer className="border-t border-brand-violet bg-ink text-brand-white">
-      <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-end md:justify-between">
-        <div>
+    <footer className="border-t border-line bg-ink">
+      <Container className="flex flex-col gap-8 py-13 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col items-start gap-4">
           <Image
-            src="/brand/logo-horizontal-white.svg"
-            alt="VNT agencia"
-            width={176}
-            height={44}
-            className="h-11 w-44"
+            src="/brand/logo-lockup-blanco.svg"
+            alt={siteConfig.legalName}
+            width={214}
+            height={27}
+            className="h-[22px] w-auto"
           />
           <a
             href={`mailto:${siteConfig.email}`}
-            className="mt-3 inline-block text-sm text-brand-white/70 transition-colors hover:text-brand-lime"
+            className="text-body-s text-muted transition-colors hover:text-blanco"
           >
             {siteConfig.email}
           </a>
         </div>
 
         <div className="flex flex-col gap-4 md:items-end">
-          <nav aria-label="Social" className="flex flex-wrap gap-4">
+          <nav aria-label="Social" className="flex flex-wrap gap-6">
             {social.map(([name, href]) => (
               <a
                 key={name}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm capitalize text-brand-white/70 transition-colors hover:text-brand-lime"
+                className="text-body-s capitalize text-muted transition-colors hover:text-blanco"
               >
                 {name}
               </a>
             ))}
           </nav>
 
-          <p className="text-xs text-brand-white/60">
+          <p className="text-label uppercase text-muted">
             © {year} {siteConfig.legalName}. {dict.footer.rights}{" "}
             <Link
               href={`/${locale}/firma`}
-              className="underline underline-offset-2 transition-colors hover:text-brand-lime"
+              className="underline underline-offset-2 transition-colors hover:text-blanco"
             >
               {dict.signature.title}
             </Link>

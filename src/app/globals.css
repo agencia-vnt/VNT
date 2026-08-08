@@ -7,74 +7,137 @@
    el sitio.
 
    Tailwind v4 genera las utilidades solo:
-     --color-ink  ->  text-ink / bg-ink / border-ink
-     --font-sans  ->  font-sans
+     --color-lima  ->  text-lima / bg-lima / border-lima
+     --text-h2     ->  text-h2 (con su interlineado y tracking)
 
-   Los valores salen del manual de marca 2026. Los nombres semánticos separan
-   el color de marca del color que necesita contraste funcional en la interfaz.
+   Los nombres son los mismos que las variables del archivo de Figma
+   (color/ink, color/muted, Display/H1…) para que un cambio allá se pueda
+   trasladar acá sin traducir nada.
 --------------------------------------------------------------------------- */
 @theme {
-  /* Superficies */
-  --color-paper: #f7f7f7;
-  --color-paper-muted: #efedf4;
+  /* Superficies. El sitio es oscuro: `ink` es el fondo, no el texto. */
+  --color-ink: #0f0b16;
+  --color-ink-elev: #191320;
 
   /* Texto */
-  --color-ink: #0f0b16;
-  --color-ink-muted: #5a5364;
+  --color-blanco: #f7f7f7;
+  --color-muted: #948da8;
 
   /* Bordes y separadores */
-  --color-line: #d9d4df;
+  --color-line: #2a2435;
 
   /* Marca */
-  --color-brand-indigo: #281d49;
-  --color-brand-violet: #4a378d;
-  --color-brand-lime: #dfe37a;
-  --color-brand-white: #f7f7f7;
-
-  /* Interacción: violeta sobre blanco conserva contraste AA; lima queda como
-     énfasis de marca y nunca como texto funcional sobre fondo claro. */
-  --color-accent: #4a378d;
-  --color-accent-ink: #f7f7f7;
+  --color-violeta: #4a378d;
+  --color-indigo: #281d49;
+  --color-lima: #dfe37a;
 
   /* Familia oficial, autohospedada con next/font/local. */
   --font-sans: var(--font-host-grotesk), Arial, sans-serif;
-  --font-display: var(--font-sans);
-  --font-mono: var(--font-sans);
+
+  /* Escala tipográfica. Los tres tamaños de título llevan tracking negativo
+     en `em` para que se mantenga la proporción al achicarlos en mobile. */
+  --text-display: 4.5rem; /* 72 */
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-h2: 2.625rem; /* 42 */
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.015em;
+
+  --text-h3: 1.375rem; /* 22 */
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+
+  --text-body: 1.25rem; /* 20 */
+  --text-body--line-height: 1.5;
+
+  --text-body-s: 1rem; /* 16 */
+  --text-body-s--line-height: 1.5;
+
+  /* Siempre en mayúsculas y con tracking positivo: numeritos, epígrafes y
+     el copyright del pie. */
+  --text-label: 0.8125rem; /* 13 */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.077em;
 
   /* Ritmo vertical de las secciones */
-  --spacing-section: 6rem;
+  --spacing-section: 6.875rem; /* 110 */
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    background-color: var(--color-ink);
   }
 
   body {
-    background-color: var(--color-paper);
-    color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--color-blanco);
     font-family: var(--font-sans);
-    font-weight: 300;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Los títulos van en Regular: el peso lo da el tamaño, no la tipografía.
+     Sólo los H3 (las fichas de servicio y proceso) van en Bold. */
   h1,
-  h2,
+  h2 {
+    font-weight: 400;
+  }
+
   h3 {
-    font-weight: 500;
+    font-weight: 700;
   }
 
   /* Un solo anillo de foco para todo el sitio, visible y consistente. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-lima);
     outline-offset: 2px;
   }
 
   ::selection {
-    background-color: var(--color-brand-lime);
+    background-color: var(--color-lima);
     color: var(--color-ink);
+  }
+
+  /* -------------------------------------------------------------------------
+     ANIMACIÓN DE ENTRADA
+     Todo cuelga de `<html data-intro>`, que pone el script de `layout.tsx`
+     antes del primer pintado y saca `<Intro />` cuando el overlay se va.
+     Sin JavaScript el atributo no existe nunca y todo esto queda inerte: el
+     contenido se ve entero de una.
+  ------------------------------------------------------------------------- */
+  [data-intro="playing"] body {
+    overflow: hidden;
+  }
+
+  /* El contenido del hero espera oculto y entra después del overlay. */
+  [data-intro-target] {
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+  }
+
+  [data-intro="playing"] [data-intro-target] {
+    opacity: 0;
+    transform: translateY(16px);
+    /* Sin transición al entrar al estado: sólo al salir de él. */
+    transition: none;
+  }
+
+  /* Los glows arrancan chicos y se expanden, como entre los dos últimos
+     cuadros del prototipo. */
+  [data-intro-glow] {
+    transition:
+      opacity 1.4s ease-out,
+      transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-intro="playing"] [data-intro-glow] {
+    opacity: 0;
+    transform: scale(0.6);
+    transition: none;
   }
 
   /* Respetar a quien pidió menos movimiento en el sistema operativo. */

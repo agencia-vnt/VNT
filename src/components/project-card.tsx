@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Isotipo } from "@/components/ui/isotipo";
 import type { Locale } from "@/i18n/config";
 import type { Project } from "@/lib/projects";
 
@@ -14,49 +15,40 @@ export function ProjectCard({ project, locale, priority = false }: ProjectCardPr
   const { slug, frontmatter } = project;
 
   return (
-    <article className="group">
-      <Link href={`/${locale}/proyectos/${slug}`} className="block">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-paper-muted">
+    <article className="group h-full">
+      <Link
+        href={`/${locale}/proyectos/${slug}`}
+        className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-ink-elev transition-colors hover:border-violeta"
+      >
+        <div className="relative aspect-[405/250] overflow-hidden">
           {frontmatter.cover ? (
             <Image
               src={frontmatter.cover}
               alt={frontmatter.coverAlt ?? ""}
               fill
               priority={priority}
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           ) : (
-            // Sin imagen todavía: un bloque neutro en vez de un layout roto.
-            <div className="flex h-full items-center justify-center text-xs uppercase tracking-[0.18em] text-ink-muted">
-              {frontmatter.client}
+            // Sin portada todavía: el degradado con el pico del diseño, que es
+            // mejor que un hueco vacío y sigue siendo de la marca.
+            <div
+              aria-hidden="true"
+              className="h-full w-full bg-[linear-gradient(140deg,var(--color-violeta)_0%,var(--color-ink)_71%)]"
+            >
+              <Isotipo className="absolute bottom-0 right-[4%] w-[37%] text-lima opacity-90" />
             </div>
           )}
         </div>
 
-        <div className="mt-4 flex items-baseline justify-between gap-4">
-          <h3 className="font-display text-lg tracking-tight">{frontmatter.title}</h3>
-          <span className="shrink-0 font-mono text-xs text-ink-muted">
-            {frontmatter.year}
-          </span>
+        <div className="flex flex-col gap-2 px-6 pb-6 pt-5.5">
+          <h3 className="text-h3">{frontmatter.title}</h3>
+          <p className="text-body-s text-muted">{frontmatter.summary}</p>
+          <p className="text-label uppercase text-muted">
+            {frontmatter.client} · {frontmatter.year}
+          </p>
         </div>
-
-        <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-          {frontmatter.summary}
-        </p>
-
-        {frontmatter.roles.length > 0 ? (
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {frontmatter.roles.map((role) => (
-              <li
-                key={role}
-                className="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink-muted"
-              >
-                {role}
-              </li>
-            ))}
-          </ul>
-        ) : null}
       </Link>
     </article>
   );

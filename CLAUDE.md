@@ -28,8 +28,18 @@ se pueden usar desde un componente cliente.
 
 ## Animación
 
-Una sola primitiva: `<Reveal />`. No agregar variantes nuevas de animación sin
-buen motivo — la consistencia es parte del argumento de venta del estudio.
+Dos cosas, y nada más:
+
+- `<Reveal />` para las apariciones al hacer scroll. No agregar variantes
+  nuevas — la consistencia es parte del argumento de venta del estudio.
+- `<Intro />`, la entrada animada de la home, que replica el prototipo del
+  Figma. Es un caso aparte y no se reutiliza en otras páginas.
+
+La coreografía de la intro está repartida en tres lugares y hay que tocarlos
+juntos: el script inline de `layout.tsx` (marca `<html data-intro>` antes del
+primer pintado, para que no se vea un fotograma del hero), los bloques
+`[data-intro]` de `globals.css` (el hero espera oculto y los glows arrancan
+achicados) y `components/intro.tsx` (el overlay y cuándo se va).
 
 ## Contenido
 

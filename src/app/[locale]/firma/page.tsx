@@ -52,8 +52,8 @@ export default async function SignaturePage({ params }: PageParams) {
     <Section>
       <SectionHeading title={dict.signature.title} intro={dict.signature.intro} />
 
-      <div className="mt-12 max-w-2xl rounded-lg border border-line bg-paper-muted p-8">
-        <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+      <div className="mt-12 max-w-2xl rounded-lg border border-line bg-ink-elev p-8">
+        <p className="text-xs uppercase tracking-[0.18em] text-muted">
           {dict.signature.preview}
         </p>
         <div className="mt-4 text-sm">
@@ -61,7 +61,7 @@ export default async function SignaturePage({ params }: PageParams) {
         </div>
       </div>
 
-      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-muted">
+      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
         {dict.signature.note}
       </p>
 
@@ -70,13 +70,13 @@ export default async function SignaturePage({ params }: PageParams) {
           <div key={snippet.title} className="max-w-2xl">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <h2 className="font-display text-lg tracking-tight">{snippet.title}</h2>
-                <p className="mt-1 text-sm text-ink-muted">{snippet.description}</p>
+                <h2 className="text-lg tracking-tight">{snippet.title}</h2>
+                <p className="mt-1 text-sm text-muted">{snippet.description}</p>
               </div>
               <CopyButton value={snippet.code} />
             </div>
 
-            <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-paper-muted p-5 font-mono text-xs leading-relaxed">
+            <pre className="mt-4 overflow-x-auto rounded-lg border border-line bg-ink-elev p-5 text-xs leading-relaxed">
               <code>{snippet.code}</code>
             </pre>
           </div>

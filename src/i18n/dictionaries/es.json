@@ -14,52 +14,51 @@
     "skipToContent": "Saltar al contenido"
   },
   "hero": {
-    "eyebrow": "Estudio de diseño y desarrollo",
-    "title": "Diseñamos y construimos la web de tu negocio.",
-    "subtitle": "Somos dos: una diseñadora y un desarrollador. Trabajás directo con quien hace el trabajo, sin capas intermedias.",
+    "title": "Una web para tu negocio, pensada para crecer.",
+    "subtitle": "Somos dos: una diseñadora y un desarrollador. Trabajás directo con quienes hacen el trabajo, sin intermediarios.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Hablemos"
   },
   "services": {
-    "title": "Qué hacemos",
-    "intro": "Un equipo chico que cubre todo el recorrido: de la idea al sitio publicado y mantenido.",
+    "title": "Todo el recorrido, un solo equipo",
+    "intro": "Un equipo chico que te acompaña de la idea al sitio publicado y funcionando. Diseño, desarrollo y puesta en marcha, sin traspasos entre proveedores.",
     "items": [
       {
         "title": "Diseño de producto e identidad",
-        "description": "Identidad visual, sistema de diseño y diseño de interfaz. Prototipos navegables antes de escribir una línea de código."
+        "description": "Identidad visual, sistema de diseño e interfaz. Prototipos que podés navegar antes de escribir una línea de código."
       },
       {
         "title": "Desarrollo web",
-        "description": "Sitios y aplicaciones rápidas, accesibles y fáciles de mantener. Código propio, sin dependencias raras."
+        "description": "Sitios y aplicaciones rápidas, accesibles y fáciles de mantener. Código propio y prolijo, sin dependencias raras."
       },
       {
         "title": "Puesta en producción",
-        "description": "Dominio, hosting, analítica y SEO técnico. Te dejamos el sitio andando y documentado."
+        "description": "Dominio, hosting, analítica y SEO técnico. Te entregamos el sitio andando y documentado."
       },
       {
         "title": "Mantenimiento y evolución",
-        "description": "Iteramos sobre lo que ya está: nuevas secciones, mejoras de performance y soporte continuo."
+        "description": "Seguimos cerca: nuevas secciones, mejoras de performance y soporte cuando lo necesites."
       }
     ]
   },
   "process": {
-    "title": "Cómo trabajamos",
+    "title": "Un proceso corto y sin vueltas",
     "steps": [
       {
         "title": "Conversamos",
-        "description": "Entendemos el negocio, a quién le habla y qué tiene que lograr el sitio. Sin formularios eternos."
+        "description": "Entendemos tu negocio, a quién le habla y qué necesita lograr el sitio. Sin formularios eternos."
       },
       {
-        "title": "Propuesta cerrada",
-        "description": "Alcance, plazos y precio por escrito. Sin sorpresas a mitad de camino."
+        "title": "Propuesta clara",
+        "description": "Alcance, plazos y precio por escrito. Nada de sorpresas a mitad de camino."
       },
       {
         "title": "Diseño y desarrollo",
-        "description": "Trabajamos en paralelo con entregas parciales que podés ver y comentar cada semana."
+        "description": "Trabajamos en paralelo, con entregas que podés ver y comentar cada semana."
       },
       {
         "title": "Publicación",
-        "description": "Salimos a producción, medimos y ajustamos. Te enseñamos a manejar lo que necesites tocar."
+        "description": "Salimos a producción, medimos y ajustamos. Y te mostramos cómo manejar lo que quieras tocar."
       }
     ]
   },
@@ -76,7 +75,8 @@
       "year": "Año",
       "roles": "Rol",
       "stack": "Stack"
-    }
+    },
+    "featuredTitle": "Algunos trabajos recientes"
   },
   "studio": {
     "title": "El estudio",
@@ -101,7 +101,9 @@
         "message": "Contanos algo del proyecto (mínimo 10 caracteres)."
       }
     },
-    "orEmail": "O escribinos a"
+    "orEmail": "O escribinos a",
+    "ctaIntro": "Contanos qué tenés en mente.",
+    "ctaButton": "Contactanos"
   },
   "signature": {
     "title": "Firma",
@@ -118,5 +120,8 @@
     "title": "Página no encontrada",
     "description": "El link que seguiste no existe o cambió de lugar.",
     "cta": "Ir al inicio"
+  },
+  "intro": {
+    "scroll": "scroll"
   }
 }

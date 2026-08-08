@@ -35,11 +35,11 @@ export default async function ContactPage({ params }: PageParams) {
           <ContactForm dict={dict} />
         </div>
 
-        <aside className="text-sm text-ink-muted">
+        <aside className="text-sm text-muted">
           <p>{dict.contact.orEmail}</p>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="mt-1 inline-block text-ink underline underline-offset-4"
+            className="mt-1 inline-block text-blanco underline underline-offset-4"
           >
             {siteConfig.email}
           </a>

@@ -77,22 +77,22 @@ export default async function ProjectPage({ params }: PageParams) {
       <Container>
         <Link
           href={`/${locale}/proyectos`}
-          className="text-sm text-ink-muted transition-colors hover:text-ink"
+          className="text-sm text-muted transition-colors hover:text-blanco"
         >
           ← {dict.work.backToWork}
         </Link>
 
         <header className="mt-8 max-w-3xl">
-          <h1 className="font-display text-4xl leading-tight tracking-tight text-balance md:text-5xl">
+          <h1 className="text-4xl leading-tight tracking-tight text-balance md:text-5xl">
             {title}
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-ink-muted">{summary}</p>
+          <p className="mt-5 text-lg leading-relaxed text-muted">{summary}</p>
         </header>
 
         <dl className="mt-12 grid gap-6 border-y border-line py-8 sm:grid-cols-2 md:grid-cols-4">
           {meta.map((item) => (
             <div key={item.label}>
-              <dt className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+              <dt className="text-xs uppercase tracking-[0.18em] text-muted">
                 {item.label}
               </dt>
               <dd className="mt-1.5 text-sm">{item.value}</dd>
@@ -124,7 +124,7 @@ export default async function ProjectPage({ params }: PageParams) {
               height={1000}
               priority
               sizes="(min-width: 1024px) 1024px, 100vw"
-              className="w-full rounded-lg bg-paper-muted"
+              className="w-full rounded-lg bg-ink-elev"
             />
           </Container>
         </div>

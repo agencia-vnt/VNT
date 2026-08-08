@@ -14,11 +14,9 @@ export default async function NotFound() {
   return (
     <Section>
       <div className="max-w-xl py-16">
-        <p className="font-mono text-sm text-ink-muted">404</p>
-        <h1 className="mt-4 font-display text-4xl tracking-tight">
-          {dict.notFound.title}
-        </h1>
-        <p className="mt-4 leading-relaxed text-ink-muted">{dict.notFound.description}</p>
+        <p className="text-sm text-muted">404</p>
+        <h1 className="mt-4 text-4xl tracking-tight">{dict.notFound.title}</h1>
+        <p className="mt-4 leading-relaxed text-muted">{dict.notFound.description}</p>
         <Link href={`/${defaultLocale}`} className={buttonStyles("primary", "mt-10")}>
           {dict.notFound.cta}
         </Link>

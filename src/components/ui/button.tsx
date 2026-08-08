@@ -1,23 +1,25 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "highlight" | "ghost";
+type Variant = "primary" | "secondary" | "ghost";
 
 /**
  * Se exporta como función de estilos (y no sólo como componente) para poder
  * aplicar el mismo look a un <Link> sin envolverlo en un <button>.
+ *
+ * En el diseño hay dos botones y nada más: el lima, que es la acción
+ * principal de cada pantalla, y el de contorno, que la acompaña.
  */
 export function buttonStyles(variant: Variant = "primary", className?: string) {
   return cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-3",
-    "text-sm font-bold transition-colors duration-200",
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-[30px] py-4",
+    "text-body-s font-bold uppercase leading-none transition-colors duration-200",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    variant === "primary" && "bg-brand-indigo text-brand-white hover:bg-brand-violet",
+    variant === "primary" && "bg-lima text-ink hover:bg-blanco",
     variant === "secondary" &&
-      "border border-brand-indigo bg-transparent text-brand-indigo hover:bg-brand-lime",
-    variant === "highlight" && "bg-brand-lime text-ink hover:bg-brand-white",
+      "border border-line bg-transparent text-blanco hover:border-lima hover:text-lima",
     variant === "ghost" &&
-      "px-0 text-brand-indigo underline underline-offset-4 hover:text-brand-violet",
+      "min-h-0 px-0 py-0 normal-case text-blanco underline underline-offset-4 hover:text-lima",
     className,
   );
 }

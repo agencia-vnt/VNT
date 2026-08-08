@@ -34,7 +34,7 @@ export function Figure({
         className="w-full rounded-none md:rounded-lg"
       />
       {caption ? (
-        <figcaption className="mt-3 px-6 text-xs text-ink-muted md:px-0">
+        <figcaption className="mt-3 px-6 text-xs text-muted md:px-0">
           {caption}
         </figcaption>
       ) : null}
@@ -59,10 +59,10 @@ export function Quote({
   // genera solo. Envolver `children` en un <p> propio anidaría dos párrafos:
   // HTML inválido y error de hidratación.
   return (
-    <blockquote className="my-10 border-l-2 border-accent pl-6 [&>p]:my-0 [&>p]:font-display [&>p]:text-xl [&>p]:leading-snug [&>p]:tracking-tight [&>p]:text-ink">
+    <blockquote className="my-10 border-l-2 border-violeta pl-6 [&>p]:my-0 [&>p]:[&>p]:text-xl [&>p]:leading-snug [&>p]:tracking-tight [&>p]:text-blanco">
       {children}
       {author ? (
-        <cite className="mt-3 block text-sm not-italic text-ink-muted">{author}</cite>
+        <cite className="mt-3 block text-sm not-italic text-muted">{author}</cite>
       ) : null}
     </blockquote>
   );
@@ -75,43 +75,40 @@ export function Quote({
 export const mdxComponents: MDXComponents = {
   h2: ({ className, ...props }: ComponentProps<"h2">) => (
     <h2
-      className={cn(
-        "mt-14 mb-4 font-display text-2xl tracking-tight text-balance",
-        className,
-      )}
+      className={cn("mt-14 mb-4 text-2xl tracking-tight text-balance", className)}
       {...props}
     />
   ),
   h3: ({ className, ...props }: ComponentProps<"h3">) => (
-    <h3
-      className={cn("mt-10 mb-3 font-display text-lg tracking-tight", className)}
-      {...props}
-    />
+    <h3 className={cn("mt-10 mb-3 text-lg tracking-tight", className)} {...props} />
   ),
   p: ({ className, ...props }: ComponentProps<"p">) => (
-    <p className={cn("my-5 leading-relaxed text-ink-muted", className)} {...props} />
+    <p className={cn("my-5 leading-relaxed text-muted", className)} {...props} />
   ),
   ul: ({ className, ...props }: ComponentProps<"ul">) => (
     <ul
-      className={cn("my-5 list-disc space-y-2 pl-5 text-ink-muted", className)}
+      className={cn("my-5 list-disc space-y-2 pl-5 text-muted", className)}
       {...props}
     />
   ),
   ol: ({ className, ...props }: ComponentProps<"ol">) => (
     <ol
-      className={cn("my-5 list-decimal space-y-2 pl-5 text-ink-muted", className)}
+      className={cn("my-5 list-decimal space-y-2 pl-5 text-muted", className)}
       {...props}
     />
   ),
   a: ({ className, ...props }: ComponentProps<"a">) => (
     <a
-      className={cn("text-ink underline underline-offset-4 hover:text-accent", className)}
+      className={cn(
+        "text-blanco underline underline-offset-4 hover:text-lima",
+        className,
+      )}
       {...props}
     />
   ),
   hr: () => <hr className="my-14 border-line" />,
   strong: ({ className, ...props }: ComponentProps<"strong">) => (
-    <strong className={cn("font-semibold text-ink", className)} {...props} />
+    <strong className={cn("font-semibold text-blanco", className)} {...props} />
   ),
   img: ({ className, alt, ...props }: ComponentProps<"img">) => (
     // Markdown puro (![]()) no trae dimensiones, así que acá no se puede usar

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
-import { buttonStyles } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 import type { Locale } from "@/i18n/config";
@@ -18,28 +17,36 @@ export async function FeaturedWork({
 
   return (
     <Section id="proyectos">
-      <SectionHeading title={dict.work.title} intro={dict.work.intro} />
+      <SectionHeading
+        title={dict.work.featuredTitle}
+        action={
+          <Link
+            href={`/${locale}/proyectos`}
+            className="group inline-flex shrink-0 items-center gap-2 text-body-s text-blanco transition-colors hover:text-lima"
+          >
+            {dict.work.viewAll}
+            <span
+              aria-hidden="true"
+              className="text-lima transition-transform group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        }
+      />
 
       {projects.length === 0 ? (
-        <p className="mt-10 rounded-lg border border-dashed border-line p-8 text-sm text-ink-muted">
+        <p className="mt-13 rounded-2xl border border-dashed border-line p-8 text-body-s text-muted">
           {dict.work.empty}
         </p>
       ) : (
-        <>
-          <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2">
-            {projects.map((project, index) => (
-              <Reveal key={project.slug} delay={index * 0.06}>
-                <ProjectCard project={project} locale={locale} priority={index === 0} />
-              </Reveal>
-            ))}
-          </div>
-
-          <div className="mt-14">
-            <Link href={`/${locale}/proyectos`} className={buttonStyles("secondary")}>
-              {dict.work.viewAll}
-            </Link>
-          </div>
-        </>
+        <div className="mt-13 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 0.06} className="h-full">
+              <ProjectCard project={project} locale={locale} priority={index === 0} />
+            </Reveal>
+          ))}
+        </div>
       )}
     </Section>
   );

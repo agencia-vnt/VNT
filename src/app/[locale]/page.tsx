@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Intro } from "@/components/intro";
 import { ContactCta } from "@/components/sections/contact-cta";
 import { FeaturedWork } from "@/components/sections/featured-work";
 import { Hero } from "@/components/sections/hero";
@@ -19,6 +20,7 @@ export default async function HomePage({
 
   return (
     <>
+      <Intro label={dict.intro.scroll} />
       <Hero locale={locale} dict={dict} />
       <Services dict={dict} />
       <FeaturedWork locale={locale} dict={dict} />

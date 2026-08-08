@@ -15,7 +15,7 @@ export function LocaleSwitcher({ current, label }: { current: Locale; label: str
   // Es un <nav> propio, no un <div>: cambiar de idioma es navegación, y así
   // un lector de pantalla lo anuncia como tal y lo puede saltear.
   return (
-    <nav aria-label={label} className="flex items-center text-xs">
+    <nav aria-label={label} className="flex items-center text-label uppercase">
       {locales.map((locale, index) => (
         <span key={locale} className="flex items-center">
           {index > 0 ? <span className="hidden text-line sm:inline">/</span> : null}
@@ -26,8 +26,8 @@ export function LocaleSwitcher({ current, label }: { current: Locale; label: str
             className={cn(
               "min-h-11 min-w-11 items-center justify-center rounded transition-colors sm:flex",
               locale === current
-                ? "hidden text-ink"
-                : "flex text-ink-muted hover:text-brand-violet",
+                ? "hidden text-blanco"
+                : "flex text-muted hover:text-blanco",
             )}
           >
             {localeLabels[locale]}
