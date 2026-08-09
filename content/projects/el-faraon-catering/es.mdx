@@ -53,9 +53,9 @@ Partimos el trabajo en tres etapas, en este orden: identidad, menú, landing.
 ### La identidad
 
 El logotipo caligráfico y la base negro + naranja eran innegociables para los
-dueños, y con razón: es lo que la gente reconoce. El trabajo no fue reemplazar
-la marca sino volverla operable — definir la paleta con valores exactos, elegir
-un sistema tipográfico, resolver las versiones reducidas y documentar todo.
+dueños, y con razón: es lo que la gente reconoce. El trabajo era volverla
+operable: definir la paleta con valores exactos, elegir un sistema tipográfico,
+resolver las versiones reducidas y documentar todo.
 
 <Figure
   src="/projects/el-faraon-catering/identidad.webp"
@@ -65,7 +65,7 @@ un sistema tipográfico, resolver las versiones reducidas y documentar todo.
   caption="La paleta, con los valores cerrados. Antes existía como “negro y naranja” y nada más."
 />
 
-Dos decisiones que vale la pena contar:
+Dos decisiones:
 
 **El isotipo.** La familia votó una opción de cuatro puntos —uno por cada
 integrante— que la propia presentación había marcado como complementaria al
@@ -85,14 +85,14 @@ landing salen de esa regla, y por eso el menú es oscuro.
 ### El menú
 
 Es la pieza que se usa todos los días. Un QR en cada comedor abre el menú del
-día en el celular, sin app y sin instalar nada.
+día en el celular, sin instalar nada.
 
 <Figure
   src="/projects/el-faraon-catering/menu-mobile.webp"
   width={780}
   height={1688}
   alt="El menú del día abierto en un celular, con los platos, sus precios y los filtros por categoría"
-  caption="El menú operativo. Carga en menos de un segundo sobre la red del edificio."
+  caption="El menú operativo. La página completa carga en menos de un segundo."
 />
 
 La decisión técnica de fondo fue separar lo que cambia de lo que no. La
@@ -100,10 +100,10 @@ estructura del menú —platos, precios, categorías, fotos— se hornea como HT
 estático en cada build. Lo único que viaja en vivo es la disponibilidad: si se
 acabó la milanesa, el cambio impacta al instante sin reconstruir el sitio.
 
-La consecuencia importante de esa separación es la resistencia a fallos: si la
-base de datos se cae, el menú sigue funcionando con el contenido del último
-build. Un comedor con 300 personas por día no puede depender de que un servicio
-externo esté disponible a las 12:30.
+Esa separación también vuelve al menú resistente a fallos: si la base de datos
+se cae, sigue funcionando con el contenido del último build. Un comedor con 300
+personas por día no puede depender de que un servicio externo esté disponible a
+las 12:30.
 
 ### El panel
 
@@ -124,10 +124,10 @@ las credenciales de servicio nunca llegan al navegador.
 
 El sistema está en producción y en uso diario en los comedores. La landing
 institucional, el menú de cada local y el panel funcionan sobre la misma
-identidad, que ahora existe documentada en un manual en vez de en la memoria de
-quien diseñó la última pieza.
+identidad, que ahora está documentada en un manual y no en la memoria de quien
+diseñó la última pieza.
 
-Todavía no tenemos números post-lanzamiento. Lo que vamos a medir en los
+Todavía no tenemos números. Lo que vamos a medir en los
 próximos meses: escaneos de QR por comedor y por día, cuántas veces por semana
 el equipo usa el panel sin pedirnos ayuda, y si bajan las consultas al mostrador
 sobre qué hay para comer.
