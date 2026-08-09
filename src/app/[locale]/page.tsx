@@ -26,7 +26,7 @@ export default async function HomePage({
       <Services dict={dict} />
       <FeaturedWork locale={locale} dict={dict} />
       <Process dict={dict} />
-      <Team locale={locale} dict={dict} />
+      <Team locale={locale} />
       <ContactCta locale={locale} dict={dict} />
     </>
   );

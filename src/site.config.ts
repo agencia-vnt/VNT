@@ -52,17 +52,16 @@ export const siteConfig = {
       name: "Valentina Masso",
       role: { es: "Diseño", en: "Design" },
       links: [
-        { label: "LinkedIn", href: "" },
-        { label: "Behance", href: "" },
-        { label: "Portafolio", href: "" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/valentina-masso/" },
+        { label: "Behance", href: "https://www.behance.net/valentinamasso1" },
       ],
     },
     {
       name: "Mateo Ramos",
       role: { es: "Desarrollo", en: "Engineering" },
       links: [
-        { label: "LinkedIn", href: "" },
-        { label: "GitHub", href: "" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/mateoramoslink/" },
+        { label: "GitHub", href: "https://github.com/materamos" },
       ],
     },
   ],
