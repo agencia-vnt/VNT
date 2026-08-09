@@ -14,14 +14,17 @@ export function Services({ dict }: { dict: Dictionary }) {
           el ancho en vez de romperse con un valor fijo. */}
       <ul className="mt-16 grid gap-x-[51px] gap-y-13 md:grid-cols-2 lg:ml-[33%] lg:mr-[5%]">
         {dict.services.items.map((item, index) => (
-          <Reveal key={item.title} delay={index * 0.06}>
-            <li className="flex flex-col gap-3.5 border-t border-line pt-6.5">
-              <span className="text-label uppercase text-muted">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-h3">{item.title}</h3>
-              <p className="text-body-s text-muted">{item.description}</p>
-            </li>
+          <Reveal
+            as="li"
+            key={item.title}
+            delay={index * 0.06}
+            className="flex flex-col gap-3.5 border-t border-line pt-6.5"
+          >
+            <span className="text-label uppercase text-muted">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="text-h3">{item.title}</h3>
+            <p className="text-body-s text-muted">{item.description}</p>
           </Reveal>
         ))}
       </ul>

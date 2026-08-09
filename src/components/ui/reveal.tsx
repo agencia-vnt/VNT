@@ -8,6 +8,13 @@ type RevealProps = {
   /** Retardo en segundos, para escalonar elementos de una lista. */
   delay?: number;
   className?: string;
+  /**
+   * Etiqueta a renderizar. Dentro de un <ul> o un <ol> tiene que ser "li": un
+   * <div> suelto ahí es HTML inválido, y los lectores de pantalla dejan de
+   * anunciar la lista y cuántos elementos tiene, que es justamente lo que
+   * hace legible una lista de servicios o de pasos.
+   */
+  as?: "div" | "li";
 };
 
 /**
@@ -20,16 +27,23 @@ type RevealProps = {
  * El HTML se sirve con opacity 0 para que no haya un salto al hidratar. El
  * `data-reveal` existe para el fallback de <noscript> del layout: sin JS no
  * hay IntersectionObserver, y sin ese fallback media página quedaría invisible.
+ * Es un selector de atributo, así que no le importa qué etiqueta sea.
  */
-export function Reveal({ children, delay = 0, className }: RevealProps) {
+export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
+    return as === "li" ? (
+      <li className={className}>{children}</li>
+    ) : (
+      <div className={className}>{children}</div>
+    );
   }
 
+  const MotionTag = as === "li" ? motion.li : motion.div;
+
   return (
-    <motion.div
+    <MotionTag
       data-reveal=""
       className={className}
       initial={{ opacity: 0, y: 16 }}
@@ -38,6 +52,6 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
       transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }

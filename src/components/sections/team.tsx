@@ -25,28 +25,31 @@ export function Team({ locale }: { locale: Locale }) {
           const links = member.links.filter(({ href }) => href);
 
           return (
-            <Reveal key={member.name} delay={index * 0.06}>
-              <li className="flex flex-col gap-3 border-t border-line pt-6">
-                <h2 className="text-h3 font-bold">{member.name}</h2>
-                <p className="text-body-s text-muted">{member.role[locale]}</p>
+            <Reveal
+              as="li"
+              key={member.name}
+              delay={index * 0.06}
+              className="flex flex-col gap-3 border-t border-line pt-6"
+            >
+              <h2 className="text-h3 font-bold">{member.name}</h2>
+              <p className="text-body-s text-muted">{member.role[locale]}</p>
 
-                {links.length > 0 ? (
-                  <ul className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
-                    {links.map((link) => (
-                      <li key={link.label}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-body-s text-muted underline underline-offset-4 transition-colors hover:text-blanco"
-                        >
-                          {link.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
+              {links.length > 0 ? (
+                <ul className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-body-s text-muted underline underline-offset-4 transition-colors hover:text-blanco"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </Reveal>
           );
         })}
