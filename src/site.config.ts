@@ -52,13 +52,14 @@ export const siteConfig = {
       name: "Valentina Masso",
       role: { es: "Diseño", en: "Design" },
       links: [
+        { label: "Portfolio", href: "https://valma-portfolio.vercel.app" },
         { label: "LinkedIn", href: "https://www.linkedin.com/in/valentina-masso/" },
         { label: "Behance", href: "https://www.behance.net/valentinamasso1" },
       ],
     },
     {
       name: "Mateo Ramos",
-      role: { es: "Desarrollo", en: "Engineering" },
+      role: { es: "Desarrollo", en: "Development" },
       links: [
         { label: "LinkedIn", href: "https://www.linkedin.com/in/mateoramoslink/" },
         { label: "GitHub", href: "https://github.com/materamos" },
