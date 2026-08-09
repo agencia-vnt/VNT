@@ -53,7 +53,7 @@
       },
       {
         "title": "Diseñamos y construimos",
-        "description": "Trabajamos en paralelo, con entregas que podés ver y comentar cada semana."
+        "description": "Trabajamos en paralelo y te mostramos el avance a medida que sale, para que lo comentes antes de seguir."
       },
       {
         "title": "Lo dejamos andando",
@@ -87,7 +87,7 @@
       "message": "Contanos del proyecto",
       "submit": "Enviar mensaje",
       "sending": "Enviando…",
-      "success": "Gracias. Te respondemos en menos de 48 horas hábiles.",
+      "success": "Gracias, lo recibimos. Te escribimos a ese mail.",
       "error": "No pudimos enviar el mensaje. Escribinos directo por mail.",
       "validation": {
         "name": "Poné tu nombre.",
@@ -96,7 +96,7 @@
       }
     },
     "orEmail": "O escribinos a",
-    "ctaIntro": "Contanos qué necesitás resolver. Respondemos en menos de 48 horas hábiles.",
+    "ctaIntro": "Contanos qué necesitás resolver. Empezamos por una charla.",
     "ctaButton": "Hablemos"
   },
   "signature": {

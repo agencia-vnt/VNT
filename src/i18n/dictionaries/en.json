@@ -53,7 +53,7 @@
       },
       {
         "title": "We design and build",
-        "description": "We work in parallel, with deliverables you can see and comment on every week."
+        "description": "We work in parallel and show you progress as it comes, so you can weigh in before we move on."
       },
       {
         "title": "We ship it",
@@ -87,7 +87,7 @@
       "message": "Tell us about the project",
       "submit": "Send message",
       "sending": "Sending…",
-      "success": "Thanks. We'll reply within 48 business hours.",
+      "success": "Thanks, we got it. We'll write back to that address.",
       "error": "We couldn't send your message. Please email us directly.",
       "validation": {
         "name": "Please enter your name.",
@@ -96,7 +96,7 @@
       }
     },
     "orEmail": "Or email us at",
-    "ctaIntro": "Tell us what you need to solve. We reply within 48 business hours.",
+    "ctaIntro": "Tell us what you need to solve. We start with a conversation.",
     "ctaButton": "Let's talk"
   },
   "signature": {
