@@ -1,12 +1,11 @@
 {
   "meta": {
-    "title": "VNT — Diseño y desarrollo web",
-    "description": "Estudio de diseño y desarrollo. Diseñamos y construimos sitios y productos digitales de punta a punta.",
-    "ogAlt": "VNT — Diseño y desarrollo web"
+    "title": "VNT — Diseño y desarrollo a medida",
+    "description": "Estudio de diseño y desarrollo. Diseñamos y construimos la solución para tu negocio, de la necesidad a la implementación.",
+    "ogAlt": "VNT — Diseño y desarrollo a medida"
   },
   "nav": {
     "work": "Proyectos",
-    "studio": "Estudio",
     "contact": "Contacto",
     "menu": "Menú",
     "language": "Idioma",
@@ -14,30 +13,30 @@
     "skipToContent": "Saltar al contenido"
   },
   "hero": {
-    "title": "Una web para tu negocio, pensada para crecer.",
-    "subtitle": "Somos dos: una diseñadora y un desarrollador. Trabajás directo con quienes hacen el trabajo, sin intermediarios.",
+    "title": "Diseñamos y construimos la solución para tu negocio.",
+    "subtitle": "Sistemas, sitios y herramientas a medida. Trabajás directo con quien diseña y con quien programa.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Hablemos"
   },
   "services": {
-    "title": "Todo el recorrido, un solo equipo",
-    "intro": "Un equipo chico que te acompaña de la idea al sitio publicado y funcionando. Diseño, desarrollo y puesta en marcha, sin traspasos entre proveedores.",
+    "title": "Cubrimos todo el recorrido",
+    "intro": "De la necesidad a la solución implementada. Diseño, construcción y puesta en marcha con el mismo equipo de principio a fin.",
     "items": [
       {
-        "title": "Diseño de producto e identidad",
-        "description": "Identidad visual, sistema de diseño e interfaz. Prototipos que podés navegar antes de escribir una línea de código."
+        "title": "Identidad y diseño",
+        "description": "Identidad visual, sistema de diseño e interfaz. Prototipos navegables para ver y decidir antes de construir."
       },
       {
-        "title": "Desarrollo web",
-        "description": "Sitios y aplicaciones rápidas, accesibles y fáciles de mantener. Código propio y prolijo, sin dependencias raras."
+        "title": "Desarrollo a medida",
+        "description": "Sitios, paneles de administración y herramientas internas. Rápidos, accesibles y fáciles de mantener."
       },
       {
-        "title": "Puesta en producción",
-        "description": "Dominio, hosting, analítica y SEO técnico. Te entregamos el sitio andando y documentado."
+        "title": "Puesta en marcha",
+        "description": "Dominio, hosting, métricas y posicionamiento en buscadores. Te lo entregamos andando y documentado."
       },
       {
-        "title": "Mantenimiento y evolución",
-        "description": "Seguimos cerca: nuevas secciones, mejoras de performance y soporte cuando lo necesites."
+        "title": "Mantenimiento y mejoras",
+        "description": "Seguimos cerca: funciones nuevas, ajustes de velocidad y soporte cuando lo necesites."
       }
     ]
   },
@@ -46,19 +45,19 @@
     "steps": [
       {
         "title": "Conversamos",
-        "description": "Entendemos tu negocio, a quién le habla y qué necesita lograr el sitio. Sin formularios eternos."
+        "description": "Entendemos tu negocio, cómo trabaja hoy y qué tiene que resolver la solución."
       },
       {
-        "title": "Propuesta clara",
-        "description": "Alcance, plazos y precio por escrito. Nada de sorpresas a mitad de camino."
+        "title": "Te pasamos la propuesta",
+        "description": "Alcance, plazos y precio por escrito antes de empezar."
       },
       {
-        "title": "Diseño y desarrollo",
+        "title": "Diseñamos y construimos",
         "description": "Trabajamos en paralelo, con entregas que podés ver y comentar cada semana."
       },
       {
-        "title": "Publicación",
-        "description": "Salimos a producción, medimos y ajustamos. Y te mostramos cómo manejar lo que quieras tocar."
+        "title": "Lo dejamos andando",
+        "description": "Publicamos, medimos y ajustamos. Y te mostramos cómo manejar lo que quieras tocar vos."
       }
     ]
   },
@@ -76,16 +75,14 @@
       "roles": "Rol",
       "stack": "Stack"
     },
-    "featuredTitle": "Algunos trabajos recientes"
+    "featuredTitle": "Lo último que hicimos"
   },
-  "studio": {
-    "title": "El estudio",
-    "intro": "Somos dos personas y un método simple: pocas cosas a la vez, hechas bien.",
-    "body": ""
+  "team": {
+    "title": "Somos dos, y trabajás con los dos"
   },
   "contact": {
     "title": "Trabajemos juntos",
-    "intro": "Contanos qué necesitás y te respondemos en menos de 48 horas hábiles.",
+    "intro": "Contanos qué necesitás resolver y para cuándo.",
     "form": {
       "name": "Nombre",
       "email": "Email",
@@ -93,7 +90,7 @@
       "message": "Contanos del proyecto",
       "submit": "Enviar mensaje",
       "sending": "Enviando…",
-      "success": "¡Gracias! Te vamos a responder muy pronto.",
+      "success": "Gracias. Te respondemos en menos de 48 horas hábiles.",
       "error": "No pudimos enviar el mensaje. Escribinos directo por mail.",
       "validation": {
         "name": "Poné tu nombre.",
@@ -102,8 +99,8 @@
       }
     },
     "orEmail": "O escribinos a",
-    "ctaIntro": "Contanos qué tenés en mente.",
-    "ctaButton": "Contactanos"
+    "ctaIntro": "Contanos qué necesitás resolver. Respondemos en menos de 48 horas hábiles.",
+    "ctaButton": "Hablemos"
   },
   "signature": {
     "title": "Firma",

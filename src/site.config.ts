@@ -41,17 +41,29 @@ export const siteConfig = {
   /**
    * El equipo. Son dos y eso es una ventaja comercial, no un límite:
    * el cliente habla directo con quien diseña y con quien programa.
+   *
+   * `links` son los perfiles públicos que se muestran abajo del nombre en la
+   * landing. Los que están en "" no se muestran, igual que las redes del pie:
+   * mejor un perfil menos que un link a la home de LinkedIn. El orden del
+   * array es el orden en que salen.
    */
   team: [
     {
       name: "Valentina Masso",
       role: { es: "Diseño", en: "Design" },
-      url: "",
+      links: [
+        { label: "LinkedIn", href: "" },
+        { label: "Behance", href: "" },
+        { label: "Portafolio", href: "" },
+      ],
     },
     {
       name: "Mateo Ramos",
       role: { es: "Desarrollo", en: "Engineering" },
-      url: "",
+      links: [
+        { label: "LinkedIn", href: "" },
+        { label: "GitHub", href: "" },
+      ],
     },
   ],
 } as const;

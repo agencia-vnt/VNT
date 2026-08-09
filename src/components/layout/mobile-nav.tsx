@@ -14,8 +14,8 @@ type MobileNavProps = {
 };
 
 /**
- * El menú de pantallas chicas. Los tres links del header no entran en 375px
- * junto al logo, así que abajo de `md` se pliegan acá.
+ * El menú de pantallas chicas. Los links del header no entran en 375px junto
+ * al logo, así que abajo de `md` se pliegan acá.
  *
  * Es cliente porque necesita cerrarse al navegar: con `<details>` el panel
  * quedaría abierto después de tocar un link, porque Next no recarga el DOM.

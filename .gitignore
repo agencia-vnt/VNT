@@ -50,3 +50,6 @@ next-env.d.ts
 
 # Machine-local project context
 /docs/project-context.local.md
+
+# Config local de agentes (launch.json, permisos)
+/.claude/

@@ -17,7 +17,6 @@ export function Header({ locale, dict }: HeaderProps) {
   // mantiene los links estables si algún día se agregan más idiomas.
   const links = [
     { href: `/${locale}/proyectos`, label: dict.nav.work },
-    { href: `/${locale}/estudio`, label: dict.nav.studio },
     { href: `/${locale}/contacto`, label: dict.nav.contact },
   ];
 

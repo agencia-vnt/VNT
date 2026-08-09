@@ -5,6 +5,7 @@ import { FeaturedWork } from "@/components/sections/featured-work";
 import { Hero } from "@/components/sections/hero";
 import { Process } from "@/components/sections/process";
 import { Services } from "@/components/sections/services";
+import { Team } from "@/components/sections/team";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -25,6 +26,7 @@ export default async function HomePage({
       <Services dict={dict} />
       <FeaturedWork locale={locale} dict={dict} />
       <Process dict={dict} />
+      <Team locale={locale} dict={dict} />
       <ContactCta locale={locale} dict={dict} />
     </>
   );

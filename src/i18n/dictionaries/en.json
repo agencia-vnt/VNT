@@ -1,12 +1,11 @@
 {
   "meta": {
-    "title": "VNT — Web design & development",
-    "description": "A design and development studio. We design and build websites and digital products end to end.",
-    "ogAlt": "VNT — Web design & development"
+    "title": "VNT — Custom design and development",
+    "description": "A design and development studio. We design and build the solution your business needs, from the need to the working system.",
+    "ogAlt": "VNT — Custom design and development"
   },
   "nav": {
     "work": "Work",
-    "studio": "Studio",
     "contact": "Contact",
     "menu": "Menu",
     "language": "Language",
@@ -14,30 +13,30 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "title": "A website for your business, built to grow.",
-    "subtitle": "There are two of us: a designer and a developer. You work directly with the people doing the work, with nobody in between.",
+    "title": "We design and build the solution your business needs.",
+    "subtitle": "Systems, sites and tools made to measure. You work directly with the designer and the developer.",
     "ctaPrimary": "See our work",
-    "ctaSecondary": "Get in touch"
+    "ctaSecondary": "Let's talk"
   },
   "services": {
-    "title": "The whole path, one team",
-    "intro": "A small team that takes you from the idea to a site that is live and working. Design, development and launch, with no hand-offs between vendors.",
+    "title": "We cover the whole path",
+    "intro": "From the need to the working solution. Design, build and launch with the same team from start to finish.",
     "items": [
       {
-        "title": "Product & brand design",
-        "description": "Visual identity, design system and interface. Prototypes you can click through before a single line of code."
+        "title": "Brand & design",
+        "description": "Visual identity, design system and interface. Clickable prototypes so you can see and decide before we build."
       },
       {
-        "title": "Web development",
-        "description": "Fast, accessible sites and apps that are easy to maintain. Clean code we own, without odd dependencies."
+        "title": "Custom development",
+        "description": "Sites, admin panels and internal tools. Fast, accessible and easy to maintain."
       },
       {
-        "title": "Launch",
-        "description": "Domain, hosting, analytics and technical SEO. We hand over a running, documented site."
+        "title": "Getting it live",
+        "description": "Domain, hosting, analytics and search. We hand it over running and documented."
       },
       {
-        "title": "Maintenance & growth",
-        "description": "We stay close: new sections, performance work and support whenever you need it."
+        "title": "Maintenance & improvements",
+        "description": "We stay close: new features, speed work and support whenever you need it."
       }
     ]
   },
@@ -46,19 +45,19 @@
     "steps": [
       {
         "title": "We talk",
-        "description": "We learn about your business, who it speaks to and what the site has to achieve. No endless forms."
+        "description": "We learn about your business, how it works today and what the solution has to solve."
       },
       {
-        "title": "A clear proposal",
-        "description": "Scope, timeline and price in writing. No surprises halfway through."
+        "title": "You get the proposal",
+        "description": "Scope, timeline and price in writing before we start."
       },
       {
-        "title": "Design & build",
+        "title": "We design and build",
         "description": "We work in parallel, with deliverables you can see and comment on every week."
       },
       {
-        "title": "Launch",
-        "description": "We ship, measure and adjust. And we show you how to handle whatever you want to touch."
+        "title": "We ship it",
+        "description": "We publish, measure and adjust. And we show you how to handle whatever you want to change yourself."
       }
     ]
   },
@@ -76,16 +75,14 @@
       "roles": "Role",
       "stack": "Stack"
     },
-    "featuredTitle": "Some recent work"
+    "featuredTitle": "What we've been building"
   },
-  "studio": {
-    "title": "The studio",
-    "intro": "Two people and a simple method: few things at a time, done well.",
-    "body": ""
+  "team": {
+    "title": "Two of us, and you work with both"
   },
   "contact": {
     "title": "Let's work together",
-    "intro": "Tell us what you need and we'll get back to you within 48 business hours.",
+    "intro": "Tell us what you need to solve and by when.",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -93,7 +90,7 @@
       "message": "Tell us about the project",
       "submit": "Send message",
       "sending": "Sending…",
-      "success": "Thanks! We'll be in touch very soon.",
+      "success": "Thanks. We'll reply within 48 business hours.",
       "error": "We couldn't send your message. Please email us directly.",
       "validation": {
         "name": "Please enter your name.",
@@ -102,8 +99,8 @@
       }
     },
     "orEmail": "Or email us at",
-    "ctaIntro": "Tell us what you have in mind.",
-    "ctaButton": "Get in touch"
+    "ctaIntro": "Tell us what you need to solve. We reply within 48 business hours.",
+    "ctaButton": "Let's talk"
   },
   "signature": {
     "title": "Signature",

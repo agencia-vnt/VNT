@@ -4,7 +4,7 @@ import { getAllProjects } from "@/lib/projects";
 import { siteConfig } from "@/site.config";
 
 /** Rutas fijas del sitio, sin el prefijo de idioma. */
-const staticPaths = ["", "/proyectos", "/estudio", "/contacto"];
+const staticPaths = ["", "/proyectos", "/contacto"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
