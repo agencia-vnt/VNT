@@ -23,8 +23,11 @@ export default async function HomePage({
     <>
       <Intro label={dict.intro.scroll} />
       <Hero locale={locale} dict={dict} />
-      <Services dict={dict} />
+      {/* El trabajo antes que la lista de servicios: el estudio se vende por
+          lo que hizo, y "¿qué me podés hacer?" es una pregunta que aparece
+          después de "¿estos son buenos?". */}
       <FeaturedWork locale={locale} dict={dict} />
+      <Services dict={dict} />
       <Process dict={dict} />
       <Team locale={locale} />
       <ContactCta locale={locale} dict={dict} />

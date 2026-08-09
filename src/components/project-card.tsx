@@ -9,9 +9,24 @@ type ProjectCardProps = {
   locale: Locale;
   /** La primera card de la grilla carga la imagen con prioridad (mejora LCP). */
   priority?: boolean;
+  /**
+   * Ancho que va a ocupar la card en cada breakpoint, para que next/image
+   * sirva el archivo del tamaño justo.
+   *
+   * Va sin valor por defecto a propósito: la card no puede saber en qué
+   * grilla la metieron, y un default se queda viejo en silencio la primera
+   * vez que alguien cambia las columnas. La imagen se ve blanda y nadie se
+   * entera.
+   */
+  sizes: string;
 };
 
-export function ProjectCard({ project, locale, priority = false }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  locale,
+  priority = false,
+  sizes,
+}: ProjectCardProps) {
   const { slug, frontmatter } = project;
 
   return (
@@ -27,7 +42,7 @@ export function ProjectCard({ project, locale, priority = false }: ProjectCardPr
               alt={frontmatter.coverAlt ?? ""}
               fill
               priority={priority}
-              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              sizes={sizes}
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           ) : (

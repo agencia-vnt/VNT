@@ -5,6 +5,7 @@ import { Section, SectionHeading } from "@/components/ui/section";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { getFeaturedProjects } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 
 export async function FeaturedWork({
   locale,
@@ -14,6 +15,25 @@ export async function FeaturedWork({
   dict: Dictionary;
 }) {
   const projects = await getFeaturedProjects(locale);
+
+  /**
+   * La grilla se adapta a cuántos casos hay publicados. Con `draft` de por
+   * medio, en producción puede haber menos que en local: tres columnas con
+   * dos casos dejan un hueco a la derecha que se lee como un error de carga.
+   *
+   * El `sizes` viaja con las columnas. Si se queda en 33vw mientras la grilla
+   * muestra dos columnas, next/image sirve un archivo chico para un lugar
+   * grande y la portada se ve blanda.
+   */
+  const layout =
+    projects.length === 1
+      ? { columns: "max-w-[560px]", sizes: "(min-width: 592px) 560px, 100vw" }
+      : projects.length === 2
+        ? { columns: "md:grid-cols-2", sizes: "(min-width: 768px) 50vw, 100vw" }
+        : {
+            columns: "md:grid-cols-2 lg:grid-cols-3",
+            sizes: "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
+          };
 
   return (
     <Section id="proyectos">
@@ -40,10 +60,15 @@ export async function FeaturedWork({
           {dict.work.empty}
         </p>
       ) : (
-        <div className="mt-13 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className={cn("mt-13 grid gap-8", layout.columns)}>
           {projects.map((project, index) => (
             <Reveal key={project.slug} delay={index * 0.06} className="h-full">
-              <ProjectCard project={project} locale={locale} priority={index === 0} />
+              <ProjectCard
+                project={project}
+                locale={locale}
+                priority={index === 0}
+                sizes={layout.sizes}
+              />
             </Reveal>
           ))}
         </div>
