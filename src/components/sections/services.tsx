@@ -20,9 +20,6 @@ export function Services({ dict }: { dict: Dictionary }) {
             delay={index * 0.06}
             className="flex flex-col gap-3.5 border-t border-line pt-6.5"
           >
-            <span className="text-label uppercase text-muted">
-              {String(index + 1).padStart(2, "0")}
-            </span>
             <h3 className="text-h3">{item.title}</h3>
             <p className="text-body-s text-muted">{item.description}</p>
           </Reveal>
