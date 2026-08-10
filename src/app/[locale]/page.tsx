@@ -21,7 +21,7 @@ export default async function HomePage({
 
   return (
     <>
-      <Intro label={dict.intro.scroll} />
+      <Intro />
       <Hero locale={locale} dict={dict} />
       {/* El trabajo antes que la lista de servicios: el estudio se vende por
           lo que hizo, y "¿qué me podés hacer?" es una pregunta que aparece

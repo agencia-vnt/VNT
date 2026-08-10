@@ -99,6 +99,13 @@
     "ctaIntro": "Tell us what you need to solve. We start with a conversation.",
     "ctaButton": "Let's talk"
   },
+  "signature": {
+    "title": "Signature",
+    "intro": "The block we leave at the footer of the projects we build. Copy the relevant snippet and replace the client name in the ref parameter.",
+    "preview": "Preview",
+    "note": "The ref parameter tracks which project drives visits. Use the client slug, lowercase and without spaces.",
+    "credit": "Site by"
+  },
   "footer": {
     "rights": "All rights reserved.",
     "builtWith": "Built with Next.js"

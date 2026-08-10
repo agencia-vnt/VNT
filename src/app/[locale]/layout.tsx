@@ -105,7 +105,7 @@ export default async function LocaleLayout({
         <main id="contenido" className="flex-1">
           {children}
         </main>
-        <Footer dict={dict} />
+        <Footer locale={locale} dict={dict} />
 
         {/* Mide las visitas y, sobre todo, el ?ref= de las firmas que dejamos
             en los sitios de clientes: sin esto no hay forma de saber qué

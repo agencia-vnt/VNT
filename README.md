@@ -60,6 +60,7 @@ src/
     ui/                    Piezas base (Container, Button, Section, Reveal).
     layout/                Header, Footer, cambio de idioma.
     sections/              Bloques de la home.
+    signature.tsx          La firma que dejamos en los sitios de clientes.
     mdx.tsx                Estilos y componentes disponibles dentro de un .mdx.
   i18n/                    Idiomas y textos de interfaz.
   lib/projects.ts          Lectura y validación de los .mdx.
@@ -72,7 +73,7 @@ src/
 - **Textos de la interfaz** → `src/i18n/dictionaries/es.json` (y `en.json`)
 - **Proyectos del portfolio** → `content/projects/`, ver el
   [README de contenido](content/projects/README.md)
-- **Crédito para sitios de clientes** → `docs/signature.md`
+- **El snippet de la firma** → se ve renderizado en `/es/firma`
 
 ## Idiomas
 
@@ -90,11 +91,21 @@ Hoy `/` redirige a `/es` de forma fija (`next.config.ts`). Si algún día se
 quiere detectar el idioma del navegador, va en un `src/proxy.ts` — el
 reemplazo de `middleware.ts` en Next 16.
 
-## Créditos en sitios de clientes
+## La firma
 
-El procedimiento interno y los snippets viven en
-[`docs/signature.md`](docs/signature.md). No existe una pantalla pública para
-esta herramienta.
+Cada sitio que entregamos lleva un crédito al pie apuntando acá, con el cliente
+en el parámetro `ref`:
+
+```
+https://vntagencia.com/?ref=nombre-cliente
+```
+
+Los snippets listos para copiar están en `/es/firma`. Conviene usar siempre el
+mismo slug que la carpeta del caso en `content/projects/`.
+
+Para leer los `ref`: panel de Vercel → el proyecto → **Analytics**, filtrando por
+el parámetro `ref` en la lista de páginas. Requiere tener Web Analytics activado
+en el panel una sola vez; el `<Analytics />` del layout ya envía los eventos.
 
 ## Deploy
 

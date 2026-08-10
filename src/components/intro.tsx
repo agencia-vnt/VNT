@@ -13,7 +13,7 @@ const AUTO_ADVANCE_MS = 2800;
 /**
  * La entrada del sitio, según el prototipo del Figma: pantalla negra, el
  * logo aparece creciendo hasta ocupar el ancho de la pantalla, espera con el
- * cartel de "scroll", y al salir se achica y se desvanece mientras el hero
+ * indicador de flecha, y al salir se achica y se desvanece mientras el hero
  * entra por debajo.
  *
  * Quién decide si se ve es el script de `layout.tsx`, que corre antes del
@@ -25,7 +25,7 @@ const AUTO_ADVANCE_MS = 2800;
  * El resto de la coreografía vive en `globals.css`, colgada de ese atributo:
  * el contenido del hero espera oculto y los glows arrancan achicados.
  */
-export function Intro({ label }: { label: string }) {
+export function Intro() {
   // `null` = todavía no sabemos (primer render, igual que en el server).
   const [playing, setPlaying] = useState<boolean | null>(null);
 
@@ -95,13 +95,12 @@ export function Intro({ label }: { label: string }) {
           </motion.div>
 
           <motion.div
-            className="absolute bottom-[8vh] flex flex-col items-center gap-2.5"
+            className="absolute bottom-[8vh] flex items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            <span className="text-label uppercase text-muted">{label}</span>
             <motion.span
               className="text-h3 text-lima"
               animate={{ y: [0, 6, 0] }}
