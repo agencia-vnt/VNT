@@ -14,7 +14,7 @@
   },
   "hero": {
     "title": "Diseñamos y construimos la solución para tu negocio.",
-    "subtitle": "Sistemas, sitios y herramientas a medida. Trabajás directo con quien diseña y con quien programa.",
+    "subtitle": "Sistemas, sitios y herramientas a medida.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Hablemos"
   },
@@ -74,8 +74,7 @@
       "year": "Año",
       "roles": "Rol",
       "stack": "Stack"
-    },
-    "featuredTitle": "Lo último que hicimos"
+    }
   },
   "contact": {
     "title": "Trabajemos juntos",

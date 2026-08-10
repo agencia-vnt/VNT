@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/ui/reveal";
-import { Section, SectionHeading } from "@/components/ui/section";
+import { Section } from "@/components/ui/section";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { getFeaturedProjects } from "@/lib/projects";
@@ -37,23 +37,20 @@ export async function FeaturedWork({
 
   return (
     <Section id="proyectos">
-      <SectionHeading
-        title={dict.work.featuredTitle}
-        action={
-          <Link
-            href={`/${locale}/proyectos`}
-            className="group inline-flex shrink-0 items-center gap-2 text-body-s text-blanco transition-colors hover:text-lima"
+      <div className="flex justify-end">
+        <Link
+          href={`/${locale}/proyectos`}
+          className="group inline-flex shrink-0 items-center gap-2 text-body-s text-blanco transition-colors hover:text-lima"
+        >
+          {dict.work.viewAll}
+          <span
+            aria-hidden="true"
+            className="text-lima transition-transform group-hover:translate-x-1"
           >
-            {dict.work.viewAll}
-            <span
-              aria-hidden="true"
-              className="text-lima transition-transform group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
-        }
-      />
+            →
+          </span>
+        </Link>
+      </div>
 
       {projects.length === 0 ? (
         <p className="mt-13 rounded-2xl border border-dashed border-line p-8 text-body-s text-muted">

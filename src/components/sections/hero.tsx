@@ -40,7 +40,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <Isotipo className="absolute bottom-[-32%] left-[22%] w-[160%] text-violeta opacity-30 md:bottom-[-49.7%] md:left-[19%] md:h-[200%] md:w-auto md:max-w-none" />
       </div>
 
-      <Container className="flex min-h-[70svh] flex-col justify-center py-20 md:min-h-[calc(100svh-5rem)] md:pb-[140px] md:pt-[130px]">
+      <Container className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-20 md:min-h-[calc(100svh-5rem)] md:pb-[140px] md:pt-[130px]">
         <div data-intro-target="">
           <h1 className="max-w-[900px] text-display text-balance">{dict.hero.title}</h1>
 

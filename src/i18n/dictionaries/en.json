@@ -14,7 +14,7 @@
   },
   "hero": {
     "title": "We design and build the solution your business needs.",
-    "subtitle": "Systems, sites and tools made to measure. You work directly with the designer and the developer.",
+    "subtitle": "Systems, sites and tools made to measure.",
     "ctaPrimary": "See our work",
     "ctaSecondary": "Let's talk"
   },
@@ -74,8 +74,7 @@
       "year": "Year",
       "roles": "Role",
       "stack": "Stack"
-    },
-    "featuredTitle": "What we've been building"
+    }
   },
   "contact": {
     "title": "Let's work together",
