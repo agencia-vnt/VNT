@@ -1,16 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { siteConfig } from "@/site.config";
 
 type FooterProps = {
-  locale: Locale;
   dict: Dictionary;
 };
 
-export function Footer({ locale, dict }: FooterProps) {
+export function Footer({ dict }: FooterProps) {
   const year = new Date().getFullYear();
 
   const social = Object.entries(siteConfig.social).filter(([, href]) => href);
@@ -50,13 +47,7 @@ export function Footer({ locale, dict }: FooterProps) {
           </nav>
 
           <p className="text-label uppercase text-muted">
-            © {year} {siteConfig.legalName}. {dict.footer.rights}{" "}
-            <Link
-              href={`/${locale}/firma`}
-              className="underline underline-offset-2 transition-colors hover:text-blanco"
-            >
-              {dict.signature.title}
-            </Link>
+            © {year} {siteConfig.legalName}. {dict.footer.rights}
           </p>
         </div>
       </Container>
