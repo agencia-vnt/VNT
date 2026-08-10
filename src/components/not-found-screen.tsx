@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { defaultLocale, isLocale, localeMap, type Locale } from "@/i18n/config";
+import { defaultLocale, isLocale, type Locale, localeMap } from "@/i18n/config";
 import enDictionary from "@/i18n/dictionaries/en.json";
 import esDictionary from "@/i18n/dictionaries/es.json";
 import { siteConfig } from "@/site.config";
@@ -66,7 +66,9 @@ function NotFoundContent({ locale }: { locale: Locale }) {
             404
           </p>
 
-          <h1 className="mt-6 max-w-[620px] text-h2 text-balance">{dict.notFound.title}</h1>
+          <h1 className="mt-6 max-w-[620px] text-h2 text-balance">
+            {dict.notFound.title}
+          </h1>
           <p className="mt-5 max-w-[560px] text-body text-muted">
             {dict.notFound.description}
           </p>
