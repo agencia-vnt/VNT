@@ -103,8 +103,10 @@
     "builtWith": "Hecho en Next.js"
   },
   "notFound": {
-    "title": "Página no encontrada",
-    "description": "El link que seguiste no existe o cambió de lugar.",
-    "cta": "Ir al inicio"
+    "eyebrow": "Error 404",
+    "title": "No encontramos esa página",
+    "description": "El link que seguiste no existe o cambió de lugar. Podés volver al inicio o seguir por nuestros proyectos.",
+    "cta": "Ir al inicio",
+    "workCta": "Ver proyectos"
   }
 }

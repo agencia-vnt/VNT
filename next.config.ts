@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   // No anunciar la tecnología en los headers de respuesta.
   poweredByHeader: false,
 
+  // El layout raíz vive bajo [locale]. Esta convención permite que las URLs
+  // que no coinciden con ninguna ruta usen nuestra 404 en vez de la genérica.
+  experimental: {
+    globalNotFound: true,
+  },
+
   async redirects() {
     return [
       {

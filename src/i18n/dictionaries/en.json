@@ -103,8 +103,10 @@
     "builtWith": "Built with Next.js"
   },
   "notFound": {
-    "title": "Page not found",
-    "description": "The link you followed doesn't exist or has moved.",
-    "cta": "Go home"
+    "eyebrow": "Error 404",
+    "title": "We couldn't find that page",
+    "description": "The link you followed doesn't exist or has moved. You can go home or keep exploring our work.",
+    "cta": "Go home",
+    "workCta": "See our work"
   }
 }

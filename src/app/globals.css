@@ -47,6 +47,11 @@
   --text-display--line-height: 1.04;
   --text-display--letter-spacing: -0.02em;
 
+  /* Número protagonista de la pantalla 404. */
+  --text-error: clamp(6.5rem, 16vw, 13rem);
+  --text-error--line-height: 0.78;
+  --text-error--letter-spacing: -0.055em;
+
   --text-h2: clamp(1.75rem, 3.2vw, 2.625rem); /* 28 → 42 */
   --text-h2--line-height: 1.08;
   --text-h2--letter-spacing: -0.015em;
