@@ -8,8 +8,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 
 /**
  * Las posiciones del pico y de los glows salen del frame de 1440×624 del
- * Figma, pasadas a porcentajes para que acompañen al viewport en vez de
- * quedar clavadas en píxeles de escritorio.
+ * Figma. En escritorio la capa decorativa ocupa siempre el viewport menos el
+ * header para que no cambie de tamaño cuando el contenido varía entre idiomas.
  *
  * Los `data-intro-*` los lee la animación de entrada (ver `<Intro />`): con
  * la intro en curso el contenido arranca oculto y los glows achicados, y
@@ -18,7 +18,11 @@ import type { Dictionary } from "@/i18n/dictionaries";
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <section className="relative isolate overflow-hidden bg-ink">
-      <div aria-hidden="true" className="absolute inset-0 -z-10" data-intro-glow="">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 md:bottom-auto md:h-[calc(100svh-5rem)]"
+        data-intro-glow=""
+      >
         <Glow className="left-[-20%] top-[-30%] h-[60%] w-[80%] opacity-55 md:left-[-8%] md:top-[-50%] md:h-[71%] md:w-[48%]" />
         <Glow className="left-[50%] top-[10%] h-[70%] w-[80%] opacity-55 md:left-[73%] md:top-[-42%] md:h-[96%] md:w-[53%]" />
         <Glow className="left-[25%] top-[88%] h-[54%] w-[60%] opacity-55 md:w-[33%]" />
@@ -30,13 +34,13 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             correrlo bastante más allá del borde para que la diagonal salga del
             cuadro en vez de cortarse en plano.
 
-            De `md` para arriba se mide por ALTO y no por ancho: el hero tiene
-            alto fijo, así que un pico proporcional al ancho quedaba achatado
-            sobre el título en tablet. */}
-        <Isotipo className="absolute bottom-[-32%] left-[22%] w-[160%] text-violeta opacity-30 md:bottom-auto md:left-[19%] md:top-[-57%] md:h-[200%] md:w-auto md:max-w-none" />
+            De `md` para arriba se mide por ALTO y no por ancho. El offset
+            inferior compensa el aire del viewBox para que la geometría
+            visible termine exactamente en el borde del viewport. */}
+        <Isotipo className="absolute bottom-[-32%] left-[22%] w-[160%] text-violeta opacity-30 md:bottom-[-49.7%] md:left-[19%] md:h-[200%] md:w-auto md:max-w-none" />
       </div>
 
-      <Container className="flex min-h-[70svh] flex-col justify-center py-20 md:min-h-[624px] md:pb-[140px] md:pt-[130px]">
+      <Container className="flex min-h-[70svh] flex-col justify-center py-20 md:min-h-[calc(100svh-5rem)] md:pb-[140px] md:pt-[130px]">
         <div data-intro-target="">
           <h1 className="max-w-[900px] text-display text-balance">{dict.hero.title}</h1>
 
