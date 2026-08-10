@@ -99,13 +99,6 @@
     "ctaIntro": "Contanos qué necesitás resolver. Empezamos por una charla.",
     "ctaButton": "Hablemos"
   },
-  "signature": {
-    "title": "Firma",
-    "intro": "El bloque que dejamos al pie de los proyectos que hacemos. Copiá el snippet que corresponda y reemplazá el nombre del cliente en el parámetro ref.",
-    "preview": "Vista previa",
-    "note": "El parámetro ref sirve para medir qué proyecto trae visitas. Usá el slug del cliente, en minúsculas y sin espacios.",
-    "credit": "Sitio por"
-  },
   "footer": {
     "rights": "Todos los derechos reservados.",
     "builtWith": "Hecho en Next.js"

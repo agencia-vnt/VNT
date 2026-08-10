@@ -6,8 +6,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // Las páginas de firma son internas: no aportan nada en buscadores.
-      disallow: ["/*/firma"],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };
