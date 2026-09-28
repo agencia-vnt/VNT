@@ -14,52 +14,50 @@ export function Footer({ dict }: FooterProps) {
 
   return (
     <footer className="border-t border-line bg-ink">
-      <Container className="flex flex-col gap-8 py-13 md:flex-row md:items-end md:justify-between">
-        <div className="flex flex-col items-start gap-4">
-          <nav aria-label="Social" className="flex flex-wrap gap-6">
-            {social.map(([name, href]) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-body-s capitalize text-muted transition-colors hover:text-blanco"
-              >
-                {name}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="text-body-s text-muted transition-colors hover:text-blanco"
-          >
-            {siteConfig.email}
-          </a>
-        </div>
-
-        <div className="flex flex-col gap-4 md:items-end">
-          <p className="text-label uppercase text-muted">
-            © {year} {siteConfig.legalName}. {dict.footer.rights}
-          </p>
-          <a
-            href={siteConfig.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={dict.footer.signatureLabel}
-            className="group inline-flex min-h-11 w-fit items-center gap-3 text-muted transition-colors hover:text-blanco focus-visible:text-blanco"
-          >
-            <span lang="en" className="text-signature font-medium">
-              {dict.footer.createdBy}
-            </span>
-            <Image
-              src="/brand/logo-signature-white.svg"
-              alt=""
-              width={2150}
-              height={589}
-              className="h-7 w-auto opacity-80 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
-            />
-          </a>
-        </div>
+      <Container className="grid items-center gap-x-8 gap-y-4 py-13 md:grid-cols-2">
+        <nav
+          aria-label="Social"
+          className="flex flex-wrap gap-6 md:col-start-1 md:row-start-1"
+        >
+          {social.map(([name, href]) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center text-body-s capitalize text-muted transition-colors hover:text-blanco"
+            >
+              {name}
+            </a>
+          ))}
+        </nav>
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="inline-flex min-h-11 w-fit items-center text-body-s text-muted transition-colors hover:text-blanco md:col-start-1 md:row-start-2"
+        >
+          {siteConfig.email}
+        </a>
+        <p className="mt-4 text-label uppercase text-muted md:col-start-2 md:row-start-1 md:mt-0 md:justify-self-end md:text-right">
+          © {year} {siteConfig.legalName}. {dict.footer.rights}
+        </p>
+        <a
+          href={siteConfig.social.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={dict.footer.signatureLabel}
+          className="group inline-flex min-h-11 w-fit items-center gap-3 text-muted transition-colors hover:text-blanco focus-visible:text-blanco md:col-start-2 md:row-start-2 md:justify-self-end"
+        >
+          <span lang="en" className="text-signature font-medium">
+            {dict.footer.createdBy}
+          </span>
+          <Image
+            src="/brand/logo-signature-white.svg"
+            alt=""
+            width={2150}
+            height={589}
+            className="h-7 w-auto opacity-80 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+          />
+        </a>
       </Container>
     </footer>
   );
