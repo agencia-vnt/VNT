@@ -74,6 +74,11 @@
   --text-label--line-height: 1.4;
   --text-label--letter-spacing: 0.077em;
 
+  /* Texto que acompaña al logo en la firma del estudio. */
+  --text-signature: 0.6875rem; /* 11 */
+  --text-signature--line-height: 1.4;
+  --text-signature--letter-spacing: 0.06em;
+
   /* Ritmo vertical de las secciones */
   --spacing-section: 6.875rem; /* 110 */
 }

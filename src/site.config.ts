@@ -34,7 +34,7 @@ export const siteConfig = {
    * esconde, que es mejor que publicar un link a la home de la red.
    */
   social: {
-    instagram: "https://instagram.com/vnt.agencia",
+    instagram: "https://www.instagram.com/vnt.agencia/",
     github: "",
   },
 

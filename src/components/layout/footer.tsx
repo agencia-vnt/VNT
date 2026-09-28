@@ -49,6 +49,24 @@ export function Footer({ dict }: FooterProps) {
           <p className="text-label uppercase text-muted">
             © {year} {siteConfig.legalName}. {dict.footer.rights}
           </p>
+          <a
+            href={siteConfig.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={dict.footer.signatureLabel}
+            className="group inline-flex min-h-11 w-fit items-center gap-3 text-muted transition-colors hover:text-blanco focus-visible:text-blanco"
+          >
+            <span lang="en" className="text-signature font-medium">
+              {dict.footer.createdBy}
+            </span>
+            <Image
+              src="/brand/logo-signature-white.svg"
+              alt=""
+              width={2150}
+              height={589}
+              className="h-7 w-auto opacity-80 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+            />
+          </a>
         </div>
       </Container>
     </footer>
