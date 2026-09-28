@@ -14,7 +14,7 @@ export function Footer({ dict }: FooterProps) {
 
   return (
     <footer className="border-t border-line bg-ink">
-      <Container className="grid items-center gap-x-8 gap-y-2 py-13 md:grid-cols-2">
+      <Container className="grid items-center gap-x-8 gap-y-2 py-10 md:grid-cols-2">
         <nav
           aria-label="Social"
           className="flex flex-wrap gap-6 md:col-start-1 md:row-start-1"
