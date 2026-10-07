@@ -16,7 +16,7 @@ export const siteConfig = {
    *
    * Se resuelve en BUILD, no en runtime. Cambiar el dominio en el panel de
    * Vercel no alcanza: hace falta un deploy nuevo para que se actualicen los
-   * canonical, el sitemap y el link de las firmas.
+   * canonical y el sitemap.
    *
    * El fallback a VERCEL_PROJECT_PRODUCTION_URL hace que los previews
    * resuelvan a su propia URL en vez de a producción.

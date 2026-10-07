@@ -33,7 +33,7 @@ export function Footer({ dict }: FooterProps) {
         </nav>
         <a
           href={`mailto:${siteConfig.email}`}
-          className="inline-flex min-h-11 w-fit items-center text-body-s text-muted transition-colors hover:text-blanco md:col-start-1 md:row-start-2"
+          className="inline-flex min-h-11 w-fit max-w-full items-center text-body-s text-muted transition-colors [overflow-wrap:anywhere] hover:text-blanco md:col-start-1 md:row-start-2"
         >
           {siteConfig.email}
         </a>

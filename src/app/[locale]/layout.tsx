@@ -107,10 +107,9 @@ export default async function LocaleLayout({
         </main>
         <Footer dict={dict} />
 
-        {/* Mide las visitas y, sobre todo, el ?ref= de las firmas que dejamos
-            en los sitios de clientes: sin esto no hay forma de saber qué
-            proyecto trae trabajo. Hay que activarlo además en el panel de
-            Vercel (Analytics → Enable). */}
+        {/* Mide las visitas al sitio de VNT. Las firmas actuales enlazan a
+            Instagram y no aportan atribución por ?ref=. Hay que activarlo
+            además en el panel de Vercel (Analytics → Enable). */}
         <Analytics />
       </body>
     </html>

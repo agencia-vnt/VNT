@@ -108,9 +108,10 @@ mejor forma de mostrarle avances a un cliente.
 
 Pendiente de configurar en el panel:
 
-- `NEXT_PUBLIC_SITE_URL=https://vntagencia.com`. Sin esto, los canonical, el
-  sitemap y el link de las firmas quedan apuntando al dominio `*.vercel.app`.
+- `NEXT_PUBLIC_SITE_URL=https://vntagencia.com`. Sin esto, los canonical y el
+  sitemap quedan apuntando al dominio `*.vercel.app`.
 - `vntagencia.com` como **Primary Domain**, con `www` redirigiendo a él.
-- Web Analytics (sin eso el `?ref=` de las firmas no se mide)
+- Web Analytics, para medir visitas al sitio de VNT. Las firmas actuales abren
+  Instagram directamente; no usan `?ref=` ni atribución en este sitio.
 - El resto de las variables de `.env.example`, en Settings → Environment
   Variables
