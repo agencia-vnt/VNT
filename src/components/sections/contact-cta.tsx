@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { Glow } from "@/components/ui/glow";
 import { Isotipo } from "@/components/ui/isotipo";
+import { PointerGlow } from "@/components/ui/pointer-glow";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { siteConfig } from "@/site.config";
@@ -11,7 +11,7 @@ export function ContactCta({ locale, dict }: { locale: Locale; dict: Dictionary 
   return (
     <section className="relative isolate overflow-hidden border-t border-line bg-ink">
       <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <Glow className="left-[55%] top-[-20%] h-[90%] w-[75%] opacity-40 md:left-[75%] md:top-[-28%] md:h-[113%] md:w-[50%]" />
+        <PointerGlow className="left-[55%] top-[-20%] h-[90%] w-[75%] opacity-40 md:left-[75%] md:top-[-28%] md:h-[113%] md:w-[50%]" />
         {/* En pantalla angosta el pico sube al aire que queda arriba del
             título: al costado del texto chocaba, y abajo se cortaba contra
             el borde de la sección. */}
