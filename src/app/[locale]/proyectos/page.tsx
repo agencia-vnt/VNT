@@ -5,6 +5,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/lib/metadata";
 import { getAllProjects } from "@/lib/projects";
 
 type PageParams = { params: Promise<{ locale: string }> };
@@ -14,11 +15,13 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   if (!isLocale(locale)) notFound();
 
   const dict = await getDictionary(locale);
-  return {
+  return pageMetadata({
+    locale,
+    path: "/proyectos",
     title: dict.work.title,
     description: dict.work.intro,
-    alternates: { canonical: `/${locale}/proyectos` },
-  };
+    imageAlt: dict.meta.ogAlt,
+  });
 }
 
 export default async function ProjectsPage({ params }: PageParams) {
@@ -30,7 +33,7 @@ export default async function ProjectsPage({ params }: PageParams) {
 
   return (
     <Section>
-      <SectionHeading title={dict.work.title} intro={dict.work.intro} />
+      <SectionHeading as="h1" title={dict.work.title} intro={dict.work.intro} />
 
       {projects.length === 0 ? (
         <p className="mt-10 rounded-lg border border-dashed border-line p-8 text-sm text-muted">

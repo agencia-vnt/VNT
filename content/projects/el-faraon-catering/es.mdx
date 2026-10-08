@@ -21,13 +21,7 @@ order: 1
 draft: false
 ---
 
-{/* Publicado sin esperar a todo. Lo que falta sumarle, cuando esté:
-    - La cita del cliente (ver el <Quote /> comentado al final).
-    - Las capturas del panel /admin/.
-    - Si se decide mostrarla, la sección "Quiénes somos" de la landing: se dejó
-      afuera porque incluye la foto de la familia del cliente.
-    - Si El Faraón compra dominio propio, actualizar `url` acá y el ?ref= de la
-      firma que se instale en el sitio. */}
+{/* Pendientes editoriales: testimonio aprobado del cliente y resultados medidos. */}
 
 ## El problema
 
@@ -76,11 +70,10 @@ puntos pasaron a ser elemento del sistema gráfico —separadores, viñetas,
 patrón—, que es la función para la que sí sirven. La preferencia de la familia
 se respetó; el sistema quedó en pie.
 
-**El naranja no pasa contraste.** Medido sobre fondo claro da 2,77:1, por debajo
-del mínimo AA. En vez de retocar el color de la marca, definimos la regla: el
-naranja se usa como relleno o sobre negro, donde da 6,76:1, y el texto va en
-negro sobre claro o en blanco sobre oscuro. Toda la interfaz del menú y de la
-landing salen de esa regla, y por eso el menú es oscuro.
+**El naranja tiene un rol definido.** En vez de retocar el color de la marca,
+definimos combinaciones para sus distintos usos: naranja como relleno o sobre
+negro; texto negro sobre claro o blanco sobre oscuro. La interfaz del menú y
+de la landing siguen esa regla, y por eso el menú público es oscuro.
 
 ### El menú
 
@@ -92,7 +85,7 @@ día en el celular, sin instalar nada.
   width={780}
   height={1688}
   alt="El menú del día abierto en un celular, con los platos, sus precios y los filtros por categoría"
-  caption="El menú operativo. La página completa carga en menos de un segundo."
+  caption="El menú operativo: platos, precios y categorías en una página para consultar desde el celular."
 />
 
 La decisión técnica de fondo fue separar lo que cambia de lo que no. La
@@ -108,17 +101,27 @@ las 12:30.
 ### El panel
 
 El objetivo era que la empresa no dependa de nosotros para operar. Los empleados
-entran a un panel propio desde el celular y editan disponibilidad, menú del día,
-parrilla, precios y contenido del menú fijo. Publicar dispara el redeploy solo;
-las credenciales de servicio nunca llegan al navegador.
+entran a un panel propio desde el celular. Desde ahí pueden ocultar o volver a
+mostrar platos por local, elegir el servicio activo y editar las opciones
+regular y vegetariana del día con sus precios. La disponibilidad se aplica sin
+reconstruir el contenido fijo; los cambios del menú se publican desde el panel.
 
-{/* <Figure
-      src="/projects/el-faraon-catering/admin.webp"
-      width={780}
-      height={1688}
-      alt="Panel de administración para actualizar la disponibilidad y el menú del día"
-      caption="El panel desde el que la empresa edita el menú del día."
-    /> */}
+<Grid>
+  <Figure
+    src="/projects/el-faraon-catering/admin-disponibilidad-mobile.webp"
+    width={359}
+    height={999}
+    alt="Panel de disponibilidad en celular, con selección de local y botones para mostrar u ocultar platos"
+    caption="Disponibilidad por local: mostrar u ocultar un plato desde el teléfono."
+  />
+  <Figure
+    src="/projects/el-faraon-catering/admin-menu-mobile.webp"
+    width={359}
+    height={1521}
+    alt="Panel del menú del día en celular, con campos para las opciones regular y vegetariana y sus precios"
+    caption="Edición de las opciones del día y sus precios, sin tocar código."
+  />
+</Grid>
 
 ## El resultado
 
@@ -127,14 +130,7 @@ institucional, el menú de cada local y el panel funcionan sobre la misma
 identidad, que ahora está documentada en un manual y no en la memoria de quien
 diseñó la última pieza.
 
-Todavía no tenemos números. Lo que vamos a medir en los
-próximos meses: escaneos de QR por comedor y por día, cuántas veces por semana
+Todavía no tenemos números. El próximo paso es medir escaneos de QR por
+comedor y por día, cuántas veces por semana
 el equipo usa el panel sin pedirnos ayuda, y si bajan las consultas al mostrador
 sobre qué hay para comer.
-
-{/* Pedirle la cita a la familia y descomentar. Sirve más una frase concreta
-    ("ahora lo cambio yo desde el teléfono") que un elogio general.
-
-<Quote author="Nombre Apellido, El Faraón Catering">
-  La cita va acá.
-</Quote> */}

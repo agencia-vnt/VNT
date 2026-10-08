@@ -6,13 +6,18 @@ Cada proyecto es **una carpeta** con un archivo `.mdx` por idioma:
 content/projects/
   panaderia-lume/
     es.mdx        ← obligatorio
-    en.mdx        ← opcional: si no está, se muestra el español
+    en.mdx        ← traducción para la experiencia en inglés
 ```
 
 El nombre de la carpeta es el slug de la URL:
 `panaderia-lume` → `/es/proyectos/panaderia-lume`.
 
 Usá minúsculas, sin acentos y con guiones.
+
+Los casos publicados deben mantenerse completos en español e inglés. El código
+conserva el fallback a español si falta una traducción, pero no lo usamos como
+criterio de cierre editorial. Traducí también título, resumen, roles, textos
+alternativos y epígrafes; el nombre del cliente y el stack se conservan.
 
 ## Frontmatter
 
@@ -46,14 +51,29 @@ Van en `public/projects/<slug>/`. En el MDX se referencian desde la raíz:
 
 Componentes disponibles dentro del `.mdx`, sin importar nada:
 
-- `<Figure src width height alt caption />` — imagen optimizada
+- `<Figure src width height alt caption narrow />` — imagen optimizada; `narrow`
+  es opcional y limita el ancho de una captura vertical
 - `<Grid>` — dos imágenes lado a lado
 - `<Quote author="...">` — cita destacada del cliente
+
+Usá las dimensiones reales del archivo para `width` y `height`. Las capturas
+pueden compartirse entre idiomas: si la interfaz del cliente está en español,
+aclaralo en el epígrafe de la versión inglesa. Revisá que no tengan datos
+personales, credenciales ni contenido privado antes de incorporarlas.
+
+Los resultados numéricos, tiempos de carga y afirmaciones de accesibilidad
+requieren evidencia con fecha y alcance de la medición. Si aún no hay datos,
+describí lo implementado y los próximos indicadores a medir sin presentar
+objetivos como resultados. Publicá testimonios sólo con aprobación del cliente;
+los pendientes editoriales pueden anotarse en un comentario MDX, sin citas de
+ejemplo visibles.
 
 ## Flujo para agregar un proyecto
 
 1. Copiar la carpeta `ejemplo/` y renombrarla con el slug del cliente.
-2. Completar el frontmatter y escribir el caso.
-3. Poner las imágenes en `public/projects/<slug>/`.
-4. Sacar `draft: true`.
-5. Commit y push: Vercel lo publica solo.
+2. Completar el frontmatter y escribir el caso en español e inglés.
+3. Poner las imágenes en `public/projects/<slug>/` y verificar sus dimensiones.
+4. Revisar ambas versiones, enlaces y capturas; sacar `draft: true` cuando estén
+   listas para publicar.
+5. Ejecutar lint, typecheck y build, y revisar las páginas en ambos idiomas.
+6. Con publicación autorizada, commit y push: Vercel lo publica solo.

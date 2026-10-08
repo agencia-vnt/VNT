@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "VNT — Custom design and development",
-    "description": "A design and development studio. We design and build the solution your business needs, from the need to the working system.",
+    "description": "Brand identity and websites. Custom systems and tools. Design, development and launch for your business with the same team.",
     "ogAlt": "VNT — Custom design and development"
   },
   "nav": {
@@ -14,7 +14,7 @@
   },
   "hero": {
     "title": "We design and build the solution your business needs.",
-    "subtitle": "Systems, sites and tools made to measure.",
+    "subtitle": "Brand identity and websites. Custom systems and tools.",
     "ctaPrimary": "See our work",
     "ctaSecondary": "Let's talk"
   },
@@ -23,12 +23,12 @@
     "intro": "From the need to the working solution. Design, build and launch with the same team from start to finish.",
     "items": [
       {
-        "title": "Brand & design",
-        "description": "Visual identity, design system and interface. Clickable prototypes so you can see and decide before we build."
+        "title": "Brand identity and websites",
+        "description": "Visual identity and websites that present your business. Design and clickable prototypes so you can see and decide before we build."
       },
       {
-        "title": "Custom development",
-        "description": "Sites, admin panels and internal tools. Fast, accessible and easy to maintain."
+        "title": "Systems and tools",
+        "description": "Custom admin panels and internal tools. We start with how your team works and what it needs to solve."
       },
       {
         "title": "Getting it live",
@@ -88,10 +88,13 @@
       "sending": "Sending…",
       "success": "Thanks, we got it. We'll write back to that address.",
       "error": "We couldn't send your message. Please email us directly.",
+      "honeypot": "Leave this field empty",
       "validation": {
-        "name": "Please enter your name.",
+        "name": "Enter your name (up to 200 characters).",
         "email": "We need a valid email to reply.",
-        "message": "Tell us a bit about the project (10 characters minimum)."
+        "company": "Company names can have up to 200 characters.",
+        "message": "Tell us about the project (between 10 and 5000 characters).",
+        "summary": "Review the highlighted fields before sending."
       }
     },
     "orEmail": "Or email us at",

@@ -165,6 +165,14 @@
       scroll-behavior: auto;
     }
 
+    /* El HTML inicial de Motion puede conservar opacity: 0 al hidratar. */
+    [data-reveal] {
+      /* biome-ignore-start lint/complexity/noImportantStyles: la preferencia debe superar el estilo inline de Motion */
+      opacity: 1 !important;
+      transform: none !important;
+      /* biome-ignore-end lint/complexity/noImportantStyles: la preferencia debe superar el estilo inline de Motion */
+    }
+
     /* Acá el !important es correcto: una preferencia de accesibilidad del
        sistema operativo tiene que poder ganarle a cualquier animación que
        agreguemos después, sin importar su especificidad. */

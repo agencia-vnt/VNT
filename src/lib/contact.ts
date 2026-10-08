@@ -7,12 +7,14 @@
  * juntos evita que alguien vuelva a mover la constante de vuelta.
  */
 
-export type ContactField = "name" | "email" | "message";
+export type ContactField = "name" | "email" | "company" | "message";
 
 export type ContactState = {
   status: "idle" | "success" | "error";
   /** Qué campos rebotaron. El texto del error lo pone el diccionario. */
   fieldErrors?: Partial<Record<ContactField, true>>;
+  /** Valores acotados para reponer el formulario cuando React lo reinicia. */
+  fieldValues?: Partial<Record<ContactField, string>>;
 };
 
 export const initialContactState: ContactState = { status: "idle" };

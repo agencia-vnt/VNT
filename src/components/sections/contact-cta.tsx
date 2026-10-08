@@ -24,13 +24,18 @@ export function ContactCta({ locale, dict }: { locale: Locale; dict: Dictionary 
         <p className="mt-5 max-w-[451px] text-body text-muted">{dict.contact.ctaIntro}</p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
-          <Link href={`/${locale}/contacto`} className={buttonStyles("primary")}>
+          <Link
+            href={`/${locale}/contacto`}
+            data-contact-source="contact-cta"
+            className={buttonStyles("primary")}
+          >
             {dict.contact.ctaButton}
           </Link>
-          <p className="text-body-s text-muted">
+          <p className="min-w-0 text-body-s text-muted [overflow-wrap:anywhere]">
             {dict.contact.orEmail}{" "}
             <a
               href={`mailto:${siteConfig.email}`}
+              data-contact-source="contact-cta"
               className="text-blanco underline underline-offset-4 transition-colors hover:text-lima"
             >
               {siteConfig.email}

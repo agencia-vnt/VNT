@@ -22,22 +22,7 @@ order: 2
 draft: false
 ---
 
-{/* Publicado sin esperar a todo. Lo que falta sumarle, cuando esté:
-    - La cita de Facundo (ver el <Quote /> comentado al final).
-    - Números, cuando haya con qué medir.
-
-    - La captura de la sección de cobertura (ver el <Figure /> comentado más
-      abajo).
-
-    La sección del mapa está escrita contra el commit 4073e27 del repo del
-    cliente, del 9 de agosto de 2026: MapLibre, límites de Buenos Aires Data,
-    carga diferida por IntersectionObserver y diez barrios. Ese día la sección
-    se rehízo tres veces, así que conviene chequearla antes de dar por buena
-    cualquier afirmación técnica de acá.
-
-    En el repo del cliente siguen pendientes dos cosas: la copia vieja de src/
-    en la raíz, y el README, que declara Leaflet en el stack cuando el proyecto
-    ya migró a MapLibre. */}
+{/* Pendientes editoriales: testimonio aprobado de Facundo y resultados medidos. */}
 
 ## El problema
 
@@ -55,16 +40,16 @@ durante años, que es el miedo. Era una posición vacante.
 ### La marca
 
 Cerramos el sistema completo alrededor del logo: paleta con rampas y neutros
-fríos, tipografía, elementos gráficos, tono de voz y reglas de uso. Todos los
-pares de color están verificados contra WCAG AA, así que la paleta se puede
-implementar tal cual, sin romper accesibilidad en el camino.
+fríos, tipografía, elementos gráficos, tono de voz y reglas de uso. La paleta
+define qué función cumple cada color y cómo combinarlo en las piezas de la
+marca.
 
 <Figure
   src="/projects/akdemia-autoescuela/paleta.webp"
   width={1600}
   height={360}
   alt="Los seis colores del sistema de AKDemia con sus valores hexadecimales"
-  caption="Los seis roles de la paleta. Cada uno con su contraste medido y su uso definido."
+  caption="Los seis roles de la paleta, con su uso definido dentro del sistema."
 />
 
 La decisión que ordenó todo lo demás fue de lenguaje. El posicionamiento pasó a
@@ -86,40 +71,39 @@ WhatsApp, que es donde esa conversación pasa de verdad.
   width={780}
   height={1688}
   alt="La landing de AKDemia vista en un celular"
-  caption="Mobile primero: casi todo el tráfico de una autoescuela de barrio llega desde el teléfono."
+  caption="La landing en celular, con la propuesta y el acceso a la consulta."
 />
 
-Lleva datos estructurados de `LocalBusiness` y `FAQPage`, que es lo que hace
-que una búsqueda como “autoescuela en Villa Urquiza” pueda mostrar horarios,
-zona y preguntas frecuentes en el resultado.
+Incluimos datos estructurados de `LocalBusiness` y `FAQPage` para describir el
+negocio y las preguntas frecuentes a los buscadores.
 
 ### El mapa
 
 La primera pregunta de cualquiera que busca autoescuela es si van a su barrio.
 
-Los diez barrios están escritos como texto, que es lo que lee un lector de
-pantalla y lo que indexa un buscador. Al lado va el mapa, con los límites de
-cada barrio tomados del dataset público de Buenos Aires Data, así que la zona
-que se dibuja es la que figura en el registro oficial.
+Los diez barrios están escritos como texto además de estar señalados en el
+mapa. La lista permite consultar la zona sin depender del mapa; el botón de
+WhatsApp da un paso directo para confirmar una dirección con la escuela.
 
-La librería del mapa no viaja en la carga inicial. Se descarga recién cuando la
-sección se acerca a la pantalla, y si esa descarga falla quedan dos botones en
-su lugar: reintentar, o consultar la zona por WhatsApp, que es a donde esa
-persona iba a ir igual.
-
-{/* La captura vieja muestra el mapa dibujado y siete barrios, que ya no
-    existen: la sección se rehízo el 9 de agosto de 2026 con MapLibre, límites
-    oficiales y diez barrios. Queda comentada hasta que haya una captura nueva.
-    No se pudo sacar acá porque el mapa necesita bajar el estilo de
-    tiles.openfreemap.org y el navegador de este entorno bloquea ese pedido.
+El mapa muestra los límites barriales de Buenos Aires Data y mantiene la
+atribución de esa fuente visible.
 
 <Figure
-  src="/projects/akdemia-autoescuela/cobertura.webp"
-  width={1600}
-  height={643}
-  alt="Sección de cobertura: los diez barrios listados junto al mapa con los límites oficiales de cada uno"
-  caption="Diez barrios, en texto y en el mapa. El texto es el que carga la información."
-/> */}
+  src="/projects/akdemia-autoescuela/cobertura-desktop.webp"
+  width={1425}
+  height={565}
+  alt="Sección de cobertura en escritorio: diez barrios listados junto al mapa de la zona de clases"
+  caption="La zona de clases en escritorio: lista de barrios, mapa y consulta por WhatsApp."
+/>
+
+<Figure
+  src="/projects/akdemia-autoescuela/cobertura-mobile.webp"
+  width={375}
+  height={758}
+  narrow
+  alt="Sección de cobertura en celular, con el mapa, la lista de diez barrios y el botón de consulta"
+  caption="La misma información en celular, con los barrios también escritos fuera del mapa."
+/>
 
 ### El contenido
 
@@ -146,14 +130,7 @@ El sitio está publicado y la marca quedó documentada en un manual que la
 escuela puede seguir sin nosotros.
 
 Todavía no hay números: el sitio es reciente y no había con qué comparar,
-porque antes no existía. Lo que vamos a medir: consultas por
+porque antes no existía. El próximo paso es medir consultas por
 WhatsApp llegadas desde el sitio, qué barrios aparecen en las búsquedas, y si
 las piezas de los pilares de comunidad y humor sostienen el alcance que hoy
 traen los informativos.
-
-{/* Pedirle la cita a Facundo y descomentar. Sirve más algo concreto sobre lo
-    que cambió en el día a día que un elogio general.
-
-<Quote author="Facundo Massó, AKDemia autoescuela">
-  La cita va acá.
-</Quote> */}

@@ -23,6 +23,7 @@ type SectionHeadingProps = {
   /** Bloque alineado al margen derecho ("Ver todos los proyectos →"). */
   action?: ReactNode;
   className?: string;
+  as?: "h1" | "h2";
 };
 
 /**
@@ -30,7 +31,13 @@ type SectionHeadingProps = {
  * apoyo otra a su derecha; la acción, si la hay, se va al margen opuesto.
  * Los anchos (348 y 473) son los del Figma.
  */
-export function SectionHeading({ title, intro, action, className }: SectionHeadingProps) {
+export function SectionHeading({
+  title,
+  intro,
+  action,
+  className,
+  as: Heading = "h2",
+}: SectionHeadingProps) {
   return (
     <header
       className={cn(
@@ -39,7 +46,7 @@ export function SectionHeading({ title, intro, action, className }: SectionHeadi
       )}
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-[75px]">
-        <h2
+        <Heading
           className={cn(
             "text-h2 text-balance",
             // Con texto de apoyo al lado, el título se achica a su columna;
@@ -48,7 +55,7 @@ export function SectionHeading({ title, intro, action, className }: SectionHeadi
           )}
         >
           {title}
-        </h2>
+        </Heading>
 
         {intro ? <p className="max-w-[473px] text-body text-muted">{intro}</p> : null}
       </div>

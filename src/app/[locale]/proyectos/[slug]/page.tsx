@@ -8,6 +8,7 @@ import { buttonStyles } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/lib/metadata";
 import { getAllProjects, getProject, isPublished } from "@/lib/projects";
 
 type PageParams = { params: Promise<{ locale: string; slug: string }> };
@@ -36,22 +37,20 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
   if (!isLocale(locale)) notFound();
 
   const project = await getProject(slug, locale);
-  if (!project) return {};
+  if (!project || !isPublished(project)) notFound();
 
-  const { title, summary, cover } = project.frontmatter;
+  const dict = await getDictionary(locale);
+  const { title, summary, cover, coverAlt } = project.frontmatter;
 
-  return {
+  return pageMetadata({
+    locale,
+    path: `/proyectos/${slug}`,
     title,
     description: summary,
-    alternates: { canonical: `/${locale}/proyectos/${slug}` },
-    openGraph: {
-      type: "article",
-      title,
-      description: summary,
-      url: `/${locale}/proyectos/${slug}`,
-      images: cover ? [{ url: cover }] : undefined,
-    },
-  };
+    type: "article",
+    image: cover ? { url: cover, alt: coverAlt ?? title } : undefined,
+    imageAlt: dict.meta.ogAlt,
+  });
 }
 
 export default async function ProjectPage({ params }: PageParams) {
@@ -83,7 +82,7 @@ export default async function ProjectPage({ params }: PageParams) {
         </Link>
 
         <header className="mt-8 max-w-3xl">
-          <h1 className="text-4xl leading-tight tracking-tight text-balance md:text-5xl">
+          <h1 className="text-4xl leading-tight tracking-tight text-balance [overflow-wrap:anywhere] md:text-5xl">
             {title}
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted">{summary}</p>

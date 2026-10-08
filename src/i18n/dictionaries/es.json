@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "VNT — Diseño y desarrollo a medida",
-    "description": "Estudio de diseño y desarrollo. Diseñamos y construimos la solución para tu negocio, de la necesidad a la implementación.",
+    "description": "Identidad y sitios web. Sistemas y herramientas a medida. Diseño, desarrollo y puesta en marcha para tu negocio con el mismo equipo.",
     "ogAlt": "VNT — Diseño y desarrollo a medida"
   },
   "nav": {
@@ -14,7 +14,7 @@
   },
   "hero": {
     "title": "Diseñamos y construimos la solución para tu negocio.",
-    "subtitle": "Sistemas, sitios y herramientas a medida.",
+    "subtitle": "Identidad y sitios web. Sistemas y herramientas a medida.",
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Hablemos"
   },
@@ -23,12 +23,12 @@
     "intro": "De la necesidad a la solución implementada. Diseño, construcción y puesta en marcha con el mismo equipo de principio a fin.",
     "items": [
       {
-        "title": "Identidad y diseño",
-        "description": "Identidad visual, sistema de diseño e interfaz. Prototipos navegables para ver y decidir antes de construir."
+        "title": "Identidad y sitios web",
+        "description": "Identidad visual y sitios para presentar tu negocio. Diseño y prototipos navegables para ver y decidir antes de construir."
       },
       {
-        "title": "Desarrollo a medida",
-        "description": "Sitios, paneles de administración y herramientas internas. Rápidos, accesibles y fáciles de mantener."
+        "title": "Sistemas y herramientas",
+        "description": "Paneles de administración y herramientas internas a medida. Partimos de cómo trabaja tu equipo y qué necesita resolver."
       },
       {
         "title": "Puesta en marcha",
@@ -88,10 +88,13 @@
       "sending": "Enviando…",
       "success": "Gracias, lo recibimos. Te escribimos a ese mail.",
       "error": "No pudimos enviar el mensaje. Escribinos directo por mail.",
+      "honeypot": "Dejá este campo vacío",
       "validation": {
-        "name": "Poné tu nombre.",
+        "name": "Poné tu nombre (hasta 200 caracteres).",
         "email": "Necesitamos un email válido para responderte.",
-        "message": "Contanos algo del proyecto (mínimo 10 caracteres)."
+        "company": "La empresa puede tener hasta 200 caracteres.",
+        "message": "Contanos algo del proyecto (entre 10 y 5000 caracteres).",
+        "summary": "Revisá los campos marcados antes de enviar."
       }
     },
     "orEmail": "O escribinos a",

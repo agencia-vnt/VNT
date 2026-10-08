@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import { hostGrotesk } from "@/app/fonts";
+import { ContactAnalytics } from "@/components/contact-analytics";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { isLocale, localeMap, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/site.config";
 
 type LayoutParams = { params: Promise<{ locale: string }> };
@@ -33,29 +35,16 @@ export async function generateMetadata({ params }: LayoutParams): Promise<Metada
   const dict = await getDictionary(locale);
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    ...pageMetadata({
+      locale,
+      title: dict.meta.title,
+      description: dict.meta.description,
+      imageAlt: dict.meta.ogAlt,
+    }),
     title: {
       default: dict.meta.title,
       // Las páginas internas sólo declaran su título; el sufijo lo pone esto.
       template: `%s — ${siteConfig.name}`,
-    },
-    description: dict.meta.description,
-    alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(locales.map((item) => [localeMap[item], `/${item}`])),
-    },
-    openGraph: {
-      type: "website",
-      locale: localeMap[locale],
-      url: `/${locale}`,
-      siteName: siteConfig.legalName,
-      title: dict.meta.title,
-      description: dict.meta.description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dict.meta.title,
-      description: dict.meta.description,
     },
   };
 }
@@ -111,6 +100,7 @@ export default async function LocaleLayout({
             Instagram y no aportan atribución por ?ref=. Hay que activarlo
             además en el panel de Vercel (Analytics → Enable). */}
         <Analytics />
+        <ContactAnalytics locale={locale} />
       </body>
     </html>
   );

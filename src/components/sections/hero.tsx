@@ -52,7 +52,11 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <Link href={`/${locale}/proyectos`} className={buttonStyles("primary")}>
               {dict.hero.ctaPrimary}
             </Link>
-            <Link href={`/${locale}/contacto`} className={buttonStyles("secondary")}>
+            <Link
+              href={`/${locale}/contacto`}
+              data-contact-source="hero"
+              className={buttonStyles("secondary")}
+            >
               {dict.hero.ctaSecondary}
             </Link>
           </div>

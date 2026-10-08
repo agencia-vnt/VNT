@@ -33,6 +33,9 @@ jobs:
       - name: Tipos
         run: pnpm typecheck
 
+      - name: Contacto con proveedor simulado
+        run: pnpm test
+
       # El build es el chequeo real: valida el frontmatter de todos los .mdx
       # y prerenderiza cada página.
       - name: Build

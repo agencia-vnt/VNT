@@ -1,7 +1,8 @@
 # VNT — sitio del estudio
 
-Landing y portfolio de VNT. Es también la página a la que apuntan las firmas
-que dejamos al pie de los proyectos de clientes.
+Landing y portfolio de VNT: identidad y sitios web, y sistemas y herramientas
+a medida. Las firmas actuales de los sitios de clientes abren Instagram;
+el contrato de esas firmas vive en `docs/signature.md`.
 
 ## Stack
 
@@ -29,8 +30,11 @@ pnpm dev
 El sitio queda en <http://localhost:3000>, que redirige a `/es`.
 
 Para probar el formulario de contacto hay que copiar `.env.example` a
-`.env.local` y poner una `RESEND_API_KEY`. Sin ella el formulario no envía y
-deja el mensaje en la consola del servidor.
+`.env.local` y poner una `RESEND_API_KEY`. Sin ella el formulario devuelve un
+error y no envía. Los mensajes no se escriben en los logs del servidor.
+El destinatario es el mismo correo público de `src/site.config.ts`:
+`vntclub@gmail.com`. `CONTACT_FROM_EMAIL` debe pertenecer a un dominio verificado
+en Resend; el correo del visitante se usa como `replyTo`.
 
 ## Comandos
 
@@ -42,6 +46,7 @@ deja el mensaje en la consola del servidor.
 | `pnpm lint` | Formato + lint (Biome) |
 | `pnpm lint:fix` | Igual, pero arreglando lo que se puede |
 | `pnpm typecheck` | `tsc --noEmit` |
+| `pnpm test` | Validación y envío de contacto con proveedor simulado; Node 24 |
 
 ## Cómo está organizado
 
@@ -80,8 +85,11 @@ El sitio sirve `/es` y `/en`; `/` redirige a `/es`. Los segmentos de URL quedan
 en español en ambos idiomas (`/en/proyectos`) para que los links no se rompan.
 
 `es.json` es la fuente de verdad: si se agrega una clave ahí y falta en
-`en.json`, el `typecheck` falla. Un proyecto sin `en.mdx` muestra el español en
-vez de romper.
+`en.json`, el `typecheck` falla. Los dos casos publicados tienen `es.mdx` y
+`en.mdx`. El fallback a español sigue disponible para borradores y futuras
+incorporaciones, pero un caso nuevo se considera completo cuando tiene ambos.
+Las capturas de las interfaces de clientes se comparten entre idiomas;
+los textos alternativos y epígrafes se traducen.
 
 Para agregar un idioma: sumarlo a `locales` en `src/i18n/config.ts`, crear el
 JSON del diccionario y listo.
@@ -106,12 +114,38 @@ Vercel detecta Next.js solo, así que no hay build configurado a mano. Cada push
 a `main` publica, y cada pull request genera un preview con su propia URL — la
 mejor forma de mostrarle avances a un cliente.
 
-Pendiente de configurar en el panel:
+Configuración y aceptación de producción:
 
-- `NEXT_PUBLIC_SITE_URL=https://vntagencia.com`. Sin esto, los canonical y el
-  sitemap quedan apuntando al dominio `*.vercel.app`.
-- `vntagencia.com` como **Primary Domain**, con `www` redirigiendo a él.
-- Web Analytics, para medir visitas al sitio de VNT. Las firmas actuales abren
-  Instagram directamente; no usan `?ref=` ni atribución en este sitio.
-- El resto de las variables de `.env.example`, en Settings → Environment
-  Variables
+- La URL pública, los canonical y el sitemap usan `https://vntagencia.com`.
+  Mantener `NEXT_PUBLIC_SITE_URL` explícita en Vercel; se lee durante el build.
+- `www` redirige al dominio sin `www`. La raíz redirige a `/es`.
+- Web Analytics está integrado. La carga del script no prueba que los eventos
+  aparezcan en el panel; comprobar recepción en el proyecto y período correctos.
+- El formulario necesita `RESEND_API_KEY` y un `CONTACT_FROM_EMAIL` verificado.
+  No usar una dirección Gmail como remitente de Resend.
+- Después de publicar, enviar una sola consulta identificada como prueba y
+  confirmar recepción en Gmail y funcionamiento de la respuesta al remitente.
+  Un estado de éxito significa que Resend aceptó el envío; no confirma entrega.
+
+## Medición de consultas
+
+Se reutiliza `@vercel/analytics`, sin un servicio de seguimiento adicional:
+
+| Evento | Qué demuestra | Propiedades |
+|---|---|---|
+| `contact_clicked` | Clic a la página de contacto | `locale`, `source` |
+| `email_clicked` | Clic a un enlace de correo, no un mensaje enviado | `locale`, `source` |
+| `contact_submitted` | Envío aceptado por Resend, no recepción en la casilla | `locale` |
+
+Las propiedades tienen valores controlados: no se envían nombres, direcciones,
+mensajes, texto de enlaces ni URLs aportadas por visitantes. Los errores de
+medición no interrumpen la navegación ni cambian el resultado de un envío.
+
+Los [eventos personalizados de Vercel](https://vercel.com/docs/analytics/custom-events)
+requieren Pro o Enterprise. Verificar el plan del equipo antes de dar por
+aceptada la medición; este cambio no contrata ni modifica planes.
+Las firmas de sitios de clientes siguen apuntando a Instagram y no aportan
+atribución a esta landing.
+
+El alcance, los criterios de cierre y los pendientes editoriales están en
+[`docs/action-plan.md`](docs/action-plan.md).

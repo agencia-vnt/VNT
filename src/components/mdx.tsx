@@ -16,21 +16,28 @@ export function Figure({
   width,
   height,
   caption,
+  narrow = false,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
   caption?: string;
+  /** Evita ampliar una captura de teléfono al ancho de la columna de lectura. */
+  narrow?: boolean;
 }) {
   return (
-    <figure className="my-10 -mx-6 md:mx-0">
+    <figure
+      className={cn("my-10 -mx-6 md:mx-0", narrow && "mx-auto max-w-sm md:mx-auto")}
+    >
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        sizes="(min-width: 768px) 720px, 100vw"
+        sizes={
+          narrow ? "(min-width: 384px) 384px, 100vw" : "(min-width: 768px) 720px, 100vw"
+        }
         className="w-full rounded-none md:rounded-lg"
       />
       {caption ? (
