@@ -2,8 +2,9 @@
 
 Esta es la guía canónica para la firma del estudio y de los sitios de clientes.
 La composición es `created by` en Host Grotesk junto al SVG blanco oficial de
-VNT. Toda la pieza es un único enlace a
-`https://www.instagram.com/vnt.agencia/`.
+VNT. Toda la pieza es un único enlace estable a
+`https://vntagencia.com/r/<id-del-proyecto>`. El identificador se asigna en el
+registro privado; no se deriva del nombre visible ni cambia con el dominio.
 
 ## Identidad e interacción
 
@@ -19,7 +20,8 @@ VNT. Toda la pieza es un único enlace a
 - Firma horizontal, con texto y logo centrados verticalmente.
 - Área interactiva de al menos 44 px de alto y foco de teclado visible.
 - `target="_blank"` y `rel="noopener noreferrer"`.
-- Etiqueta accesible que identifique VNT, Instagram y la apertura en otra pestaña.
+- Etiqueta accesible que identifique VNT y la apertura en otra pestaña, sin
+  prometer un destino específico que pueda cambiar desde el registro.
   El logo es decorativo (`alt=""`), porque la etiqueta del enlace ya nombra VNT.
 
 ## Proporciones comunes
@@ -62,10 +64,11 @@ En Astro se puede importar el recurso como URL en lugar de usar una ruta públic
 ```html
 <a
   class="vnt-signature"
-  href="https://www.instagram.com/vnt.agencia/"
+  href="https://vntagencia.com/r/example-site"
+  data-vnt-signature="example-site"
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="created by VNT — Instagram (se abre en otra pestaña)"
+  aria-label="VNT Agencia (se abre en otra pestaña)"
 >
   <span lang="en">created by</span>
   <img src="/brand/logo-signature-white.svg" alt="" width="2150" height="589"
@@ -82,10 +85,11 @@ lugar del nombre literal de la hoja de estilos de referencia.
 ```tsx
 <a
   className={`vnt-signature ${hostGrotesk.className}`}
-  href="https://www.instagram.com/vnt.agencia/"
+  href="https://vntagencia.com/r/example-site"
+  data-vnt-signature="example-site"
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="created by VNT — Instagram (se abre en otra pestaña)"
+  aria-label="VNT Agencia (se abre en otra pestaña)"
 >
   <span lang="en">created by</span>
   <img src="/brand/logo-signature-white.svg" alt="" width={2150} height={589} />
@@ -143,11 +147,28 @@ El ejemplo hereda el color del footer: debe cumplir el contraste indicado arriba
 
 ## Destino y medición
 
-La firma actual abre Instagram directamente y no agrega `?ref=cliente`.
-El antiguo crédito `Sitio por VNT` que apuntaba a la home con `ref` ya no es el
-estándar. Web Analytics de VNT mide visitas al sitio del estudio; no mide los
-clics de estas firmas ni atribuye a VNT visitas que terminan en Instagram.
-La medición de clics requeriría instrumentación específica, fuera de este contrato.
+El enlace central devuelve una redirección temporal sin caché. Permite cambiar
+el destino sin desplegar nuevamente el sitio del cliente. Solo admite la web de
+VNT (home, proyectos y casos publicados) o el Instagram oficial. No acepta una
+URL de destino desde parámetros del visitante. Cada proyecto mantiene su SVG,
+fuente y CSS locales: no carga scripts ni recursos de seguimiento de VNT.
+
+Se distinguen **accesos a la firma** y **llegadas confirmadas a VNT**. La segunda
+métrica requiere que la página de destino cargue JavaScript y sea visible. Una
+referencia firmada de diez minutos viaja en el fragmento de la URL, se retira
+al cargar y se confirma una sola vez en la base de datos. No identifica personas,
+no usa cookies y no representa visitantes únicos. La propia firma de VNT se
+excluye de adquisición. Instagram solo permite medir accesos, nunca llegadas.
+
+Se excluyen HEAD, verificadores, prefetch, bots reconocidos y previews. El filtrado
+no demuestra que todos los accesos restantes sean humanos. Un fallo de medición
+no impide navegar; si no se puede consultar el registro se abre la home de VNT
+sin atribución. Una firma desconocida o desactivada responde 404.
+
+El inventario, la selección de proyectos, los destinos y los informes viven en
+almacenamiento y repositorios privados. No se incorporan al portfolio, sitemap
+ni APIs públicas. Las rutas individuales son públicas por necesidad, pero no
+hay un listado público ni un panel administrativo. Ver [operación técnica](signature-service.md).
 
 ## Verificación antes de publicar
 

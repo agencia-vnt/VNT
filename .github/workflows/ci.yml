@@ -33,7 +33,7 @@ jobs:
       - name: Tipos
         run: pnpm typecheck
 
-      - name: Contacto con proveedor simulado
+      - name: Contacto y firmas con proveedores simulados
         run: pnpm test
 
       # El build es el chequeo real: valida el frontmatter de todos los .mdx

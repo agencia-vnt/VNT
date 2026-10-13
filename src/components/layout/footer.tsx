@@ -42,7 +42,8 @@ export function Footer({ dict }: FooterProps) {
           © {year} {siteConfig.legalName}. {dict.footer.rights}
         </p>
         <a
-          href={siteConfig.social.instagram}
+          href={siteConfig.signature.url}
+          data-vnt-signature="vnt"
           target="_blank"
           rel="noopener noreferrer"
           aria-label={dict.footer.signatureLabel}

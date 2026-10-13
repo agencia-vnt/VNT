@@ -6,6 +6,7 @@ import { hostGrotesk } from "@/app/fonts";
 import { ContactAnalytics } from "@/components/contact-analytics";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { SignatureArrival } from "@/components/signature-arrival";
 import { isLocale, localeMap, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { pageMetadata } from "@/lib/metadata";
@@ -96,9 +97,7 @@ export default async function LocaleLayout({
         </main>
         <Footer dict={dict} />
 
-        {/* Mide las visitas al sitio de VNT. Las firmas actuales enlazan a
-            Instagram y no aportan atribución por ?ref=. Hay que activarlo
-            además en el panel de Vercel (Analytics → Enable). */}
+        <SignatureArrival />
         <Analytics />
         <ContactAnalytics locale={locale} />
       </body>

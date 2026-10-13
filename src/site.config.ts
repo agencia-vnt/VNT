@@ -29,6 +29,10 @@ export const siteConfig = {
 
   email: "vntclub@gmail.com",
 
+  signature: {
+    url: "https://vntagencia.com/r/vnt",
+  },
+
   /**
    * Redes. El footer sólo muestra las que tienen URL: dejar una en "" la
    * esconde, que es mejor que publicar un link a la home de la red.

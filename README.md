@@ -1,14 +1,14 @@
 # VNT — sitio del estudio
 
 Landing y portfolio de VNT: identidad y sitios web, y sistemas y herramientas
-a medida. Las firmas actuales de los sitios de clientes abren Instagram;
-el contrato de esas firmas vive en `docs/signature.md`.
+a medida. Las firmas de los sitios de clientes usan enlaces estables de VNT;
+el contrato vive en `docs/signature.md` y su registro e informes son privados.
 
 ## Stack
 
 | Pieza | Qué usamos | Por qué |
 |---|---|---|
-| Framework | Next.js 16 (App Router) | Todo el sitio sale estático; deploy y previews en Vercel |
+| Framework | Next.js 16 (App Router) | Páginas estáticas, contacto y rutas de firma en servidor; Vercel |
 | Lenguaje | TypeScript en modo estricto | |
 | Estilos | Tailwind CSS v4 | Los tokens de marca viven en `src/app/globals.css` |
 | Contenido | MDX en `content/projects/` | Sin CMS: los casos se versionan en git como el código |
@@ -46,7 +46,7 @@ en Resend; el correo del visitante se usa como `replyTo`.
 | `pnpm lint` | Formato + lint (Biome) |
 | `pnpm lint:fix` | Igual, pero arreglando lo que se puede |
 | `pnpm typecheck` | `tsc --noEmit` |
-| `pnpm test` | Validación y envío de contacto con proveedor simulado; Node 24 |
+| `pnpm test` | Contacto, redirecciones y referencias de firma con proveedores simulados; Node 24 |
 
 ## Cómo está organizado
 
@@ -102,7 +102,10 @@ reemplazo de `middleware.ts` en Next 16.
 
 El procedimiento interno y los snippets viven en
 [`docs/signature.md`](docs/signature.md). No existe una pantalla pública para
-esta herramienta.
+esta herramienta. La configuración del servicio está en
+[`docs/signature-service.md`](docs/signature-service.md). El registro operativo,
+la verificación diaria y los informes se mantienen en un repositorio privado;
+no alimentan automáticamente el portfolio público.
 
 ## Deploy
 
@@ -144,8 +147,8 @@ medición no interrumpen la navegación ni cambian el resultado de un envío.
 Los [eventos personalizados de Vercel](https://vercel.com/docs/analytics/custom-events)
 requieren Pro o Enterprise. Verificar el plan del equipo antes de dar por
 aceptada la medición; este cambio no contrata ni modifica planes.
-Las firmas de sitios de clientes siguen apuntando a Instagram y no aportan
-atribución a esta landing.
+La medición de firmas usa contadores propios en Postgres y no depende de esos
+eventos personalizados: diferencia accesos y llegadas confirmadas a VNT.
 
 El alcance, los criterios de cierre y los pendientes editoriales están en
 [`docs/action-plan.md`](docs/action-plan.md).
