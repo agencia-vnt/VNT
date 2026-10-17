@@ -2,11 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Isotipo } from "@/components/ui/isotipo";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 import type { Project } from "@/lib/projects";
 
 type ProjectCardProps = {
   project: Project;
   locale: Locale;
+  dict: Dictionary;
+  headingLevel?: "h2" | "h3";
   /** La primera card de la grilla carga la imagen con prioridad (mejora LCP). */
   priority?: boolean;
   /**
@@ -24,6 +27,8 @@ type ProjectCardProps = {
 export function ProjectCard({
   project,
   locale,
+  dict,
+  headingLevel: Heading = "h3",
   priority = false,
   sizes,
 }: ProjectCardProps) {
@@ -57,10 +62,16 @@ export function ProjectCard({
           )}
         </div>
 
-        <div className="flex flex-col gap-2 px-6 pb-6 pt-5.5">
-          <h3 className="text-h3">{frontmatter.title}</h3>
+        <div className="flex flex-1 flex-col gap-2 px-6 pb-6 pt-5.5">
+          <p className="flex flex-wrap gap-x-3 gap-y-1 text-label text-muted">
+            <span>{dict.work.kinds[frontmatter.kind]}</span>
+            <span className="text-lima" data-project-status={frontmatter.status}>
+              {dict.work.statuses[frontmatter.status]}
+            </span>
+          </p>
+          <Heading className="text-h3">{frontmatter.title}</Heading>
           <p className="text-body-s text-muted">{frontmatter.summary}</p>
-          <p className="text-label uppercase text-muted">
+          <p className="mt-auto pt-3 text-label uppercase text-muted">
             {frontmatter.client} · {frontmatter.year}
           </p>
         </div>

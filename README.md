@@ -67,7 +67,8 @@ src/
     sections/              Bloques de la home.
     mdx.tsx                Estilos y componentes disponibles dentro de un .mdx.
   i18n/                    Idiomas y textos de interfaz.
-  lib/projects.ts          Lectura y validación de los .mdx.
+  lib/projects.ts          Acceso de servidor al portfolio y caché por render.
+  lib/project-content.ts   Lectura, esquema y validación de los .mdx.
 ```
 
 ## Dónde tocar cada cosa
@@ -85,7 +86,7 @@ El sitio sirve `/es` y `/en`; `/` redirige a `/es`. Los segmentos de URL quedan
 en español en ambos idiomas (`/en/proyectos`) para que los links no se rompan.
 
 `es.json` es la fuente de verdad: si se agrega una clave ahí y falta en
-`en.json`, el `typecheck` falla. Los dos casos publicados tienen `es.mdx` y
+`en.json`, el `typecheck` falla. Los ocho casos publicados tienen `es.mdx` y
 `en.mdx`. El fallback a español sigue disponible para borradores y futuras
 incorporaciones, pero un caso nuevo se considera completo cuando tiene ambos.
 Las capturas de las interfaces de clientes se comparten entre idiomas;

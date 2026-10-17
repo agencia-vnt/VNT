@@ -42,10 +42,12 @@ export default async function ProjectsPage({ params }: PageParams) {
       ) : (
         <div className="mt-14 grid gap-x-10 gap-y-14 md:grid-cols-2">
           {projects.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 0.06}>
+            <Reveal key={project.slug} delay={index * 0.06} className="h-full">
               <ProjectCard
                 project={project}
                 locale={locale}
+                dict={dict}
+                headingLevel="h2"
                 priority={index === 0}
                 sizes="(min-width: 768px) 50vw, 100vw"
               />

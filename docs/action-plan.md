@@ -7,7 +7,8 @@
   original del cliente y llevan epígrafes y textos alternativos traducidos.
 - Las consultas llegan a `vntclub@gmail.com`, desde `siteConfig.email`.
 - Se mantienen diseño, estructura, CTA principal al portfolio, MDX y Resend.
-- Los dos casos existentes se refuerzan antes de sumar nuevas páginas.
+- El portfolio incorpora todos los trabajos con una estructura común y una
+  primera versión verificable; el pulido editorial se realiza caso por caso.
 - No se publican testimonios sin aprobación ni métricas sin evidencia.
 - No se agregan dependencias, planes pagos, CMS ni servicios de seguimiento.
 

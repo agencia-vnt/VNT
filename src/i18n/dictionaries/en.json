@@ -69,11 +69,28 @@
     "visitSite": "Visit the site",
     "empty": "We're putting these case studies together. In the meantime, get in touch and we'll walk you through the work.",
     "backToWork": "Back to work",
+    "nextProject": "Next project",
+    "statuses": {
+      "live": "Published",
+      "delivered": "Delivered",
+      "in-progress": "In development"
+    },
+    "kinds": {
+      "website": "Website",
+      "internal-tool": "Internal tool",
+      "catalog": "Website and catalog",
+      "mixed": "Website and internal tool"
+    },
+    "closing": {
+      "title": "What does your project need to solve?",
+      "description": "Tell us how your business works and what you would like to improve. We can start with a conversation."
+    },
     "meta": {
       "client": "Client",
       "year": "Year",
       "roles": "Role",
-      "stack": "Stack"
+      "stack": "Technology",
+      "scope": "Deliverables"
     }
   },
   "contact": {

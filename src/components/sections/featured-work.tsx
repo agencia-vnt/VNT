@@ -37,7 +37,8 @@ export async function FeaturedWork({
 
   return (
     <Section id="proyectos">
-      <div className="flex justify-end">
+      <div className="flex flex-wrap items-end justify-between gap-6">
+        <h2 className="text-h2">{dict.work.title}</h2>
         <Link
           href={`/${locale}/proyectos`}
           className="group inline-flex shrink-0 items-center gap-2 text-body-s text-blanco transition-colors hover:text-lima"
@@ -63,6 +64,7 @@ export async function FeaturedWork({
               <ProjectCard
                 project={project}
                 locale={locale}
+                dict={dict}
                 priority={index === 0}
                 sizes={layout.sizes}
               />

@@ -44,7 +44,7 @@ achicados) y `components/intro.tsx` (el overlay y cuándo se va).
 ## Contenido
 
 Los proyectos son MDX validados con zod en build. El esquema está en
-`src/lib/projects.ts` y la documentación para quien escribe en
+`src/lib/project-content.ts` y la documentación para quien escribe en
 `content/projects/README.md`. Si se cambia el esquema, actualizar los dos.
 
 `draft: true` esconde un proyecto en producción, tanto de los listados como de

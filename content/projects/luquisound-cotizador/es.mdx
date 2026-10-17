@@ -1,0 +1,90 @@
+---
+title: Presupuestos a medida desde el celular
+client: Luquisound
+year: 2026
+summary: Diseño y desarrollo de un cotizador interno para preparar propuestas personalizadas de audio e instalación, calcular totales en pesos y dólares y compartir una imagen desde el celular.
+roles:
+  - Diseño web
+  - Desarrollo web
+stack:
+  - React
+  - TypeScript
+  - Vite
+  - Tailwind CSS
+status: delivered
+kind: internal-tool
+scope:
+  - Editor móvil
+  - Cálculos
+  - Exportación PNG
+cover: /projects/luquisound-cotizador/cover.webp
+coverAlt: Imagen exportada del cotizador de Luquisound con conceptos y totales ficticios, presentada sobre un marco oscuro
+featured: false
+order: 6
+draft: false
+---
+
+## Una herramienta para preparar cada propuesta
+
+Luquisound combina equipos, instalación y accesorios según el trabajo que
+necesita cada vehículo. Para preparar esas propuestas personalizadas,
+desarrollamos un cotizador interno pensado para usar desde el celular.
+
+VNT realizó íntegramente el diseño y el desarrollo web de la herramienta,
+utilizando los recursos de marca suministrados por Luquisound. El objetivo fue
+conectar la edición de los conceptos, el cálculo y la imagen que se comparte
+con el cliente dentro de un mismo recorrido.
+
+## El presupuesto como interfaz
+
+La pantalla principal muestra la propuesta. Se toca el título o un renglón para
+editarlo, mientras la vista previa conserva la composición gráfica que tendrá
+el archivo final. Esa relación permite revisar el contenido dentro de su
+contexto y mantener juntos los equipos, la instalación y los totales.
+
+<Figure
+  src="/projects/luquisound-cotizador/mobile.webp"
+  width={390}
+  height={844}
+  narrow
+  alt="Cotizador interno de Luquisound en celular con conceptos ficticios en una propuesta de demostración"
+  caption="La propuesta se edita desde el celular. Los datos mostrados son ficticios."
+/>
+
+Las categorías de audio ayudan a ordenar los conceptos, y también se pueden
+agregar renglones libres. Los equipos quedan separados de la instalación y los
+accesorios. Cada renglón tiene cantidad, precio y moneda propios, con posibilidad
+de editar la descripción para el trabajo concreto.
+
+## Cálculos que respetan cada importe
+
+El cotizador admite pesos y dólares dentro de la misma propuesta. Suma los
+importes en su moneda y calcula ambos totales con la referencia de cambio
+indicada. Un precio pendiente, un cero explícito y un concepto incluido sin
+cargo conservan significados distintos durante la edición y al preparar la
+imagen.
+
+El presupuesto en curso se recupera en el mismo navegador. Esa continuidad
+acompaña la edición sin convertir la herramienta en un archivo de presupuestos:
+su función es preparar la propuesta actual. Las plantillas fijas de Luquisound
+se mantienen como un recurso separado.
+
+## Una imagen lista para compartir
+
+El último paso genera un PNG con la propuesta, sus conceptos y los totales. Los
+controles y las ayudas de edición quedan fuera del archivo. La imagen se puede
+descargar o compartir mediante las opciones disponibles en el dispositivo.
+
+<Figure
+  src="/projects/luquisound-cotizador/output.webp"
+  width={1080}
+  height={1401}
+  narrow
+  alt="Presupuesto exportado de Luquisound con equipos, instalación, subtotales y totales de demostración en pesos y dólares"
+  caption="Imagen generada con la exportación del cotizador. Conceptos, importes y tipo de cambio manual ilustrativos, sin validez comercial."
+/>
+
+La herramienta quedó entregada para uso interno del taller. Este caso utiliza
+datos ficticios para mostrar el recorrido y mantiene la información comercial
+fuera de las capturas. El [sitio de Luquisound](/es/proyectos/luquisound) se
+presenta en otro caso, centrado en los servicios y los trabajos.

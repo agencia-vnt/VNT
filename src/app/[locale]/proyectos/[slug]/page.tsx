@@ -63,12 +63,17 @@ export default async function ProjectPage({ params }: PageParams) {
   const dict = await getDictionary(locale);
   const { title, client, year, summary, roles, stack, url, cover, coverAlt } =
     project.frontmatter;
+  const { status, kind, scope } = project.frontmatter;
+  const projects = await getAllProjects(locale);
+  const currentIndex = projects.findIndex((item) => item.slug === slug);
+  const nextProject =
+    projects.length > 1 ? projects[(currentIndex + 1) % projects.length] : null;
 
   const meta = [
     { label: dict.work.meta.client, value: client },
     { label: dict.work.meta.year, value: String(year) },
     roles.length > 0 ? { label: dict.work.meta.roles, value: roles.join(", ") } : null,
-    stack.length > 0 ? { label: dict.work.meta.stack, value: stack.join(", ") } : null,
+    scope.length > 0 ? { label: dict.work.meta.scope, value: scope.join(", ") } : null,
   ].filter((item): item is { label: string; value: string } => item !== null);
 
   return (
@@ -82,6 +87,12 @@ export default async function ProjectPage({ params }: PageParams) {
         </Link>
 
         <header className="mt-8 max-w-3xl">
+          <p className="mb-4 flex flex-wrap gap-x-3 gap-y-1 text-label text-muted">
+            <span>{dict.work.kinds[kind]}</span>
+            <span className="text-lima" data-project-status={status}>
+              {dict.work.statuses[status]}
+            </span>
+          </p>
           <h1 className="text-4xl leading-tight tracking-tight text-balance [overflow-wrap:anywhere] md:text-5xl">
             {title}
           </h1>
@@ -144,6 +155,47 @@ export default async function ProjectPage({ params }: PageParams) {
             components={mdxComponents}
             options={{ blockJS: false }}
           />
+          {stack.length > 0 ? (
+            <div className="mt-12 border-t border-line pt-6">
+              <p className="text-label uppercase text-muted">{dict.work.meta.stack}</p>
+              <p className="mt-2 text-body-s text-muted">{stack.join(", ")}</p>
+            </div>
+          ) : null}
+        </div>
+      </Container>
+
+      <Container className="mt-16 md:mt-24">
+        <div className="grid gap-10 border-t border-line pt-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-h3">{dict.work.closing.title}</h2>
+            <p className="mt-3 max-w-lg text-body-s text-muted">
+              {dict.work.closing.description}
+            </p>
+            <Link
+              href={`/${locale}/contacto`}
+              data-contact-source="contact-cta"
+              className={`${buttonStyles("primary")} mt-6`}
+            >
+              {dict.contact.ctaButton}
+            </Link>
+          </div>
+          {nextProject ? (
+            <div>
+              <p className="text-label uppercase text-muted">{dict.work.nextProject}</p>
+              <Link
+                href={`/${locale}/proyectos/${nextProject.slug}`}
+                className="mt-3 block text-h3 transition-colors hover:text-lima"
+              >
+                {nextProject.frontmatter.title} <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href={`/${locale}/proyectos`}
+                className="mt-6 inline-block text-body-s text-muted transition-colors hover:text-blanco"
+              >
+                {dict.work.viewAll}
+              </Link>
+            </div>
+          ) : null}
         </div>
       </Container>
     </article>

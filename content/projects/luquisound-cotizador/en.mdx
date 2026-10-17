@@ -1,0 +1,89 @@
+---
+title: Custom quotations from a phone
+client: Luquisound
+year: 2026
+summary: Design and development of an internal quotation tool for custom audio and installation proposals, with totals in pesos and dollars and image sharing from a phone.
+roles:
+  - Web design
+  - Web development
+stack:
+  - React
+  - TypeScript
+  - Vite
+  - Tailwind CSS
+status: delivered
+kind: internal-tool
+scope:
+  - Mobile editor
+  - Calculations
+  - PNG export
+cover: /projects/luquisound-cotizador/cover.webp
+coverAlt: Exported Luquisound quotation with fictional items and totals, presented in a dark frame
+featured: false
+order: 6
+draft: false
+---
+
+## A tool for preparing each proposal
+
+Luquisound combines equipment, installation, and accessories according to the
+work each vehicle needs. We developed an internal quotation tool designed for
+phone use to prepare these custom proposals.
+
+VNT carried out the complete web design and development of the tool, using
+brand assets supplied by Luquisound. The goal was to connect line-item editing,
+calculations, and the image shared with the customer within a single flow.
+
+## The quotation as the interface
+
+The main screen shows the proposal. Tapping the title or a line item opens the
+editor, while the preview keeps the graphic composition of the final file.
+This relationship lets the workshop review content in context and keeps
+equipment, installation, and totals together.
+
+<Figure
+  src="/projects/luquisound-cotizador/mobile.webp"
+  width={390}
+  height={844}
+  narrow
+  alt="Luquisound internal quotation tool on a phone, with fictional items in a demonstration proposal"
+  caption="The proposal is edited on a phone. Data is fictional; the client interface is in Spanish."
+/>
+
+Audio categories help organize the items, and custom rows can also be added.
+Equipment is separated from installation and accessories. Each line has its own
+quantity, price, and currency, with descriptions that can be edited for the
+specific job.
+
+## Calculations that preserve each amount's meaning
+
+The tool supports pesos and dollars within the same proposal. It adds amounts
+in their own currency and calculates both totals using the displayed
+exchange-rate reference. A pending price, an explicit zero, and an item
+included at no charge keep their different meanings throughout editing and
+image preparation.
+
+The current quotation is recovered in the same browser. This continuity
+supports editing without turning the tool into a quotation archive: its
+purpose is to prepare the current proposal. Luquisound's fixed templates remain
+a separate resource.
+
+## An image ready to share
+
+The final step generates a PNG containing the proposal, its items, and its
+totals. Editing controls and hints stay out of the file. The image can be
+downloaded or shared through the options supported by the device.
+
+<Figure
+  src="/projects/luquisound-cotizador/output.webp"
+  width={1080}
+  height={1401}
+  narrow
+  alt="Exported Luquisound quotation with demonstration equipment, installation, subtotals, and totals in pesos and dollars"
+  caption="Actual output from the tool's export function. Items, amounts, and manual exchange rate are illustrative and have no commercial validity. Client interface in Spanish."
+/>
+
+The tool was delivered for the workshop's internal use. This case uses
+fictional data to show the flow and keeps commercial information out of the
+screenshots. The [Luquisound website](/en/proyectos/luquisound) has a separate
+case study focused on services and completed work.

@@ -69,11 +69,28 @@
     "visitSite": "Visitar el sitio",
     "empty": "Estamos preparando los casos de esta sección. Mientras tanto, escribinos y te mostramos el trabajo en detalle.",
     "backToWork": "Volver a proyectos",
+    "nextProject": "Siguiente proyecto",
+    "statuses": {
+      "live": "Publicado",
+      "delivered": "Entregado",
+      "in-progress": "En desarrollo"
+    },
+    "kinds": {
+      "website": "Sitio web",
+      "internal-tool": "Herramienta interna",
+      "catalog": "Sitio y catálogo",
+      "mixed": "Sitio y herramienta interna"
+    },
+    "closing": {
+      "title": "¿Qué necesita resolver tu proyecto?",
+      "description": "Contanos cómo trabaja tu negocio y qué querés mejorar. Podemos empezar por una charla."
+    },
     "meta": {
       "client": "Cliente",
       "year": "Año",
       "roles": "Rol",
-      "stack": "Stack"
+      "stack": "Tecnologías",
+      "scope": "Entregables"
     }
   },
   "contact": {
