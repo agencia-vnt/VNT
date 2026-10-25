@@ -63,12 +63,7 @@ export function ProjectCard({
         </div>
 
         <div className="flex flex-1 flex-col gap-2 px-6 pb-6 pt-5.5">
-          <p className="flex flex-wrap gap-x-3 gap-y-1 text-label text-muted">
-            <span>{dict.work.kinds[frontmatter.kind]}</span>
-            <span className="text-lima" data-project-status={frontmatter.status}>
-              {dict.work.statuses[frontmatter.status]}
-            </span>
-          </p>
+          <p className="text-label text-muted">{dict.work.kinds[frontmatter.kind]}</p>
           <Heading className="text-h3">{frontmatter.title}</Heading>
           <p className="text-body-s text-muted">{frontmatter.summary}</p>
           <p className="mt-auto pt-3 text-label uppercase text-muted">

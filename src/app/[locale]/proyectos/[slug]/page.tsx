@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: PageParams) {
   const dict = await getDictionary(locale);
   const { title, client, year, summary, roles, stack, url, cover, coverAlt } =
     project.frontmatter;
-  const { status, kind, scope } = project.frontmatter;
+  const { kind, scope } = project.frontmatter;
   const projects = await getAllProjects(locale);
   const currentIndex = projects.findIndex((item) => item.slug === slug);
   const nextProject =
@@ -87,12 +87,7 @@ export default async function ProjectPage({ params }: PageParams) {
         </Link>
 
         <header className="mt-8 max-w-3xl">
-          <p className="mb-4 flex flex-wrap gap-x-3 gap-y-1 text-label text-muted">
-            <span>{dict.work.kinds[kind]}</span>
-            <span className="text-lima" data-project-status={status}>
-              {dict.work.statuses[status]}
-            </span>
-          </p>
+          <p className="mb-4 text-label text-muted">{dict.work.kinds[kind]}</p>
           <h1 className="text-4xl leading-tight tracking-tight text-balance [overflow-wrap:anywhere] md:text-5xl">
             {title}
           </h1>

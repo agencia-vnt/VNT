@@ -6,7 +6,7 @@ El portfolio presenta trabajos, no una ficha general por marca. Cada caso tiene
 su propio alcance, evidencia y recorrido. Luquisound tiene dos casos: el sitio
 del taller y el cotizador interno. Instagram y pauta no forman parte de ellos.
 
-| Trabajo | Slug | Estado presentado |
+| Trabajo | Slug | Estado registrado |
 |---|---|---|
 | El Faraón Catering | `el-faraon-catering` | Publicado |
 | AKDemia autoescuela | `akdemia-autoescuela` | Publicado |
@@ -29,8 +29,9 @@ colaboración directa. La gestión estudiada no llegó a implementarse.
 
 ## Contrato común
 
-- `status` describe el estado del trabajo; `draft` controla la visibilidad del
-  caso. Un proyecto en desarrollo puede tener un caso público.
+- `status` describe el estado del trabajo y no se muestra en las tarjetas ni
+  en la cabecera del caso; `draft` controla la visibilidad del caso. Un proyecto
+  en desarrollo puede tener un caso público.
 - `kind` identifica el tipo de trabajo y `scope` enumera entregables concretos.
 - ES y EN se completan juntos. Se traducen textos, roles, epígrafes y alt.
 - Cada caso cierra con contacto y el siguiente trabajo del listado.
