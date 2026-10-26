@@ -9,7 +9,7 @@ export const siteConfig = {
   /** Nombre corto de la agencia, el que se ve en el header y la firma. */
   name: "VNT",
   /** Nombre completo para metadatos, structured data y footer legal. */
-  legalName: "VNT Studio",
+  legalName: "VNT Agencia",
 
   /**
    * URL canónica en producción: sin www y sin barra final.
